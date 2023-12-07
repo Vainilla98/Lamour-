@@ -1,0 +1,61 @@
+﻿### Try to keep tags in alphabetical order if it's not too far gone, please.
+
+################################################################
+## DEFAULT COUNTRY NAMES EXAMPLE CAN BE USED WITH ANY COUNTRY ##
+################################################################
+
+# Uncomment when need a dynamic_country_name for any country
+CUB = { # Capitania General de Cuba
+	dynamic_country_name = {
+		name = dyn_c_CUB
+		adjective = CUB_ADJ
+
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			exists = c:CUB
+			c:SPA = {
+				OR = {
+					has_diplomatic_pact = {
+						who = c:CUB
+						type = puppet
+						is_initiator = yes
+					}
+					has_diplomatic_pact = {
+						who = c:CUB
+						type = dominion
+						is_initiator = yes
+					}
+				}
+			}
+		}
+	}
+}
+PHI = { # Capitania General de Filipinas
+	dynamic_country_name = {
+		name = dyn_c_PHI
+		adjective = PHI_ADJ
+
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = { 
+			exists = c:PHI
+			c:SPA = {
+				OR = {
+					has_diplomatic_pact = {
+						who = c:PHI
+						type = puppet
+						is_initiator = yes
+					}
+					has_diplomatic_pact = {
+						who = c:PHI
+						type = dominion
+						is_initiator = yes
+					}
+				}
+			}
+		}
+	}
+}

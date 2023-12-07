@@ -1,0 +1,364 @@
+slow_colonies_esp = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
+	state_colony_growth_speed_mult = -0.80
+	state_colony_growth_creation_mult = -0.05
+}
+
+la_gloriosa_esp = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	interest_group_in_opposition_approval_add = -2
+	country_legitimacy_base_add = -5
+	country_radicals_from_legitimacy_mult = 1
+	country_loyalists_from_legitimacy_mult = -0.50
+	country_legitimacy_ideological_incoherence_mult = 0.25
+	political_movement_radicalism_mult = 0.25
+}
+
+popular_republican = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_negative.dds
+	interest_group_approval_add = -5
+	interest_group_pop_attraction_mult = 0.1
+}
+
+desgaste_golpe = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	political_movement_radicalism_add = -150
+	political_movement_support_add = -15
+}
+
+repudio_general = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_negative.dds
+	interest_group_ig_landowners_approval_add = -5
+	interest_group_ig_devout_approval_add = -5
+	interest_group_ig_petty_bourgeoisie_approval_add = 1
+	country_legitimacy_headofstate_add = -20
+}
+
+repudio_general2 = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	character_popularity_add = -60
+}
+
+marcha_real = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_negative.dds
+	unit_offense_mult = -0.2
+	unit_defense_mult = -0.1
+	unit_morale_loss_mult = 0.15
+}
+
+compensacion_enviar = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds
+	country_expenses_add = 3000
+	country_influence_mult = -0.1
+}
+
+compensacion_recibir = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
+	country_tax_income_add = 3000
+	country_influence_mult = 0.1
+}
+
+integracion = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_negative.dds
+	country_bureaucracy_mult = -0.1
+}
+
+guardia_civil = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	state_loyalists_from_sol_change_mult = 0.05
+}
+
+bandolerismo = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_negative.dds
+	state_tax_capacity_add = -50
+	state_infrastructure_add = -10
+	building_throughput_mult = -0.05
+}
+
+expedicion_gomez = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_negative.dds
+	state_conscription_rate_add = -0.02
+	building_training_rate_mult = -0.75
+}
+
+espiritu_liberal = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds
+	interest_group_ig_intelligentsia_pop_attraction_mult = 0.1
+}
+
+destitucion_mendizabal = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_negative.dds
+	interest_group_in_opposition_approval_add = -5
+}
+
+exilio_mendizabal = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	interest_group_in_opposition_approval_add = -5
+	interest_group_pol_str_factor = -0.05
+}
+
+carlistas_atrincherados = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	unit_defense_mult = 0.2
+	unit_morale_loss_mult = -0.1
+	building_mobilization_cost_mult = -0.2
+	country_tax_income_add = 3000
+	country_war_exhaustion_casualties_mult = -0.7
+}
+
+guerra_total = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds	
+	country_officers_pol_str_mult = 0.1
+	country_soldiers_pol_str_mult = 0.05
+}
+
+guerra_total_generales = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_negative.dds	
+	character_advancement_speed_add = -4
+}
+
+junta_provincial = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	state_radicals_from_sol_change_mult = 0.2
+	state_tax_capacity_add = -100
+}
+
+legion_auxiliar_gbr = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
+	unit_morale_damage_mult = 0.1
+}
+
+division_auxiliar_fra = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
+	unit_offense_mult = 0.1
+}
+
+apoyo_isabelino = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds
+	country_expenses_add = 800
+}
+
+peridoicos_liberales = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_negative.dds
+	interest_group_ig_intelligentsia_pol_str_mult = 0.03
+	interest_group_ig_intelligentsia_pop_attraction_mult = 0.1
+	state_radicals_from_sol_change_mult = 0.15
+	country_legitimacy_base_add = -5
+	country_radicals_from_legitimacy_mult = 1
+}
+
+caza_periodicos = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_positive.dds
+	country_authority_add = -400
+	country_bureaucracy_add = -50
+	country_expenses_add = 3000
+}
+
+vicotria_liberal = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	interest_group_pop_attraction_mult = 0.05
+}
+
+junta_provincial_estado_1 = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	interest_group_ig_intelligentsia_pop_attraction_mult = 0.05
+	interest_group_in_government_attraction_mult = -0.05
+	country_legitimacy_govt_total_clout_add = -5
+}
+
+junta_provincial_estado_2 = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	interest_group_ig_intelligentsia_pop_attraction_mult = 0.1
+	interest_group_in_government_attraction_mult = -0.1
+	country_legitimacy_govt_total_clout_add = -10
+}
+
+junta_provincial_estado_3 = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	interest_group_ig_intelligentsia_pop_attraction_mult = 0.15
+	interest_group_in_government_attraction_mult = -0.15
+	country_legitimacy_govt_total_clout_add = -15
+}
+
+junta_provincial_estado_4 = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	interest_group_ig_intelligentsia_pop_attraction_mult = 0.2
+	interest_group_in_government_attraction_mult = -0.2
+	country_legitimacy_govt_total_clout_add = -20
+}
+
+junta_provincial_estado_5 = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	interest_group_ig_intelligentsia_pop_attraction_mult = 0.25
+	interest_group_in_government_attraction_mult = -0.25
+	country_legitimacy_govt_total_clout_add = -25
+}
+
+junta_provincial_estado_6 = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	interest_group_ig_intelligentsia_pop_attraction_mult = 0.3
+	interest_group_in_government_attraction_mult = -0.3
+	country_legitimacy_govt_total_clout_add = -30
+}
+
+junta_provincial_estado_7 = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	interest_group_ig_intelligentsia_pop_attraction_mult = 0.35
+	interest_group_in_government_attraction_mult = -0.35
+	country_legitimacy_govt_total_clout_add = -35
+}
+
+junta_provincial_estado_8 = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	interest_group_ig_intelligentsia_pop_attraction_mult = 0.40
+	interest_group_in_government_attraction_mult = -0.40
+	country_legitimacy_govt_total_clout_add = -40
+}
+
+junta_provincial_estado_9 = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	interest_group_ig_intelligentsia_pop_attraction_mult = 0.45
+	interest_group_in_government_attraction_mult = -0.45
+	country_legitimacy_govt_total_clout_add = -45
+}
+
+junta_provincial_estado_10 = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	interest_group_ig_intelligentsia_pop_attraction_mult = 0.50
+	interest_group_in_government_attraction_mult = -0.50
+	country_legitimacy_govt_total_clout_add = -50
+}
+
+salarios_bajos = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_negative.dds
+	building_training_rate_mult = -0.5
+}
+
+deuda_modifier = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds
+	country_loan_interest_rate_add = 0.4
+	country_minting_mult = -0.2
+	state_shopkeepers_investment_pool_efficiency_mult = -0.05
+	state_capitalists_investment_pool_efficiency_mult = -0.25
+}
+
+falta_capital = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds
+	interest_group_ig_industrialists_approval_add = -1
+	state_shopkeepers_investment_pool_efficiency_mult = -0.1
+	state_capitalists_investment_pool_efficiency_mult = -0.25
+}
+
+acelaracion_pago_deuda = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds
+	country_expenses_add = 3000
+	country_bureaucracy_mult = -0.1
+}
+
+apoyo_ig = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	interest_group_approval_add = 1
+	interest_group_pol_str_mult = 0.1
+}
+
+rechazo_apoyo_ig = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
+	interest_group_approval_add = -1
+}
+
+falta_movilidad_bienes = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_negative.dds
+	market_land_trade_capacity_add = -30
+	state_market_access_price_impact = -0.1
+	country_convoys_capacity_mult = 0.05
+}
+
+linea_ferrocariles_estrenada = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_railway_throughput_add = 0.10
+}
+
+experimento_cubano = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_negative.dds
+	building_construction_sector_throughput_add = -0.10
+	country_weekly_innovation_add = -1
+	country_convoys_capacity_mult = -0.05
+}
+
+aventura_guinea = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
+	country_expenses_add = 10000
+	country_convoys_capacity_mult = -0.1
+	state_colony_growth_creation_mult = -0.18
+}
+
+revoluciones_anticlericales_1835 = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	interest_group_ig_devout_approval_add = -2
+	interest_group_ig_devout_pol_str_mult = -0.05
+	interest_group_in_opposition_approval_add = -1
+}
+
+liberal_exhartado = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	interest_group_pol_str_mult = 0.05
+	character_popularity_add = -10
+	interest_group_pop_attraction_mult = -0.05
+}
+
+mejoras_salarios = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds
+	country_expenses_add = 1200
+	country_bureaucracy_add = -20
+	country_authority_add = -20
+}
+
+parar_expedicion = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds
+	country_expenses_add = 1
+}
+
+deslegitmacion_regimen = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds	
+	country_legitimacy_govt_total_clout_add = -5
+}
+
+deslegitmacion_regimen2 = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds	
+	country_legitimacy_govt_total_clout_add = -10
+}
+
+deslegitmacion_regimen3 = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds	
+	country_legitimacy_govt_total_clout_add = -20
+}
+
+deslegitmacion_regimen4 = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds	
+	country_legitimacy_govt_total_clout_add = -25
+}
+
+deslegitmacion_regimen5 = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds	
+	country_legitimacy_govt_total_clout_add = -30
+}
+
+deslegitmacion_regimen6 = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds	
+	country_legitimacy_govt_total_clout_add = -35
+}
+
+deslegitmacion_regimen7 = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds	
+	country_legitimacy_govt_total_clout_add = -40
+}
+
+deslegitmacion_regimen8 = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds	
+	country_legitimacy_govt_total_clout_add = -45
+}
+
+deslegitmacion_regimen8 = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds	
+	country_legitimacy_govt_total_clout_add = -50
+}

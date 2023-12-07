@@ -1,0 +1,445 @@
+la_gloriosa_weekly_progess = {
+	set_variable = { name = gloriosa_progess_de_exiliados value = 0 }
+	set_variable = { name = gloriosa_progess_de_agitadores value = 0 }
+
+	set_variable = { name = gloriosa_progess_de_legitimidad value = root.government_legitimacy }
+
+	set_variable = { name = gloriosa_progess_de_generales value = 0 }
+	set_variable = { name = gloriosa_decess_de_generales value = 0 }
+
+	set_variable = { name = gloriosa_progess_de_generales_bat value = 0 }
+	set_variable = { name = gloriosa_decess_de_generales_bat value = 0 }
+
+	set_variable = { name = gloriosa_progess_de_almirantes value = 0 }
+	set_variable = { name = gloriosa_decress_de_almirantes value = 0 }
+
+	set_variable = { name = gloriosa_progess_de_almirantes_bat value = 0 }
+	set_variable = { name = gloriosa_decress_de_almirantes_bat value = 0 }
+
+	set_variable = { name = gloriosa_progess_de_poder_intelligentsia value = ig:ig_intelligentsia.ig_clout }
+	set_variable = { name = gloriosa_progess_de_poder_burgueses value = ig:ig_petty_bourgeoisie.ig_clout }
+	set_variable = { name = gloriosa_progess_de_poder_landowners value = ig:ig_landowners.ig_clout }
+	set_variable = { name = gloriosa_progess_de_poder_iglesia value = ig:ig_devout.ig_clout }
+
+	set_variable = { name = gloriosa_progess_de_radicales value = root.radical_fraction }
+	set_variable = { name = gloriosa_progess_de_lealistas value = root.loyalist_fraction }
+
+	# set_variable = { name = gloriosa_progess_de_oficiales value = 0 }
+
+	set_variable = { name = gloriosa_progess_next value = 0 }
+
+	# De radicales 
+	change_variable = { name = gloriosa_progess_de_radicales multiply = 5 }
+
+	# De lealistas 
+	change_variable = { name = gloriosa_progess_de_lealistas multiply = -5 }
+
+	every_character_in_exile_pool = {
+		limit = {
+			has_variable = consiprando_contra_esp
+		}
+		ROOT = {
+			change_variable = { name = gloriosa_progess_de_exiliados add = prev.popularity } 
+		}
+	}
+	change_variable = { name = gloriosa_progess_de_exiliados divide = 200 } 
+	# De agitadores en local
+	every_scope_character = {
+		limit = { has_role = agitator }
+		ROOT = {
+			change_variable = { name = gloriosa_progess_de_agitadores add = prev.popularity } 
+		}
+	}
+	change_variable = { name = gloriosa_progess_de_agitadores divide = 100 }
+
+	# De Legitimidad - Positivo -> baja legitimidad
+
+	change_variable = { name = gloriosa_progess_de_legitimidad divide = -50 } # -100
+	change_variable = { name = gloriosa_progess_de_legitimidad add = 1 } # 0.5
+
+	# De Generales - Popularidad y batallones
+	every_scope_general = {
+		limit = {
+			OR = {
+				has_ideology = ideology:ideology_republican_leader
+				has_ideology = ideology:ideology_radical
+				has_ideology = ideology:ideology_radical2
+				has_ideology = ideology:ideology_reformer
+				has_ideology = ideology:ideology_humanitarian
+				has_ideology = ideology:ideology_atheist
+				has_ideology = ideology:ideology_abolitionist
+				has_ideology = ideology:ideology_positivist
+				interest_group = { 
+					OR = {
+						is_interest_group_type = ig_intelligentsia
+						is_interest_group_type = ig_petty_bourgeoisie
+					} 
+				}
+			}
+		}
+		ROOT = {
+			change_variable = { name = gloriosa_progess_de_generales add = prev.popularity } 
+			change_variable = { name = gloriosa_progess_de_generales_bat add = prev.num_battalions }
+		}
+	}
+
+	change_variable = { name = gloriosa_progess_de_generales divide = 100 }
+	change_variable = { name = gloriosa_progess_de_generales_bat divide = 100 }
+
+	# De Generales contrarios - Popularidad y batallones
+	every_scope_general = {
+		limit = {
+			OR = {
+				has_ideology = ideology:ideology_traditionalist
+				has_ideology = ideology:ideology_authoritarian
+				has_ideology = ideology:ideology_theocrat
+				has_ideology = ideology:ideology_slaver
+				has_ideology = ideology:ideology_royalist
+				interest_group = { 
+					OR = {
+						is_interest_group_type = ig_devout
+						is_interest_group_type = ig_landowners
+					} 
+				}
+			}
+		}
+		ROOT = {
+			change_variable = { name = gloriosa_decess_de_generales add = prev.popularity } 
+			change_variable = { name = gloriosa_decess_de_generales_bat add = prev.num_battalions }
+		}
+	}
+	change_variable = { name = gloriosa_decess_de_generales divide = -100 }
+	change_variable = { name = gloriosa_decess_de_generales_bat divide = -100 }
+
+	# De Almirantes
+	every_scope_admiral = {
+		limit = {
+			OR = {
+				has_ideology = ideology:ideology_republican_leader
+				has_ideology = ideology:ideology_radical
+				has_ideology = ideology:ideology_radical2
+				has_ideology = ideology:ideology_reformer
+				has_ideology = ideology:ideology_humanitarian
+				has_ideology = ideology:ideology_abolitionist
+				has_ideology = ideology:ideology_positivist
+				has_ideology = ideology:ideology_atheist
+				interest_group = { 
+					OR = {
+						is_interest_group_type = ig_intelligentsia
+						is_interest_group_type = ig_petty_bourgeoisie
+					} 
+				}
+			}
+		}
+		ROOT = {
+			change_variable = { name = gloriosa_progess_de_almirantes add = prev.popularity } 
+			change_variable = { name = gloriosa_progess_de_almirantes_bat add = prev.num_battalions } 
+		}
+	}
+	change_variable = { name = gloriosa_progess_de_almirantes divide = 100 }
+	change_variable = { name = gloriosa_progess_de_almirantes_bat divide = 100 }
+
+	# De Almirantes Contrarios
+	every_scope_admiral = {
+		limit = {
+			OR = {
+				has_ideology = ideology:ideology_traditionalist
+				has_ideology = ideology:ideology_authoritarian
+				has_ideology = ideology:ideology_theocrat
+				has_ideology = ideology:ideology_slaver
+				has_ideology = ideology:ideology_royalist
+				interest_group = { 
+					OR = {
+						is_interest_group_type = ig_devout
+						is_interest_group_type = ig_landowners
+					} 
+				}
+			}
+		}
+		ROOT = {
+			change_variable = { name = gloriosa_decress_de_almirantes add = prev.popularity }
+			change_variable = { name = gloriosa_decress_de_almirantes_bat add = prev.num_battalions }  
+		}
+	}
+	change_variable = { name = gloriosa_decress_de_almirantes divide = -100 }
+	change_variable = { name = gloriosa_decress_de_almirantes_bat divide = -100 }
+
+
+	# De poder intelligentsia
+	change_variable = { name = gloriosa_progess_de_poder_intelligentsia multiply = 3 }
+
+	# De poder Pequeña burguesía
+	change_variable = { name = gloriosa_progess_de_poder_burgueses multiply = 3 }
+
+	# De poder Terratenientes
+	change_variable = { name = gloriosa_progess_de_poder_landowners multiply = -3 }
+
+	# De poder Iglesia
+	change_variable = { name = gloriosa_progess_de_poder_iglesia multiply = -3 }
+
+    # De poder oficiales
+	# every_scope_pop = {
+	# 	limit = {
+	# 		is_pop_type = officers
+	# 	}
+	# 	ROOT = {
+	# 		change_variable = { name = gloriosa_progess_de_oficiales add = prev.radical_fraction }
+	# 	}
+	# 	# change_variable = { name = gloriosa_progess_de_oficiales subtract = prev.loyalist_fraction }
+	# }
+
+	# change_variable = { name = gloriosa_progess_de_oficiales multiply = 10 }
+
+
+	# Suma general 
+	change_variable = { name = gloriosa_progess_next add = var:gloriosa_progess_de_exiliados } 
+	change_variable = { name = gloriosa_progess_next add = var:gloriosa_progess_de_agitadores }
+	change_variable = { name = gloriosa_progess_next add = var:gloriosa_progess_de_generales }
+	change_variable = { name = gloriosa_progess_next add = var:gloriosa_progess_de_generales_bat }
+	change_variable = { name = gloriosa_progess_next add = var:gloriosa_progess_de_almirantes }
+	change_variable = { name = gloriosa_progess_next add = var:gloriosa_progess_de_almirantes_bat }
+	change_variable = { name = gloriosa_progess_next add = var:gloriosa_decress_de_almirantes }
+	change_variable = { name = gloriosa_progess_next add = var:gloriosa_decress_de_almirantes_bat }
+	change_variable = { name = gloriosa_progess_next add = var:gloriosa_decess_de_generales }
+	change_variable = { name = gloriosa_progess_next add = var:gloriosa_decess_de_generales_bat }
+	change_variable = { name = gloriosa_progess_next add = var:gloriosa_progess_de_poder_intelligentsia }
+	change_variable = { name = gloriosa_progess_next add = var:gloriosa_progess_de_poder_burgueses }
+	change_variable = { name = gloriosa_progess_next add = var:gloriosa_progess_de_poder_landowners }
+	change_variable = { name = gloriosa_progess_next add = var:gloriosa_progess_de_poder_iglesia }
+	# change_variable = { name = gloriosa_progess_next add = var:gloriosa_progess_de_oficiales }
+	change_variable = { name = gloriosa_progess_next add = var:gloriosa_progess_de_radicales }
+	change_variable = { name = gloriosa_progess_next add = var:gloriosa_progess_de_lealistas }
+	change_variable = { name = gloriosa_progess_next add = var:gloriosa_progess_de_legitimidad }
+}
+
+limpiar_variables_gloriosa = {
+	remove_variable = gloriosa_progess_next
+	remove_variable = gloriosa_progess_de_exiliados
+	remove_variable = gloriosa_progess_de_agitadores
+	remove_variable = gloriosa_progess_de_generales
+	remove_variable = gloriosa_progess_de_generales_bat
+	remove_variable = gloriosa_progess_de_almirantes
+	remove_variable = gloriosa_progess_de_almirantes_bat
+	remove_variable = gloriosa_decess_de_generales
+	remove_variable = gloriosa_decess_de_generales_bat
+	remove_variable = gloriosa_decress_de_almirantes
+	remove_variable = gloriosa_decress_de_almirantes_bat
+	remove_variable = gloriosa_progess_de_poder_intelligentsia
+	remove_variable = gloriosa_progess_de_poder_burgueses
+	remove_variable = gloriosa_progess_de_poder_landowners
+	remove_variable = gloriosa_progess_de_poder_iglesia
+	remove_variable = gloriosa_progess_de_legitimidad
+	remove_variable = gloriosa_progess_de_lealistas
+	remove_variable = gloriosa_progess_de_radicales
+	every_scope_character = {
+		limit = {
+			has_variable = consiprando_contra_esp
+		}
+		remove_variable = consiprando_contra_esp
+	}
+}
+
+calcular_poder_carlista = {
+	set_variable = { name = carlistas_progess_next value = root.government_legitimacy }
+	change_variable = { name = carlistas_progess_next subtract = 50 } 
+	change_variable = { name = carlistas_progess_next divide = -100 }
+}
+
+incrementar_modificador = {
+	if = {
+		limit = { has_modifier = deslegitmacion_regimen7 }
+		remove_modifier = deslegitmacion_regimen7
+		add_modifier = { name = deslegitmacion_regimen8 }
+	}
+	if = {
+		limit = { has_modifier = deslegitmacion_regimen6 }
+		remove_modifier = deslegitmacion_regimen6
+		add_modifier = { name = deslegitmacion_regimen7 }
+	}
+	if = {
+		limit = { has_modifier = deslegitmacion_regimen5 }
+		remove_modifier = deslegitmacion_regimen5
+		add_modifier = { name = deslegitmacion_regimen6 }
+	}
+	if = {
+		limit = { has_modifier = deslegitmacion_regimen4 }
+		remove_modifier = deslegitmacion_regimen4
+		add_modifier = { name = deslegitmacion_regimen5 }
+	}
+	if = {
+		limit = { has_modifier = deslegitmacion_regimen3 }
+		remove_modifier = deslegitmacion_regimen3
+		add_modifier = { name = deslegitmacion_regimen4 }
+	}
+	if = {
+		limit = { has_modifier = deslegitmacion_regimen2 }
+		remove_modifier = deslegitmacion_regimen2
+		add_modifier = { name = deslegitmacion_regimen3 }
+	}
+	if = {
+		limit = { has_modifier = deslegitmacion_regimen }
+		remove_modifier = deslegitmacion_regimen
+		add_modifier = { name = deslegitmacion_regimen2 }
+	}
+	if = {
+		limit = { 
+			NOT = {
+				has_modifier = deslegitmacion_regimen
+				has_modifier = deslegitmacion_regimen2
+				has_modifier = deslegitmacion_regimen3
+				has_modifier = deslegitmacion_regimen4
+				has_modifier = deslegitmacion_regimen5
+				has_modifier = deslegitmacion_regimen6
+				has_modifier = deslegitmacion_regimen7
+				has_modifier = deslegitmacion_regimen8
+			} 
+		}
+		add_modifier = { name = deslegitmacion_regimen }
+	}
+}
+
+eliminar_modificador = {
+	if = {
+		limit = { has_modifier = deslegitmacion_regimen4 }
+		remove_modifier = deslegitmacion_regimen4
+	}
+	if = {
+		limit = { has_modifier = deslegitmacion_regimen3 }
+		remove_modifier = deslegitmacion_regimen3
+	}
+	if = {
+		limit = { has_modifier = deslegitmacion_regimen2 }
+		remove_modifier = deslegitmacion_regimen2
+	}
+	if = {
+		limit = { has_modifier = deslegitmacion_regimen }
+		remove_modifier = deslegitmacion_regimen
+	}
+	if = {
+		limit = { has_modifier = deslegitmacion_regimen5 }
+		remove_modifier = deslegitmacion_regimen5
+	}
+	if = {
+		limit = { has_modifier = deslegitmacion_regimen6 }
+		remove_modifier = deslegitmacion_regimen6
+	}
+	if = {
+		limit = { has_modifier = deslegitmacion_regimen7 }
+		remove_modifier = deslegitmacion_regimen7
+	}
+	if = {
+		limit = { has_modifier = deslegitmacion_regimen8 }
+		remove_modifier = deslegitmacion_regimen8
+	}
+}
+
+
+incrementar_modificador_junta_provincial = {
+	if = {
+		limit = { has_modifier = junta_provincial_estado_9 }
+		remove_modifier = junta_provincial_estado_9
+		add_modifier = { name = junta_provincial_estado_10 }
+	}
+	if = {
+		limit = { has_modifier = junta_provincial_estado_8 }
+		remove_modifier = junta_provincial_estado_8
+		add_modifier = { name = junta_provincial_estado_9 }
+	}
+	if = {
+		limit = { has_modifier = junta_provincial_estado_7 }
+		remove_modifier = junta_provincial_estado_7
+		add_modifier = { name = junta_provincial_estado_8 }
+	}
+	if = {
+		limit = { has_modifier = junta_provincial_estado_6 }
+		remove_modifier = junta_provincial_estado_6
+		add_modifier = { name = junta_provincial_estado_7 }
+	}
+	if = {
+		limit = { has_modifier = junta_provincial_estado_5 }
+		remove_modifier = junta_provincial_estado_5
+		add_modifier = { name = junta_provincial_estado_6 }
+	}
+	if = {
+		limit = { has_modifier = junta_provincial_estado_4 }
+		remove_modifier = junta_provincial_estado_4
+		add_modifier = { name = junta_provincial_estado_5 }
+	}
+	if = {
+		limit = { has_modifier = junta_provincial_estado_3 }
+		remove_modifier = junta_provincial_estado_3
+		add_modifier = { name = junta_provincial_estado_4 }
+	}
+	if = {
+		limit = { has_modifier = junta_provincial_estado_2 }
+		remove_modifier = junta_provincial_estado_2
+		add_modifier = { name = junta_provincial_estado_3 }
+	}
+	if = {
+		limit = { has_modifier = junta_provincial_estado_1 }
+		remove_modifier = junta_provincial_estado_1
+		add_modifier = { name = junta_provincial_estado_2 }
+	}
+	if = {
+		limit = { 
+			NOT = {
+				has_modifier = junta_provincial_estado_1
+				has_modifier = junta_provincial_estado_2
+				has_modifier = junta_provincial_estado_3
+				has_modifier = junta_provincial_estado_4
+				has_modifier = junta_provincial_estado_5
+				has_modifier = junta_provincial_estado_6
+				has_modifier = junta_provincial_estado_7
+				has_modifier = junta_provincial_estado_8
+				has_modifier = junta_provincial_estado_9
+				has_modifier = junta_provincial_estado_10
+			} 
+		}
+		add_modifier = { name = junta_provincial_estado_1 }
+	}
+}
+
+eliminar_modificador_junta_provincial = {
+	if = {
+		limit = { has_modifier = junta_provincial_estado_1 }
+		remove_modifier = junta_provincial_estado_1
+	}
+	if = {
+		limit = { has_modifier = junta_provincial_estado_2 }
+		remove_modifier = junta_provincial_estado_2
+	}
+	if = {
+		limit = { has_modifier = junta_provincial_estado_3 }
+		remove_modifier = junta_provincial_estado_3
+	}
+	if = {
+		limit = { has_modifier = junta_provincial_estado_4 }
+		remove_modifier = junta_provincial_estado_4
+	}
+	if = {
+		limit = { has_modifier = junta_provincial_estado_5 }
+		remove_modifier = junta_provincial_estado_5
+	}
+	if = {
+		limit = { has_modifier = junta_provincial_estado_6 }
+		remove_modifier = junta_provincial_estado_6
+	}
+	if = {
+		limit = { has_modifier = junta_provincial_estado_7 }
+		remove_modifier = junta_provincial_estado_7
+	}
+	if = {
+		limit = { has_modifier = junta_provincial_estado_8 }
+		remove_modifier = junta_provincial_estado_8
+	}
+	if = {
+		limit = { has_modifier = junta_provincial_estado_9 }
+		remove_modifier = junta_provincial_estado_9
+	}
+	if = {
+		limit = { has_modifier = junta_provincial_estado_10 }
+		remove_modifier = junta_provincial_estado_10
+	}
+}
+
+

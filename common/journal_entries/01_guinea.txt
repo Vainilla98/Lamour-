@@ -1,0 +1,111 @@
+# je_ambiciones_guinea = {
+# 	icon = "gfx/interface/icons/invention_icons/colonization.dds"
+
+# 	group = je_group_foreign_affairs
+
+# 	immediate = {
+# 		set_variable = {
+# 			name = tiempo_crisis
+# 			value = 0
+# 		}
+# 		s:STATE_GABON = {
+# 			p:x3BD4AD = {
+# 				owner = {
+# 					if = {
+# 						limit = { NOT = { is_country_type = decentralized } }
+# 						save_scope_as = ocupador_guinea
+# 					}
+# 				}
+# 			}
+# 			p:x3DD6EF = {
+# 				owner = {
+# 					if = {
+# 						limit = { NOT = { is_country_type = decentralized } }
+# 						save_scope_as = ocupador_guinea2
+# 					}
+# 				}
+# 			}
+# 			p:x402090 = {
+# 				owner = {
+# 					if = {
+# 						limit = { NOT = { is_country_type = decentralized } }
+# 						save_scope_as = ocupador_guinea3
+# 					}
+# 				}
+# 			}
+# 		}
+# 	}
+	
+# 	on_weekly_pulse = {
+# 		effect = {
+# 			if = {
+# 				limit= {
+# 					NOR = {
+# 						is_diplomatic_play_enemy_of = scope:ocupador_guinea
+# 						is_diplomatic_play_enemy_of = scope:ocupador_guinea2
+# 						is_diplomatic_play_enemy_of = scope:ocupador_guinea3
+# 					}
+# 				}
+# 				change_variable = {
+# 					name = tiempo_crisis
+# 					add = 1
+# 				}
+# 			}
+# 		}
+# 	}
+
+# 	current_value = {
+# 		value = root.var:tiempo_crisis
+# 	}
+
+# 	goal_add_value = {
+# 		value = 52
+# 	}
+
+# 	progressbar = yes
+
+# 	complete = {
+# 		custom_tooltip = {
+# 			text = je_ambiciones_guinea_tt
+# 			s:STATE_GABON = {
+# 				p:x3BD4AD = { owner = ROOT }
+# 				p:x3DD6EF = { owner = ROOT }
+# 				p:x402090 = { owner = ROOT }
+# 			}
+# 		}
+# 	}
+
+# 	on_complete = {
+# 		add_modifier = {
+# 			name = aventura_guinea
+# 			months = normal_modifier_time
+# 		}
+# 		remove_variable = tiempo_crisis
+# 	}
+
+# 	fail = {
+# 		scope:journal_entry = {
+# 			is_goal_complete = yes
+# 		}
+# 	}
+
+# 	on_fail = {
+# 		remove_variable = tiempo_crisis
+# 	}
+
+# 	invalid = {
+# 		s:STATE_SOUTH_CAMEROON = {
+# 			p:x902089 = {
+# 				NOT = { owner = root }
+# 			}
+# 		}
+# 	}
+
+# 	on_invalid = {
+# 		remove_variable = tiempo_crisis
+# 	}
+
+# 	weight = 200
+# 	can_revolution_inherit = yes
+# 	should_be_pinned_by_default = yes
+# }

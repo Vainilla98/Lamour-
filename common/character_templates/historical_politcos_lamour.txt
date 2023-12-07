@@ -1,0 +1,43 @@
+# Spain - Spa
+juan_prim_character_template = {
+	first_name = juan_prim_nombre
+	last_name = juan_prim_apellido
+	culture = cu:catalan
+	female = no
+	religion = rel:catholic
+	is_agitator = yes
+	historical = yes
+	birth_date = 1814.12.6 
+	interest_group = ig_intelligentsia
+	dna = dna_juan_prim
+	ideology = ideology_radical2
+	traits = {
+		brave
+		persistent
+		basic_diplomat
+		basic_artillery_commander
+	}
+	on_created = {
+		set_variable = {
+			name = is_prim
+		}
+		add_character_role = general
+		c:SPA = {
+			trigger_event = { id = esp.1 days = 14 }
+		}
+	}
+	agitator_usage = {
+		country_trigger = {
+			exists = c:SPA 
+			this = c:SPA
+		}
+		interest_group_trigger = {
+            is_marginal = no
+	        is_interest_group_type = ig_intelligentsia
+        }  
+		earliest_usage_date = 1849.1.1
+		latest_usage_date = 1880.1.1
+		chance = 50
+	}
+
+}

@@ -1,0 +1,20 @@
+﻿CHARACTERS = {
+	c:CAR = {
+		create_character = {
+			first_name = "Carlos_M_I"
+			last_name = "de_Borbon"
+			historical = yes
+			ruler = yes
+			dna = dna_carlos_maria_isidro
+			birth_date = 1788.3.29
+			interest_group = ig_landowners
+			ideology = ideology_traditionalist
+			traits = {
+                ambitious
+			}
+			on_created = {
+				set_variable = carlos_maria_var
+			}
+		}	
+	}
+}

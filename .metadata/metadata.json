@@ -1,0 +1,13 @@
+{
+  "name" : "Amour pour l'Espagne",
+  "id" : "",
+  "version" : "1.0",
+  "supported_game_version" : "1.5.*",
+  "picture":"thumbnail.png",
+  "short_description" : "Contenido para España",
+  "tags" : [],
+  "relationships" : [],
+  "game_custom_data" : {
+    "multiplayer_synchronized" : true
+  }
+}

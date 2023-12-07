@@ -1,0 +1,29 @@
+spa_isabel_de_borbon_template = {
+    first_name = "Isabel"
+    last_name = "de_Borbon"
+    historical = yes
+    heir = yes
+    female = yes
+    birth_date = 1830.10.10
+    dna = dna_queen_isabella_02
+    interest_group = ig_intelligentsia
+    ideology = ideology_moderate
+    traits = {
+        romantic grifter trait_child expensive_tastes 
+    }
+}
+
+spa_maria_cristina_de_borbon_template = {
+    first_name = "maria_cristina_nombre" 
+    last_name = "de_Borbon"
+    historical = yes
+    ruler = yes
+    female = yes
+    birth_date = 1806.4.27
+    dna = dna_maria_cristina_borbon 
+    interest_group = ig_intelligentsia
+    ideology = ideology_moderate
+    traits = {
+        romantic basic_diplomat
+    }
+}

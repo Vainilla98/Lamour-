@@ -1,0 +1,14 @@
+﻿l_english:
+  dyn_c_CUB:0 "Captaincy General of Cuba"
+  dyn_c_PHI:0 "Captaincy General of the Philippines"
+  CAR: "Carlist Spain"
+  CAR_ADJ: "Carlists"
+ RULER_TITLE_INFANTE: "Infante"
+
+ STATE_CABO_JUBY: "Cabo Juby"
+ STATE_CEUTA_MELILLA: "Ceuta y Melilla"
+ HUB_NAME_STATE_CEUTA_MELILLA_port: "Melilla"
+ HUB_NAME_STATE_CEUTA_MELILLA_city: "Ceuta"
+
+ HUB_NAME_STATE_CABO_JUBY_port: "Tarfaya"
+ HUB_NAME_STATE_CABO_JUBY_city: "Tan-Tan"

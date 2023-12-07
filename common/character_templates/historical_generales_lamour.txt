@@ -1,0 +1,80 @@
+spa_general_O_Donnell = {
+	first_name = Leopoldo
+	last_name = O_Donnell
+	historical = yes
+	culture = cu:spanish
+	female = no
+	religion = catholic
+	ideology = ideology_jingoist_leader
+	commander_rank = default
+	interest_group = ig_petty_bourgeoisie
+	birth_date = 1809.1.12
+	traits = {
+		cruel
+		basic_political_operator
+	}
+	commander_usage = {
+		country_trigger = {
+			exists = c:SPA
+			this = c:SPA
+		}
+		role = general
+		earliest_usage_date = 1840.1.1
+		latest_usage_date = 1863.1.1	
+		chance = 75
+	}
+}
+
+spa_general_Serrano = {
+	first_name = francisco
+	last_name = serrano_dominguez
+	historical = yes
+	culture = cu:spanish
+	female = no
+	religion = catholic
+	ideology = ideology_radical2
+	commander_rank = default
+	interest_group = ig_petty_bourgeoisie
+	birth_date = 1810.12.17
+	traits = {
+		ambitious
+		basic_political_operator
+	}
+	commander_usage = {
+		country_trigger = {
+			exists = c:SPA
+			this = c:SPA
+		}
+		role = general
+		earliest_usage_date = 1843.1.1
+		latest_usage_date = 1870.1.1	
+		chance = 75
+	}
+}
+
+spa_general_topete = {
+	first_name = juan_prim_nombre
+	last_name = bautista_topete
+	historical = yes
+	culture = cu:spanish
+	female = no
+	religion = catholic
+	ideology = ideology_radical2
+	commander_rank = default
+	interest_group = ig_armed_forces
+	birth_date = 1821.5.24
+	traits = {
+		basic_naval_commander
+		dockyard_master
+	}
+	commander_usage = {
+		country_trigger = {
+			exists = c:SPA
+			this = c:SPA
+		}
+		role = admiral
+		earliest_usage_date = 1850.1.1
+		latest_usage_date = 1873.1.1	
+		chance = 75
+	}
+}

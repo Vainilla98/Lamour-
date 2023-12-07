@@ -1,0 +1,29 @@
+﻿la_gloriosa_notification = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/revolution.dds"
+	notification_type = feed
+}
+
+ascenso_de_isabel_notification = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/authority.dds"
+	notification_type = feed
+}
+
+fin_guerra_carlista_isabelinos = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/military.dds"
+	notification_type = feed
+}
+
+fin_guerra_carlista_carlsitas = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/military.dds"
+	notification_type = feed
+}
+
+motin_de_la_granja = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/revolution.dds"
+	notification_type = feed
+}

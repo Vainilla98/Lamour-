@@ -1,0 +1,44 @@
+COUNTRIES = {
+	c:SPA = {
+		activate_law = law_type:law_colonial_resettlement
+		
+		# Regencia de Maria Cristina
+		set_variable = regencia
+
+		add_journal_entry = { type = je_regencia_esp }
+		add_journal_entry = { type = je_cristininos_victory }
+		add_journal_entry = { type = je_deuda_esp }
+		add_journal_entry = { type = je_infraestructura_esp }
+		add_journal_entry = { type = je_falta_capital_esp }
+		add_journal_entry = { type = je_medizabal_esp }
+		
+		add_modifier = {
+			name = slow_colonies_esp
+			months = very_long_modifier_time
+		}
+		
+		add_modifier = {
+			name = guerra_total
+		}
+
+		s:STATE_ANDALUSIA = {
+			random_scope_state = {
+				add_modifier = {
+					name = bandolerismo
+					months = stupidly_long_modifier_time
+				}
+			}
+		}
+		s:STATE_GRANADA = {
+			random_scope_state = {
+				limit = {
+					owner = c:SPA
+				}
+				add_modifier = {
+					name = bandolerismo
+					months = stupidly_long_modifier_time
+				}
+			}
+		}
+	}
+}

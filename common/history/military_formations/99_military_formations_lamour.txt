@@ -1,0 +1,256 @@
+﻿##EXAMPLE:
+MILITARY_FORMATIONS = {
+	c:SPA = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_iberia
+			name = "Ejército Realista"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_VALENCIA
+				count = 5
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_CATALONIA
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_TOLEDO
+				count = 11
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_CASTILE
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_TOLEDO
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_TOLEDO
+				count = 1
+			}
+
+			mobilization_options = {
+				mobilization_option:mobilization_option_forced_march
+			}
+
+			save_scope_as = i_ejercito
+		}
+
+		create_character = {
+			is_general = yes
+			first_name = Baldomero
+			last_name = Espartero
+			historical = yes
+			dna = dna_espartero
+			hq = region_iberia
+			commander_rank = commander_rank_2
+			birth_date = 1793.2.27
+			ig_leader = yes
+			interest_group = ig_petty_bourgeoisie
+			ideology = ideology_radical2
+			traits = {
+				ambitious
+				basic_diplomat
+			}
+			on_created = {
+				set_variable = is_esp
+				set_variable = is_married
+			}
+			save_scope_as = espartero
+		}
+
+		scope:espartero = {
+			transfer_to_formation = scope:i_ejercito
+		}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_iberia
+			name = "Ejército Centro"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_ANDALUSIA
+				count = 3
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_BADAJOZ
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_CASTILE
+				count = 7
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_CASTILE
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cuirassiers
+				state_region = s:STATE_CASTILE
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_TOLEDO
+				count = 1
+			}
+			save_scope_as = ii_ejercito
+		}
+
+		create_character = {
+			first_name = "Ramon_Maria"
+			last_name = Narvaez
+			historical = yes
+			birth_date = 1800.8.5
+			ig_leader = yes
+			hq = region_iberia
+			is_general = yes
+			interest_group = ig_armed_forces
+			ideology = ideology_moderate
+			traits = {
+				ambitious
+			}
+			save_scope_as = narvaez
+		}
+
+		scope:narvaez = {
+			transfer_to_formation = scope:ii_ejercito
+		}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_north_africa
+			name = "Guarnición de Ceuta y Melilla"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_CEUTA_MELILLA
+				count = 1
+			}
+
+			save_scope_as = ejercito_africa
+		}
+
+		create_character = {
+			is_general = yes
+			hq = region_iberia
+			first_name = Jose_Ramon
+			last_name = Rodil
+			historical = yes
+			birth_date = 1789.2.5
+			traits = {
+				surveyor
+			}
+			save_scope_as = jose_ramon
+		}
+
+		scope:jose_ramon = {
+			transfer_to_formation = scope:ejercito_africa
+		}
+	}
+	c:CAR = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_iberia
+			name = "Ejército Carlista"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_NAVARRA
+				count = 15
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_CATALONIA
+				count = 9
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_ARAGON
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_NAVARRA
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_NAVARRA
+				count = 3
+			}
+			
+			save_scope_as = i_ejercito
+		}
+
+		create_character = {
+			is_general = yes
+			hq = region_iberia
+			first_name = Miguel
+			last_name = gomez_damas
+			historical = yes
+			birth_date = 1785.6.5
+			culture = cu:spanish
+			interest_group = ig_rural_folk
+			ideology = ideology_traditionalist
+			traits = {
+				persistent
+				basic_defensive_strategist
+				scarred
+			}
+			on_created = {
+				set_variable = is_gomez_damas
+			}
+			save_scope_as = damas
+		}
+
+		create_character = {
+			is_general = yes
+			hq = region_iberia
+			first_name = Tomas
+			last_name = de_Zumalacarregui
+			historical = yes
+			birth_date = 1788.12.29
+			culture = cu:basque
+			interest_group = ig_armed_forces
+			ideology = ideology_traditionalist
+			traits = {
+				persistent surveyor
+			}
+			save_scope_as = zumalacarregui
+		}
+
+		scope:damas = {
+			transfer_to_formation = scope:i_ejercito
+		}
+
+		scope:zumalacarregui = {
+			transfer_to_formation = scope:i_ejercito
+		}
+	}
+}

@@ -1,0 +1,20 @@
+﻿l_english:
+notification_la_gloriosa_notification_name:0 "La Gloriosa"
+notification_la_gloriosa_notification_desc:0 "After a successful initial coup in the city of Cádiz, and a subsequent widespread uprising, with the approval of [SCOPE.sCharacter('prim_scope').GetFullName], they have managed to overthrow the regime of [SCOPE.sCountry('spa_scope').GetRuler.GetFullName], starting a new era for the nation of [SCOPE.sCountry('spa_scope').GetName]."
+notification_la_gloriosa_notification_tooltip:0 "#header $la_gloriosa_notification_name$#!\n$TOOLTIP_DELIMITER$\n$la_gloriosa_notification_desc$"
+
+notification_ascenso_de_isabel_notification_name:0 "Coronation of [SCOPE.sCountry('spa_scope').GetRuler.GetFirstName]"
+notification_ascenso_de_isabel_notification_desc:0 "Seeing the necessity, the politicians of [SCOPE.sCountry('spa_scope').GetName] considered that [SCOPE.sCountry('spa_scope').GetRuler.GetFullNameWithTitle], was already capable of assuming the crown of [SCOPE.sCountry('spa_scope').GetName], swearing the constitution in [SCOPE.sCountry('spa_scope').GetCapital.GetCityHubName] before the courts."
+ascenso_de_isabel_notification_tooltip:0 "#header $ascenso_de_isabel_notification_name$#!\n$TOOLTIP_DELIMITER$\n$ascenso_de_isabel_notification_desc$"
+
+notification_fin_guerra_carlista_isabelinos_name:0 "Isabelline Victory in [SCOPE.sCountry('spa_scope').GetName]"
+notification_fin_guerra_carlista_isabelinos_desc:0 "Finally, after more than 4 years of struggle, the troops loyal to [SCOPE.sCountry('spa_scope').GetHeir.GetFirstName] managed to defeat the Carlists. The [SCOPE.sCountry('spa_scope').GetAdjectiveNoFormatting] general [SCOPE.sCharacter('general_esp').GetLastName] met with the Carlist general Maroto to end the conflict and negotiate the surrender of the Carlist forces."
+fin_guerra_carlista_isabelinos_tooltip:0 "#header $notification_fin_guerra_carlista_isabelinos_name$#!\n$TOOLTIP_DELIMITER$\n$notification_fin_guerra_carlista_isabelinos_desc$"
+
+notification_fin_guerra_carlista_carlsitas_name:0 "Carlist Victory in [SCOPE.sCountry('spa_scope').GetName]"
+notification_fin_guerra_carlista_carlsitas_desc:0 "Finally, after more than 4 years of struggle, the Carlist troops managed to defeat the Isabellines, finally securing the Spanish crown for [SCOPE.sCountry('spa_scope').GetRuler.GetFullName]. Great changes loom for [SCOPE.sCountry('spa_scope').GetName]."
+fin_guerra_carlista_carlsitas_tooltip:0 "#header $notification_fin_guerra_carlista_carlsitas_name$#!\n$TOOLTIP_DELIMITER$\n$notification_fin_guerra_carlista_carlsitas_desc$"
+
+notification_motin_de_la_granja_name:0 "Mutiny of La Granja de San Ildefonso"
+notification_motin_de_la_granja_desc:0 "[GetPopType('officers').GetName] of the Royal Guard at the palace of La Granja de San Ildefonso in Segovia ([SCOPE.sCountry('spa_scope').GetName]) have mutinied while [SCOPE.sCountry('spa_scope').GetRuler.GetFullName] was vacationing there. The [GetPopType('officers').GetName] demand the return of the #bold Spanish Constitution of 1812#!. It is only a matter of time before [SCOPE.sCountry('spa_scope').GetRuler.GetFirstName] accepts the reforms."
+motin_de_la_granja_tooltip:0 "#header $notification_motin_de_la_granja_name$#!\n$TOOLTIP_DELIMITER$\n$notification_motin_de_la_granja_desc$"

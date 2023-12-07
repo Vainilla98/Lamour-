@@ -1,0 +1,249 @@
+﻿je_carlist_victory = {
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	group = je_group_historical_content
+
+	complete = {
+        custom_tooltip = {
+			text = win_civil_war
+			hidden_trigger = {
+				NOT = { exists = c:SPA}
+			}
+		}	
+	}
+
+	on_weekly_pulse = {
+		effect = {
+			trigger_event = { id = esp.14 }
+		}
+	}
+
+	on_complete = {
+		if = {
+			limit = { has_modifier = guerra_total }
+			remove_modifier = guerra_total
+		}
+		change_tag = SPA
+		set_capital = STATE_TOLEDO
+
+		if = {
+			limit = { 
+				any_scope_building = {
+					has_modifier = division_auxiliar_fra
+				}
+			}
+			random_scope_building = {
+				limit = {
+					has_modifier = division_auxiliar_fra
+				}
+				remove_modifier = division_auxiliar_fra
+			}
+			hidden_effect = {
+				c:FRA = { trigger_event = { id = caw.6 days = 1 } }
+			}
+		}
+
+		if = {
+			limit = { 
+				any_scope_building = {
+					has_modifier = legion_auxiliar_gbr
+				}
+			}
+			random_scope_building = {
+				limit = {
+					has_modifier = legion_auxiliar_gbr
+				}
+				remove_modifier = legion_auxiliar_gbr
+			}
+			hidden_effect = {
+				c:GBR = { trigger_event = { id = caw.6 days = 1 } }
+			}
+		}
+
+		custom_tooltip = {
+			text = je_carlist_victory_1
+			add_journal_entry = { type = je_deuda_esp }
+			add_journal_entry = { type = je_infraestructura_esp }
+			add_journal_entry = { type = je_falta_capital_esp }
+		}
+
+		hidden_effect = { 
+			trigger_event = { id = car.2 }
+			set_variable = vicotria_carlista
+			if = {
+				limit = { EXISTS = c:PHI }
+				create_diplomatic_pact = {
+					country = c:PHI
+					type = puppet
+				}
+			}
+			every_scope_general = {
+				limit = { is_busy = yes }
+				set_character_busy_and_immortal = no
+			}
+		}
+	}
+
+    should_be_pinned_by_default = yes
+	weight = 100
+}
+
+je_cristininos_victory = {
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	group = je_group_historical_content
+
+	complete = {
+        custom_tooltip = {
+			text = derrota_carlistas
+			hidden_trigger = {
+				NOT = { exists = c:CAR }
+			}
+		}	
+	}
+
+	immediate = {
+		if = {
+			limit = { NOT = { has_variable = evento_carlistas } }
+			c:GBR = {
+				trigger_event = {
+					id = caw.1
+					days = 2
+					popup = no
+				}
+			}
+			c:FRA = {
+				trigger_event = {
+					id = caw.1
+					days = 1
+					popup = no
+				}
+			}
+		}
+	}
+
+	on_weekly_pulse = {
+		effect = {
+			trigger_event = { id = esp.14 } 
+		}
+	}
+
+	scripted_button = expedición_gomez_but
+
+	on_monthly_pulse = {
+		random_events = {
+			20 = esp.20 # descontento expedicion Gomez 
+			5 = esp.17 # salarios ejercito
+			3 = esp.4 # sabotaje carlista
+			3 = esp.9 # la marcha real
+			3 = esp.18 # expedicion de gomez
+			1 = esp.21 # captura de gomez
+			3 = 0 # Nada
+		}
+	}
+
+	on_complete = {
+		if = {
+			limit = { has_modifier = guerra_total }
+			remove_modifier = guerra_total
+		}
+
+		c:FRA = {
+			if = {
+				limit = { 
+					has_modifier = apoyo_isabelino 
+				}
+				hidden_effect = {
+					trigger_event = { id = caw.6 days = 1 } 
+				}
+			}
+		}
+		c:GBR = {
+			if = {
+				limit = { 
+					has_modifier = apoyo_isabelino 
+				}
+				hidden_effect = {
+					trigger_event = { id = caw.6 days = 1 } 
+				}
+			}
+		}
+	
+		if = {
+			limit = { NOT = { has_variable = evento_carlistas } }
+			trigger_event = { id = esp.23 }
+		}
+
+		custom_tooltip = {
+			text = je_cristininos_victory_tt
+			if = {
+				limit = { has_variable = sabotaje }
+				remove_variable = sabotaje
+			}
+			if = {
+				limit = { has_variable = marcha_real_var }
+				remove_variable = marcha_real_var
+			}
+			eliminar_modificador = yes
+			if = {
+				limit = { has_modifier = parar_expedicion }
+				remove_modifier = parar_expedicion
+			}
+			if = {
+				limit = { has_variable = dando_caza }
+				trigger_event = { id = esp.21 }
+			}
+			if = {
+				limit = { has_variable = expedición_gomez }
+				remove_variable = expedición_gomez
+			}
+			if = {
+				limit = { has_variable = capturado }
+				remove_variable = capturado
+			}
+			if = {
+				limit = {
+					any_scope_general = {
+						has_variable = expedition_contra
+						is_busy = yes
+					}
+				}
+				random_scope_general = {
+					limit = {
+						has_variable = expedition_contra
+						is_busy = yes
+					}
+					remove_variable = expedition_contra
+					set_character_busy_and_immortal = no
+				}
+			}
+			every_scope_state = {
+				limit = { has_modifier = expedicion_gomez }
+				remove_modifier = expedicion_gomez
+			}
+			# every_scope_building = {
+			# 	limit = {
+			# 		OR = {
+			# 			is_building_type = building_barracks
+			# 			is_building_type = building_conscription_center
+			# 		}
+			# 		has_modifier = marcha_real
+			# 	}
+			# 	remove_modifier = marcha_real
+			# }
+			# every_scope_building = {
+			# 	limit = {
+			# 		OR = {
+			# 			is_building_type = building_barracks
+			# 			is_building_type = building_conscription_center
+			# 		}
+			# 		has_modifier = expedicion_gomez
+			# 	}
+			# 	remove_modifier = expedicion_gomez
+			# }
+		}
+	}
+
+    should_be_pinned_by_default = yes
+	weight = 100
+}

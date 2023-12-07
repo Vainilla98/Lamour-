@@ -1,0 +1,283 @@
+namespace = caw
+
+caw.1 = {
+	type = country_event
+	placement = ROOT
+
+	title = caw.1.t
+	desc = caw.1.d
+	flavor = caw.1.f
+
+	event_image = {
+		video = "middleeast_battlefield_trenches"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	duration = 1
+
+	immediate = {
+		c:SPA = { save_scope_as = spa_scope }
+		c:CAR = { save_scope_as = car_scope }
+	}
+
+	option = {
+		name = caw.1.a
+		default_option = yes
+		change_relations = {
+			country = c:SPA
+			value = 60
+		}
+		add_modifier = {
+			name = apoyo_isabelino
+			months = normal_modifier_time
+		}
+		custom_tooltip = caw.1_tt
+		if = {
+			limit = { ROOT = c:FRA }
+			scope:spa_scope = {
+				trigger_event = { id = caw.2 popup = no days = 5 }
+			}
+		}
+		else = {
+			scope:spa_scope = {
+				trigger_event = { id = caw.3 popup = no days = 7 } 
+			}
+		}
+		ai_chance = {
+			base = 1
+			modifier = {
+				trigger = {
+					OR = {
+						has_attitude = {
+							who = scope:spa_scope
+							attitude = protective
+						}
+						has_attitude = {
+							who = scope:spa_scope
+							attitude = genial
+						}
+						has_attitude = {
+							who = scope:spa_scope
+							attitude = cooperative
+						}
+						has_attitude = {
+							who = scope:spa_scope
+							attitude = conciliatory
+						}
+					}
+				}
+				add = 1
+			}
+		}
+	}
+	option = {
+		name = caw.1.b
+		if = {
+			limit = { ROOT = c:FRA }
+			scope:spa_scope = {
+				trigger_event = { id = caw.4 popup = no days = 5 } 
+			}
+		}
+		else = {
+			scope:spa_scope = {
+				trigger_event = { id = caw.5 popup = no days = 7 } 
+			}
+		}
+		ai_chance = {
+			base = 1
+			modifier = {
+				trigger = {
+					OR = {
+						has_attitude = {
+							who = scope:spa_scope
+							attitude = belligerent
+						}
+						has_attitude = {
+							who = scope:spa_scope
+							attitude = antagonistic
+						}
+					}
+				}
+				add = 1
+			}
+		}
+	}	
+}
+
+caw.2 = {
+	type = country_event
+	placement = s:STATE_VALENCIA.region_state:SPA
+
+	title = caw.2.t
+	desc = caw.2.d
+	flavor = caw.2.f
+
+	event_image = {
+		video = "europenorthamerica_capitalists_meeting"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	duration = 1
+
+	immediate = {
+		c:FRA = { save_scope_as = fra_scope }
+	}
+
+	option = {
+		name = caw.2.a
+		custom_label = caw.2.tt
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_iberia
+			name = "División Auxiliar francesa"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_VALENCIA 
+				count = 1
+			}
+		}
+		s:STATE_VALENCIA.region_state:SPA = {
+			create_pop = {
+				culture = spanish
+				pop_type = soldiers 
+				religion = catholic
+				size = 1000
+			}
+			
+		}
+	}	
+}
+
+caw.3 = {
+	type = country_event
+	placement = s:STATE_CASTILE.region_state:SPA
+
+	title = caw.3.t
+	desc = caw.3.d
+	flavor = caw.3.f
+
+	event_image = {
+		video = "europenorthamerica_capitalists_meeting"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	immediate = {
+		c:GBR = { save_scope_as = gbr_scope }
+	}
+
+	duration = 1
+
+	option = {
+		name = caw.3.a
+		custom_label = caw.3.tt
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_iberia
+			name = "Legión Auxiliar Británica"
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_CASTILE 
+				count = 1
+			}
+		}
+		s:STATE_CASTILE.region_state:SPA = {
+			create_pop = {
+				culture = spanish
+				religion = catholic
+				size = 1000
+			}
+		}
+	}	
+}
+
+caw.4 = {
+	type = country_event
+	placement = s:STATE_CATALONIA.region_state:SPA
+
+	title = caw.4.t
+	desc = caw.4.d
+	flavor = caw.4.f
+
+	event_image = {
+		video = "middleeast_battlefield_trenches"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	immediate = {
+		c:FRA = { save_scope_as = fra_scope }
+	}
+
+	duration = 1
+
+	option = {
+		name = caw.4.a
+	}	
+}
+
+caw.5 = {
+	type = country_event
+	placement = s:STATE_ARAGON.region_state:SPA
+
+	title = caw.5.t
+	desc = caw.5.d
+	flavor = caw.5.f
+
+	event_image = {
+		video = "middleeast_battlefield_trenches"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	duration = 1
+
+	immediate = {
+		c:GBR = { save_scope_as = gbr_scope }
+	}
+
+	option = {
+		name = caw.5.a
+	}	
+}
+
+caw.6 = {
+	type = country_event
+	placement = ROOT
+
+	title = caw.6.t
+	desc = caw.6.d
+	flavor = caw.6.f
+
+	event_image = {
+		video = "europenorthamerica_capitalists_meeting"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	duration = 1
+
+	immediate = {
+		c:SPA = { save_scope_as = gbr_scope }
+	}
+
+	option = {
+		name = caw.6.a
+		remove_modifier = apoyo_isabelino
+	}	
+}

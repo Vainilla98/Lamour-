@@ -1,0 +1,36 @@
+﻿l_spanish:
+ caw.1.t: "Contienda española"
+ caw.1.d: "Con la entrada del nuevo año, nuestro gabinete se pregunta como deberiamos seguir apoyando a la [SCOPE.sCountry('spa_scope').GetName] isabelina, en su contienda contra la reaccionaria [SCOPE.sCountry('car_scope').GetName]."
+ caw.1.f: "Tras el estallido de la Primera Guerra Carlista en [SCOPE.sCountry('spa_scope').GetName], tanto Francia como Gran Bretaña ofrecieron apoyo al gobierno isabelino, mandando fuerzas expedicionarias para unirse al combate en contra de los carlistas. La Gran Bretaña organizó la Legión Auxiliar Británica y Francia ofreció ceder su Legión Extranjera a España. Ambas legiones desempeñaron un papel secundario en el conflicto en comparación con las fuerzas españolas involucradas en el conflicto, pero sin embargo sirvieron como una buena fuerza de apoyo al ejército regular [SCOPE.sCountry('spa_scope').GetAdjetive]."
+ caw.1.a: "Mantendremos la legión auxiliar" 
+ caw.1_tt: "El modificador depaparecerá cuando la [SCOPE.sCountry('car_scope').GetName] sea derrotada" 
+ caw.1.b: "Se acabó la aventura española"
+
+ caw.2.t: "La División Auxiliar Francesa"
+ caw.2.d: "Ante la incertidumbre respecto al mantenimiento de la «División Auxiliar Francesa» en la guerra finalmente [SCOPE.sCountry('fra_scope').GetName] ha prometido mantener los efectivos durante el resto de la guerra."
+ caw.2.f: "Tras el estallido de la Primera Guerra Carlista en [ROOT.GetCountry.GetName], tanto Francia como Gran Bretaña ofrecieron apoyo al gobierno isabelino, mandando fuerzas expedicionarias para unirse al combate en contra de los carlistas. La Gran Bretaña organizó la Legión Auxiliar Británica y Francia ofreció ceder su Legión Extranjera a España. Ambas legiones desempeñaron un papel secundario en el conflicto en comparación con las fuerzas españolas involucradas en el conflicto, pero sin embargo sirvieron como una buena fuerza de apoyo al ejército regular [ROOT.GetCountry.GetAdjective]."
+ caw.2.a: "Toda ayuda es bienvenida" 
+ caw.2.tt: "Mejorarán considerablemnte nuestras [concept_relations|l] con [SCOPE.sCountry('fra_scope').GetName]" 
+ caw.2.tt.1: "Nuestros [SCOPE.sBuilding('aux_scope').GetName|l] en [SCOPE.sState('sta_scope').GetStateRegion.GetName] mejoraran un poco su [concept_offense|l]"
+
+ caw.3.t: "La Legión Auxiliar Británica"
+ caw.3.d: "Ante la incertidumbre respecto al mantenimiento de la «Legión Auxiliar Británica» en la guerra finalmente [SCOPE.sCountry('gbr_scope').GetName] ha prometido mantener los efectivos durante el resto de la guerra."
+ caw.3.f: "Tras el estallido de la Primera Guerra Carlista en [ROOT.GetCountry.GetName], tanto Francia como Gran Bretaña ofrecieron apoyo al gobierno isabelino, mandando fuerzas expedicionarias para unirse al combate en contra de los carlistas. La Gran Bretaña organizó la Legión Auxiliar Británica y Francia ofreció ceder su Legión Extranjera a España. Ambas legiones desempeñaron un papel secundario en el conflicto en comparación con las fuerzas españolas involucradas en el conflicto, pero sin embargo sirvieron como una buena fuerza de apoyo al ejército regular [ROOT.GetCountry.GetAdjective]."
+ caw.3.a: "Toda ayuda es bienvenida" 
+ caw.3.tt: "Mejorarán considerablemnte nuestras [concept_relations|l] con [SCOPE.sCountry('gbr_scope').GetName]" 
+ caw.3.tt.1: "Nuestros [SCOPE.sBuilding('aux_scope').GetName|l] en [SCOPE.sState('sta_scope').GetStateRegion.GetName] mejoraran un poco su daño a la [concept_morale|l]"
+
+ caw.4.t: "La División Auxiliar Francesa"
+ caw.4.d: "Ante la incertidumbre respecto al mantenimiento de la «División Auxiliar Francesa» en la guerra finalmente [SCOPE.sCountry('fra_scope').GetName] ha decidido evacuar a sus efectivos de territorio [ROOT.GetCountry.GetAdjective]."
+ caw.4.f: "Tras el estallido de la Primera Guerra Carlista en [ROOT.GetCountry.GetName], tanto Francia como Gran Bretaña ofrecieron apoyo al gobierno isabelino, mandando fuerzas expedicionarias para unirse al combate en contra de los carlistas. La Gran Bretaña organizó la Legión Auxiliar Británica y Francia ofreció ceder su Legión Extranjera a España. Ambas legiones desempeñaron un papel secundario en el conflicto en comparación con las fuerzas españolas involucradas en el conflicto, pero sin embargo sirvieron como una buena fuerza de apoyo al ejército regular [ROOT.GetCountry.GetAdjective]."
+ caw.4.a: "Sucios gabachos" 
+
+ caw.5.t: "La Legión Auxiliar Británica"
+ caw.5.d: "Ante la incertidumbre respecto al mantenimiento de la «Legión Auxiliar Británica» en la guerra finalmente [SCOPE.sCountry('fra_scope').GetName] ha decidido evacuar a sus efectivos de territorio [ROOT.GetCountry.GetAdjective]."
+ caw.5.f: "Tras el estallido de la Primera Guerra Carlista en [ROOT.GetCountry.GetName], tanto Francia como Gran Bretaña ofrecieron apoyo al gobierno isabelino, mandando fuerzas expedicionarias para unirse al combate en contra de los carlistas. La Gran Bretaña organizó la «Legión Auxiliar Británica y Francia ofreció ceder su Legión Extranjera a España. Ambas legiones desempeñaron un papel secundario en el conflicto en comparación con las fuerzas españolas involucradas en el conflicto, pero sin embargo sirvieron como una buena fuerza de apoyo al ejército regular [ROOT.GetCountry.GetAdjective]."
+ caw.5.a: "Malditos ingleses"  
+
+ caw.6.t: "Fin de la contienda Ibérica"
+ caw.6.d: "Finalmente el conflicto en [SCOPE.sCountry('spa_scope').GetName] ha llegado a su fin, y nuestras fuerzas expedicionarias pueden regresar a sus hogares. "
+ caw.6.f: "Tras el estallido de la Primera Guerra Carlista en [ROOT.GetCountry.GetName], tanto Francia como Gran Bretaña ofrecieron apoyo al gobierno isabelino, mandando fuerzas expedicionarias para unirse al combate en contra de los carlistas. La Gran Bretaña organizó la Legión Auxiliar Británica y Francia ofreció ceder su Legión Extranjera a España. Ambas legiones desempeñaron un papel secundario en el conflicto en comparación con las fuerzas españolas involucradas en el conflicto, pero sin embargo sirvieron como una buena fuerza de apoyo al ejército regular [ROOT.GetCountry.GetAdjective]."
+ caw.6.a: "Mas dinerico"  

@@ -1,0 +1,7 @@
+CAR = {
+	color = { 211 91 10 }
+	tier = kingdom
+	country_type = recognized
+	cultures = { spanish }
+	capital = STATE_NAVARRA
+}

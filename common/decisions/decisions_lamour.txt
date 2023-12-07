@@ -1,0 +1,185 @@
+quitar_bandoleros_andalucia = {
+	is_shown = {
+		NOT = { c:SPA = ROOT }
+		OR = {
+			s:STATE_ANDALUSIA = {
+				any_scope_state = {
+					owner = root
+					has_modifier = bandolerismo
+				}
+			}
+			s:STATE_GRANADA = {
+				any_scope_state = {
+					owner = root
+					has_modifier = bandolerismo
+				}
+			}
+		}
+	}
+
+	possible = {
+		institution_investment_level = {
+			institution = institution_police
+			value = 4
+		}
+	}
+
+	when_taken = {
+		s:STATE_ANDALUSIA = {
+			random_scope_state = {
+				limit = {
+					owner = root
+					has_modifier = bandolerismo
+				}
+				remove_modifier =  bandolerismo
+			}
+		}
+		s:STATE_GRANADA = {
+			random_scope_state = {
+				limit = {
+					owner = root
+					has_modifier = bandolerismo
+				}
+				remove_modifier =  bandolerismo
+			}
+		}
+	}
+
+	ai_chance = {
+		base = 100
+	}
+}
+
+ambiciones_en_guinea = {
+	is_shown = {
+		# root = c:SPA
+		NOR = { 
+			has_law = law_type:law_no_colonial_affairs 
+			# has_law = law_type:law_frontier_colonialism
+		}
+		s:STATE_SOUTH_CAMEROON = {
+			p:x902089 = {
+				owner = root
+			}
+		}
+		s:STATE_GABON = {
+			p:x3BD4AD = {
+				owner = {
+					is_country_type = decentralized
+				}
+			}
+			p:x3DD6EF = {
+				owner = {
+					is_country_type = decentralized
+				}
+			}
+			p:x402090 = {
+				owner = {
+					is_country_type = decentralized
+				}
+			}
+		}
+	}
+
+	possible = {
+		# root = c:SPA
+		has_technology_researched = civilizing_mission
+		institution_investment_level = {
+			institution = institution_colonial_affairs
+			value = 2
+		}
+		custom_tooltip = {
+			text = ambiciones_en_guinea_tt
+			s:STATE_GABON = {
+				p:x3BD4AD = {
+					owner = {
+						is_country_type = decentralized
+					}
+				}
+				p:x3DD6EF = {
+					owner = {
+						is_country_type = decentralized
+					}
+				}
+				p:x402090 = {
+					owner = {
+						is_country_type = decentralized
+					}
+				}
+			}
+		}
+	}
+
+	when_taken = {
+		s:STATE_GABON = {
+			set_owner_of_provinces = {
+				country = root
+				provinces = { x3BD4AD x3DD6EF x402090}
+			}
+		}
+		add_modifier = {
+			name = aventura_guinea
+			months = normal_modifier_time
+		}
+
+		# if = {
+		# 	limit = {
+		# 		OR = {
+		# 			s:STATE_GABON = {
+		# 				p:x3BD4AD = {
+		# 					owner = {
+		# 						NOT = { is_country_type = decentralized }
+		# 					}
+		# 				}
+		# 				p:x3DD6EF = {
+		# 					owner = {
+		# 						NOT = { is_country_type = decentralized }
+		# 					}
+		# 				}
+		# 				p:x402090 = {
+		# 					owner = {
+		# 						NOT = { is_country_type = decentralized }
+		# 					}
+		# 				}
+		# 			}
+		# 		}
+		# 	}
+		# 	add_journal_entry = { type = je_ambiciones_guinea } 
+		# } else = {
+		# 	s:STATE_GABON = {
+		# 		set_owner_of_provinces = {
+		# 			country = root
+		# 			provinces = { x3BD4AD x3DD6EF x402090}
+		# 		}
+		# 	}
+		# 	add_modifier = {
+		# 		name = aventura_guinea
+		# 		months = normal_modifier_time
+		# 	}
+		# }
+	}
+
+	ai_chance = {
+		base = 0
+		modifier = {
+			trigger = { gold_reserves > 600000 }
+			add = 20
+		}
+		modifier = {
+			trigger = { weekly_net_fixed_income > 55000 }
+			add = 10
+		}
+		modifier = {
+			trigger = { weekly_net_fixed_income > 60000 }
+			add = 10
+		}
+		modifier = {
+			trigger = { weekly_net_fixed_income > 70000 }
+			add = 10
+		}
+		modifier = {
+			trigger = { weekly_net_fixed_income > 80000 }
+			add = 10
+		}
+	}
+}

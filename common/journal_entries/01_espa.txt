@@ -1,0 +1,1266 @@
+﻿je_gloriosa = {
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	group = je_group_historical_content
+
+	immediate = {
+		ig:ig_intelligentsia = {
+			save_scope_as = union_scope
+		}
+		ig:ig_armed_forces = {
+			save_scope_as = ejercito_scope
+		}
+		ig:ig_industrialists = {
+			save_scope_as = industrialistas_scope
+		}
+		ig:ig_petty_bourgeoisie = {
+			save_scope_as = burguesia_scope
+		}
+		ig:ig_rural_folk = {
+			save_scope_as = rural_scope
+		}
+		ig:ig_trade_unions = {
+			save_scope_as = sindicatos_scope
+		}
+		ig:ig_landowners = {
+			save_scope_as = terratenientes_scope
+		}
+		ig:ig_devout = {
+			save_scope_as = curas_scope
+		}
+		set_variable = {
+			name = salvacion_timer
+			value = 300
+		}
+		la_gloriosa_weekly_progess = yes
+	}
+
+	on_weekly_pulse = {
+		effect = {
+			la_gloriosa_weekly_progess = yes
+		}
+	}
+
+	progress_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = gloriosa_button
+			}
+		}
+	}
+	
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = agitador_gloriosa_0
+				trigger = {
+					NOT = {
+						any_character_in_exile_pool = {
+							has_variable = consiprando_contra_esp 
+						}
+					}
+				}
+			}
+			triggered_desc = {
+				desc = agitador_gloriosa_1
+				trigger = {
+					any_character_in_exile_pool = {
+						count = 1
+						has_variable = consiprando_contra_esp 
+					}
+				}
+			}
+			triggered_desc = {
+				desc = agitador_gloriosa_2
+				trigger = {
+					any_character_in_exile_pool = {
+						count = 2
+						has_variable = consiprando_contra_esp 
+					}
+				}
+			}
+			triggered_desc = {
+				desc = agitador_gloriosa_3
+				trigger = {
+					any_character_in_exile_pool = {
+						count = 3
+						has_variable = consiprando_contra_esp 
+					}
+				}
+			}
+			triggered_desc = {
+				desc = agitador_gloriosa_4
+				trigger = {
+					any_character_in_exile_pool = {
+						count > 3
+						has_variable = consiprando_contra_esp 
+					}
+				}
+			}
+		}
+	}
+
+	is_progressing = {
+		var:gloriosa_progess_next > 0 
+	}
+
+	on_yearly_pulse = {
+		events = {
+			esp.10 # Pacto de Osdense
+		}
+	}
+
+	on_monthly_pulse = {
+		effect = {
+			change_variable = {
+				name = salvacion_timer
+				add = var:gloriosa_progess_next
+			}
+		}
+	}
+
+	complete = {
+		OR = {
+			scope:journal_entry = {
+				is_goal_complete = yes
+			}
+			custom_tooltip = {	
+				text = golpe_directo		
+				any_civil_war = {
+					civil_war_progress >= 0.8
+				}
+				ig:ig_landowners = {
+					is_insurrectionary = no
+				}
+				ig:ig_devout = {
+					is_insurrectionary = no
+				}	
+			}
+		}
+	}
+
+	on_complete = {
+		custom_tooltip = {
+			text = revolucion_esp
+			trigger_event = {
+				id = esp.7
+				popup = yes
+				days = 7
+			}
+			if = {
+				limit = { 	
+					any_civil_war = { civil_war_progress >= 0.8 }	
+				}
+				save_revolution_scopes = yes
+				
+				scope:ongoing_revolution = {
+					add_civil_war_progress = revolution_retreat_very_large
+					add_civil_war_progress = revolution_retreat_very_large
+					add_civil_war_progress = revolution_retreat_very_large
+					add_civil_war_progress = revolution_retreat_very_large
+				}
+				scope:ongoing_revolution_movement = {
+					add_modifier = {
+						name = desgaste_golpe
+						months = short_modifier_time
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				any_character_in_exile_pool = {
+					has_variable = is_prim
+				}
+			}
+			custom_tooltip = {
+				text = prim_politico
+				random_character_in_exile_pool =  {
+					limit = { has_variable = is_prim }
+					transfer_character = root
+					hidden_effect = { remove_modifier = in_exile_modifier }
+					add_character_role = politician
+					set_as_interest_group_leader = yes
+					add_character_role = general
+					if = {
+						limit = { has_role = agitator }
+						remove_character_role = agitator
+					}
+				}
+			}
+		}
+
+		every_character_in_exile_pool = {
+			limit = {
+				has_variable = consiprando_contra_esp
+				NOT = { has_variable = is_prim }
+			}
+			transfer_character = root
+			hidden_effect = {
+				remove_modifier = in_exile_modifier
+			}
+		}
+	}
+ 	current_value = {
+ 		value = root.var:salvacion_timer
+ 	}
+
+	progressbar = no
+
+	goal_add_value = {
+ 		value = 300
+ 	}
+
+	should_be_pinned_by_default = yes
+	
+	fail = {
+		OR = {
+			ig:ig_intelligentsia = { is_marginal = yes }
+			custom_tooltip = {
+				text = sin_fuelle
+				root.var:salvacion_timer <= 0
+			}
+			NOT = { has_law = law_type:law_monarchy }
+			has_law = law_type:law_census_voting
+			has_law = law_type:law_universal_suffrage
+		}
+	}
+
+	on_fail = {
+	}
+
+	weight = 100
+
+	timeout = 10950
+}
+
+je_filipinas_esp = {
+	icon = "gfx/interface/icons/invention_icons/colonization.dds"
+
+	group = je_group_foreign_affairs
+
+	is_shown_when_inactive = {
+		any_subject_or_below = {
+		    country_has_primary_culture = cu:filipino
+			OR = {
+				has_diplomatic_pact = {
+					who = prev
+					type = puppet
+				}
+				has_diplomatic_pact = {
+					who = prev
+					type = dominion
+				}
+			}
+		}
+	}
+
+	immediate = {
+		random_subject_or_below = {
+			limit = { country_has_primary_culture = cu:filipino }
+		    save_scope_as = phim_scope
+		}
+	}
+	
+	possible = {
+		has_technology_researched = nationalism
+	}
+
+	scripted_button = oferta_de_compra
+	scripted_button = integrar_marioneta
+
+	complete = {
+		c:PHI = {
+			owns_entire_state_region = STATE_VISAYAS
+			owns_entire_state_region = STATE_LUZON
+			owns_entire_state_region = STATE_MINDANAO
+		}
+	}
+
+	on_complete = {
+		trigger_event = { id = phi.3 days = 14 popup = yes }
+	}
+
+	invalid = {
+		c:PHI = {
+			NOT = { is_subject_of = root }
+		}
+	}
+
+	weight = 100
+
+	should_be_pinned_by_default = yes
+}
+
+je_regencia_esp = {
+	icon = "gfx/interface/icons/law_icons/monarchy.dds"
+
+	group = je_group_historical_content
+
+	complete = {
+		custom_tooltip = {
+			text = je_regencia_esp_indicacion3
+			heir = {
+				age >= 17
+				has_variable = is_isabel
+			}
+			has_variable = regencia
+		}
+	}
+
+	on_complete = {
+		trigger_event = { id = esp.3 popup = yes }
+		remove_variable = regencia
+	}
+
+	on_monthly_pulse = {
+		effect = {
+			if = {
+				limit = { has_variable = constitucion_redactada }
+				remove_variable = constitucion_redactada
+			}
+			if = {
+				limit = { has_variable = exilio_mendi }
+				remove_variable = exilio_mendi
+			}
+			custom_tooltip = {
+				text = je_la_granja_esp_tt1
+				every_state = {
+					limit = { has_modifier = junta_provincial }
+					remove_modifier = junta_provincial
+				}
+				eliminar_modificador_junta_provincial = yes
+			}
+		}
+	 	events = {
+			esp.6 # Espartero
+		}
+	}
+
+	invalid = {
+		OR = {
+			NOT = { has_law = law_type:law_monarchy }
+			custom_tooltip = {
+			text = je_regencia_esp_indicacion2
+				AND = {
+					NOT = { ruler = { has_variable = is_maria }}
+					NOT = { ruler = { has_variable = is_esp }}
+				}
+			}
+			custom_tooltip = {
+			text = je_regencia_esp_indicacion4
+				NOT = { heir = { has_variable = is_isabel }}
+			}
+		}
+	}
+	on_invalid = {
+		remove_variable = regencia
+	}
+
+	weight = 1000
+
+	should_be_pinned_by_default = yes
+}
+
+je_guardia_civil_esp = {
+	icon = "gfx/interface/icons/event_icons/bicorne_hat.dds"
+
+	group = je_group_historical_content
+
+	is_shown_when_inactive = {
+		year > 1842
+		ROOT = c:SPA 
+		NOT = {
+			has_law = law_type:law_no_police
+		}
+	}
+
+	immediate = {
+		random_scope_general = {
+			limit = {
+				owner = ROOT
+			}
+			save_scope_as = guardia_civil_scope
+		}
+	}
+
+	complete = {
+		institution_investment_level = {
+			institution = institution_police
+			value = 4
+		}
+	}
+
+	on_complete = {
+		add_modifier = {
+			name = guardia_civil
+			months = very_long_modifier_time
+		}
+		s:STATE_ANDALUSIA = {
+			random_scope_state = {
+				limit = {
+					owner = c:SPA
+				}
+				remove_modifier =  bandolerismo
+			}
+		}
+		s:STATE_GRANADA = {
+			random_scope_state = {
+				limit = {
+					owner = c:SPA
+				}
+				remove_modifier =  bandolerismo
+			}
+		}
+	}
+
+	on_monthly_pulse = {
+	 	
+	}
+	fail = {
+		has_law = law_type:law_no_police
+	}
+		
+	weight = 100
+
+	can_revolution_inherit = yes
+	should_be_pinned_by_default = yes
+}
+
+je_medizabal_esp = {
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	group = je_group_historical_content
+
+	modifiers_while_active = {
+		revoluciones_anticlericales_1835
+	}
+	
+	immediate = {
+		ig:ig_intelligentsia = {
+			save_scope_as = intel_ig
+		}
+		random_scope_character = {
+			limit = {
+				has_variable = is_mendizabal
+			}
+			save_scope_as = mendizabal_scope 
+		}
+	}
+	invalid = {
+		NOR = {
+			ruler = { has_variable = is_maria }
+			ig:ig_intelligentsia.leader = { has_variable = is_mendizabal }
+		}
+	}
+
+	fail = {
+		ig:ig_intelligentsia = {
+			is_in_government = no
+		}
+	}
+
+	on_fail = {
+		add_journal_entry = {
+			type = je_la_granja_esp
+		}
+	}
+
+	on_timeout = {
+		custom_tooltip = je_medizabal_esp_tt
+	}
+		
+	weight = 100
+
+	timeout = 2372
+
+	should_be_pinned_by_default = yes
+}
+
+je_la_granja_esp = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	group = je_group_historical_content
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_la_granja_esp_status
+				trigger = {
+					has_variable = constitucion_redactada
+				}
+			}
+		}
+	}
+
+	scripted_button = caza_liberales_but
+	scripted_button = stop_caza_liberales_but
+
+	immediate = {
+		add_modifier = {
+			name = peridoicos_liberales
+			multiplier = 2
+		}
+		ig:ig_intelligentsia = {
+			save_scope_as = intel_ig
+			add_modifier = {
+				name = destitucion_mendizabal
+				months = normal_modifier_time
+			}
+			leader = { 
+				save_scope_as = mendizabal_scope 
+			}
+		} 
+		ruler = {
+			save_scope_as = maria_scope
+		}
+		add_journal_entry = {
+			type = je_motin_la_granja_esp
+		}
+	}
+
+	modifiers_while_active = {
+		espiritu_liberal
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_la_granja_esp_tt
+			OR = {
+				has_law = law_type:law_landed_voting
+				has_law = law_type:law_wealth_voting
+				has_law = law_type:law_census_voting
+				has_law = law_type:law_universal_suffrage
+			}
+		}
+	}
+
+	on_complete = {
+		add_loyalists = {
+			value = medium_radicals
+		}
+		add_loyalists = {
+			value = large_radicals
+			interest_group = scope:intel_ig
+		}
+		add_radicals = {
+			value = medium_radicals
+			interest_group = ig:ig_landowners
+		}
+		add_radicals = {
+			value = medium_radicals
+			interest_group = ig:ig_devout
+		}
+		if = {
+			limit = { 
+				ig:ig_intelligentsia = {
+					has_modifier = destitucion_mendizabal
+				}
+			}
+			ig:ig_intelligentsia = {
+				remove_modifier = destitucion_mendizabal
+			}
+		}
+		if = {
+			limit = { 
+				ig:ig_intelligentsia = {
+					has_modifier = exilio_mendizabal
+				}
+			}
+			ig:ig_intelligentsia = {
+				remove_modifier = exilio_mendizabal
+			}
+		}
+		custom_tooltip = {
+			text = je_la_granja_esp_tt1
+			every_state = {
+				limit = { has_modifier = junta_provincial }
+				remove_modifier = junta_provincial
+			}
+			eliminar_modificador_junta_provincial = yes
+		}
+		custom_tooltip = {
+			text = je_la_granja_esp_tt3
+			if = {
+				limit = { has_modifier = peridoicos_liberales }
+				remove_modifier = peridoicos_liberales
+			}
+			if = {
+				limit = { has_modifier = caza_periodicos }
+				remove_modifier = caza_periodicos
+			}
+		}
+		if = {
+			limit = { has_variable = constitucion_redactada }
+			remove_variable = constitucion_redactada
+		}
+		if = {
+			limit = { has_variable = exilio_mendi }
+			remove_variable = exilio_mendi
+		}
+		
+	}
+
+	on_weekly_pulse = {
+		events = {
+			esp.22
+		}
+	}
+
+	on_monthly_pulse = {
+		events = {
+			esp.5
+		}
+	 	random_events = {
+			1 = esp.12
+			4 = 0
+			5 = esp.16
+		}
+	}
+
+	fail = {
+		OR = {
+			scope:intel_ig = {
+				ig_clout <= 0.05
+			}
+			custom_tooltip = {
+				text = je_la_granja_esp_tt2
+				NOT = { ruler = { has_variable = is_maria }}
+			}
+		}
+	}
+
+	on_fail = {
+		if = {
+			limit = { has_variable = constitucion_redactada }
+			remove_variable = constitucion_redactada
+		}
+		if = {
+			limit = { has_variable = exilio_mendi }
+			remove_variable = exilio_mendi
+		}
+		custom_tooltip = {
+			text = je_la_granja_esp_tt1
+			every_state = {
+				limit = { has_modifier = junta_provincial }
+				remove_modifier = junta_provincial
+			}
+			eliminar_modificador_junta_provincial = yes
+		}
+	}
+
+	invalid = {
+		NOT = {
+			any_scope_state = {
+				state_region = s:STATE_CASTILE
+				owner = root
+			}
+		}
+	}
+
+	on_timeout = {
+		if = {
+			limit = { has_variable = constitucion_redactada }
+			remove_variable = constitucion_redactada
+		}
+		if = {
+			limit = { has_variable = exilio_mendi }
+			remove_variable = exilio_mendi
+		}
+		custom_tooltip = {
+			text = je_la_granja_esp_tt1
+			every_state = {
+				limit = { has_modifier = junta_provincial }
+				remove_modifier = junta_provincial
+			}
+			eliminar_modificador_junta_provincial = yes
+		}
+	}
+
+	weight = 100
+
+	timeout = 1850
+
+	should_be_pinned_by_default = yes
+}
+
+je_motin_la_granja_esp = {
+	icon = "gfx/interface/icons/event_icons/bicorne_hat.dds"
+
+	group = je_group_historical_content
+
+	immediate = {
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_CASTILE
+				owner = root
+			}
+			save_scope_as = palacio_real
+		}
+	}
+
+	complete = {
+		OR = {
+			scope:palacio_real = {
+				turmoil >= 0.1
+			}
+			scope:palacio_real = {
+				turmoil >= 0.25
+			}
+			any_scope_state = {
+				has_modifier = junta_provincial
+				count >= 5
+			}
+		}
+		custom_tooltip = {
+			text = je_motin_la_granja_esp_tt
+			has_variable = constitucion_redactada
+		}
+	}
+
+	on_complete = {
+		if = {
+			limit = { 		
+				ig:ig_landowners = {
+					is_in_government = yes
+				}
+			}
+			ig:ig_landowners = {
+				remove_ruling_interest_group = yes
+			}
+		}
+		if = {
+			limit = { 		
+				ig:ig_devout = {
+					is_in_government = yes
+				}
+			}
+			ig:ig_devout = {
+				remove_ruling_interest_group = yes
+			}
+		}
+		ig:ig_intelligentsia = {
+			add_ruling_interest_group = yes
+		}
+		add_modifier = {
+			name = forced_regime_change
+			days = 274
+		}
+		custom_tooltip = je_motin_la_granja_esp_tt1
+		hidden_effect = {
+			trigger_event = { id = esp.13 days = 274 }
+		}
+	}
+
+	on_monthly_pulse = {
+	 	random_events = {
+			30 = 0
+			5 = esp.15
+			1 = esp.97
+		}
+	}
+
+	fail = {
+		NOT = { has_journal_entry = je_la_granja_esp }
+	}
+
+	weight = 90
+
+	should_be_pinned_by_default = yes
+}
+
+je_retorno_caristras_esp = {
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	group = je_group_historical_content
+
+	immediate = {
+		calcular_poder_carlista = yes
+	}
+
+	current_value = {
+		value = root.var:golpe_car
+	}
+
+   goal_add_value = {
+		value = 200
+	}
+
+	progress_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = avance_car
+			}
+		}
+	}
+
+	on_weekly_pulse = {
+		effect = {
+			calcular_poder_carlista = yes
+			change_variable = {
+				name = golpe_car
+				add = root.var:carlistas_progess_next
+			}
+		}
+	}
+
+	complete = {
+		scope:journal_entry = {
+			is_goal_complete = yes
+		}
+		is_at_war = no
+		custom_tooltip = { 
+			text = no_guerra_civil
+			is_in_civil_war = no 
+		}
+	}
+
+	on_complete = {
+		custom_tooltip = {
+			text = je_retorno_caristras_esp_tt
+			create_country = {
+				tag = CAR
+				origin = ROOT
+				province = p:x48868C
+				state = s:STATE_NAVARRA.region_state:CAR
+				on_created = {
+					s:STATE_NAVARRA = {
+						set_owner_of_provinces = {
+							country = c:CAR
+							provinces = { x48868C x702080 x10E0C0 xABE0B3 xAC1425 x9EC9B8 xCB3245 }
+						}
+					}
+					if = {
+						limit = { 
+							c:SPA = {
+								owns_entire_state_region = STATE_ARAGON
+							}
+						}
+						s:STATE_ARAGON = {
+							set_owner_of_provinces = {
+								country = c:CAR
+								provinces = { x2555A4 x202982 x339B06 x076DE0 x45B331 x3CBF9E }
+							}
+						}
+					}
+					if = {
+						limit = { 
+							c:SPA = {
+								owns_entire_state_region = STATE_CATALONIA
+							}
+						}
+						s:STATE_CATALONIA = {
+							set_owner_of_provinces = {
+								country = c:CAR
+								provinces = { xE0C020 x11E041 x906040 x936FF3 xC2FFD9 x890622 x2914C3 x08B4D6 xD616D2 x945748 x0C64AC }
+							}
+						}
+					}
+	
+					every_scope_state = {
+						set_state_type = incorporated
+					}
+	
+					effect_starting_technology_tier_3_tech = yes
+					effect_starting_politics_conservative = yes
+			
+					set_tax_level = very_high
+					
+					add_taxed_goods = g:liquor
+					
+					set_tariffs_import_priority = g:artillery
+					set_tariffs_import_priority = g:small_arms
+	
+					ig:ig_devout = {
+						set_interest_group_name = ig_catholic_church
+						add_ruling_interest_group = yes
+					}
+	
+					ig:ig_landowners = {
+						add_ideology = ideology_pious
+						add_ruling_interest_group = yes
+					}
+					
+					add_modifier = {
+						name = guerra_total
+					}
+			
+					add_modifier = {
+						name = carlistas_atrincherados
+						months = normal_modifier_time
+					}
+	
+					if = {
+						limit = {
+							NOT = { has_law = law_type:law_monarchy }
+						}
+						activate_law = law_type:law_monarchy
+					}
+					if = {
+						limit = {
+							NOT = { has_law = law_type:law_state_religion }
+						}
+						activate_law = law_type:law_state_religion
+					}
+					if = {
+						limit = {
+							NOT = { has_law = law_type:law_legacy_slavery }
+						}
+						activate_law = law_type:law_legacy_slavery
+					}
+					if = {
+						limit = {
+							NOT = { has_law = law_type:law_racial_segregation }
+						}
+						activate_law = law_type:law_racial_segregation
+					}
+					if = {
+						limit = {
+							NOT = { has_law = law_type:law_mercantilism }
+						}
+						activate_law = law_type:law_mercantilism
+					}
+					if = {
+						limit = {
+							NOT = { has_law = law_type:law_hereditary_bureaucrats }
+						}
+						activate_law = law_type:law_hereditary_bureaucrats
+					}
+					if = {
+						limit = {
+							NOT = { has_law = law_type:law_traditionalism }
+						}
+						activate_law = law_type:law_traditionalism
+					}
+					if = {
+						limit = {
+							NOT = { has_law = law_type:law_land_based_taxation }
+						}
+						activate_law = law_type:law_land_based_taxation
+					}
+					if = {
+						limit = {
+							NOT = { has_law = law_type:law_religious_schools }
+						}
+						activate_law = law_type:law_religious_schools
+					}
+					if = {
+						limit = {
+							NOT = { has_law = law_type:law_charitable_health_system }
+						}
+						activate_law = law_type:law_charitable_health_system
+					}
+					if = {
+						limit = {
+							NOT = { has_law = law_type:law_autocracy }
+						}
+						activate_law = law_type:law_autocracy
+					}
+					if = {
+						limit = {
+							NOT = { has_law = law_type:law_peasant_levies }
+						}
+						activate_law = law_type:law_peasant_levies
+					}
+					if = {
+						limit = {
+							NOT = { has_law = law_type:law_colonial_resettlement }
+						}
+						activate_law = law_type:law_colonial_resettlement
+					}
+	
+					add_journal_entry = { type = je_carlist_victory }
+	
+					create_character = {
+						first_name = "Carlos"
+						last_name = "de_Borbon"
+						ruler = yes
+						historical = yes 
+						interest_group = ig_landowners
+						ideology = ideology_traditionalist
+						traits = {
+							
+						}
+					}
+				}
+			}
+			create_diplomatic_play = {
+				name = guerra_carlista
+				target_state = s:STATE_NAVARRA.region_state:CAR
+				escalation = 80
+				type = dp_revolution
+			}
+		}
+		add_journal_entry = { type = je_cristininos_victory }
+		add_modifier = {
+			name = guerra_total
+		}
+		remove_variable = carlistas_progess_next
+	}
+
+	fail = {
+		OR = {
+			custom_tooltip = {
+				text = sin_fuelle2
+				root.var:golpe_car < 0
+			}
+			not = {
+				owns_entire_state_region = STATE_NAVARRA
+			}
+		}
+	}
+
+	on_fail = {
+		remove_variable = carlistas_progess_next
+	}
+		
+	progressbar = yes
+
+	weight = 100
+	can_revolution_inherit = yes
+	should_be_pinned_by_default = yes
+}
+
+je_deuda_esp = {
+	icon = "gfx/interface/icons/event_icons/event_trade.dds"
+
+	group = je_group_historical_content
+
+	immediate = {
+		set_variable = {
+			name = dinero_tiempo
+			value = 0
+		}
+	}
+
+	scripted_button = pago_deuda_but
+	scripted_button = stop_pago_deuda_but
+
+	modifiers_while_active = {
+		deuda_modifier
+	}
+
+	complete = {
+		scope:journal_entry = {
+			is_goal_complete = yes
+		}
+		custom_tooltip = {
+			text = je_deuda_esp_1
+			gold_reserves > -50000
+		}
+	}
+
+	on_monthly_pulse = {
+		random_events = {
+			40 = 0
+			1 = esp.25
+		}
+		effect = {
+			if = {
+				limit= {
+					gold_reserves > -50000
+				}
+				change_variable = {
+					name = dinero_tiempo
+					add = 2
+				}
+			} else_if = {
+				limit = { 
+					var:dinero_tiempo > 0 
+				}
+				change_variable = {
+					name = dinero_tiempo
+					subtract = 2
+				}
+			}
+			if = {
+				limit = { has_modifier = acelaracion_pago_deuda }
+				change_variable = {
+					name = dinero_tiempo
+					add = 1
+				}
+			}
+		}
+	}
+
+	current_value = {
+		value = root.var:dinero_tiempo
+	}
+
+	goal_add_value = {
+		value = 300  # 144 12 años
+	}
+
+	progressbar = yes
+
+	on_complete = {
+		if = {
+			limit = { has_modifier = acelaracion_pago_deuda}
+			remove_modifier = acelaracion_pago_deuda
+		}
+	}
+
+	weight = 100
+	can_revolution_inherit = yes
+	should_be_pinned_by_default = yes
+}
+
+je_infraestructura_esp = {
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+
+	group = je_group_historical_content
+
+	modifiers_while_active = {
+		falta_movilidad_bienes
+	}
+	
+	scripted_button = ferrocarril_cubano_but
+	
+	complete = {
+		in_default = no
+		custom_tooltip = {
+			text = je_infraestructura_esp_tt
+			any_scope_state = {
+				state_infrastructure_balance > 0
+				is_incorporated = yes
+				percent = 1
+			}
+		}
+
+		any_scope_state = {
+			is_incorporated = yes
+			has_building = building_railway
+			percent >= 0.6
+		}
+	}
+
+	on_complete = {
+		add_modifier = {
+			name = linea_ferrocariles_estrenada
+			months = normal_modifier_time
+		}
+		if = {
+			limit = { has_variable = tren_cuba }
+			remove_variable = tren_cuba
+			s:STATE_CUBA = {
+				random_scope_state = {
+					limit = {
+						owner = {
+							OR = {
+								has_diplomatic_pact = {
+									who = ROOT
+									type = puppet
+								}
+								has_diplomatic_pact = {
+									who = ROOT
+									type = dominion
+								}
+							}
+						}
+					}
+					add_modifier = {
+						name = linea_ferrocariles_estrenada
+						months = normal_modifier_time
+					}
+				}
+			}
+		}
+	}
+	can_revolution_inherit = yes
+	should_be_pinned_by_default = yes
+	weight = 100
+}
+
+je_falta_capital_esp = {
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+
+	group = je_group_historical_content
+
+	immediate = {
+		set_variable = {
+			name = tiempo_anno
+			value = 0
+		}
+	}
+
+	modifiers_while_active = {
+		falta_capital
+	}
+
+	complete = {
+		scope:journal_entry = {
+			is_goal_complete = yes
+		}
+		any_scope_pop = {
+			OR = {
+				is_pop_type = capitalists
+				is_pop_type = shopkeepers	
+			}
+			pop_is_discriminated = no
+			standard_of_living >= 30
+			percent >= 0.04
+		}
+	}
+
+	on_weekly_pulse = {
+		effect = {
+			if = {
+				limit = {		
+					any_scope_pop = {
+						OR = {
+							is_pop_type = capitalists
+							is_pop_type = shopkeepers	
+						}
+						pop_is_discriminated = no
+						standard_of_living >= 30
+						percent >= 0.04
+					} 
+				}
+				change_variable = {
+					name = tiempo_anno
+					add = 1
+				}
+			} else_if = {
+				limit = { root.var:tiempo_anno > 0 }
+				change_variable = {
+					name = tiempo_anno
+					subtract = 1
+				}
+			}
+		}
+	}
+
+	fail = {
+		has_law = law_type:law_agrarianism
+	}
+
+	on_fail = {
+		add_modifier = {
+			name = falta_capital
+			months = normal_modifier_time
+			is_decaying = yes
+		}
+	}
+
+	invalid = {
+		OR = {
+			has_law = law_type:law_industry_banned
+			has_law = law_type:law_command_economy
+			has_law = law_type:law_cooperative_ownership
+		}
+	}
+
+	current_value = {
+		value = root.var:tiempo_anno
+	}
+
+	goal_add_value = {
+		value = 52
+	}
+
+	progressbar = yes
+
+	weight = 100
+	can_revolution_inherit = yes
+	should_be_pinned_by_default = yes
+}

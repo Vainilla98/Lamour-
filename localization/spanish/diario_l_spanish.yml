@@ -1,0 +1,51 @@
+﻿l_spanish:
+ je_deuda_esp: "Situación de la deuda"
+ je_deuda_esp_reason: "En la década de 1830, [ROOT.GetCountry.GetName] experimentó una situación económica y financiera compleja, marcada por la inestabilidad política, la debilidad institucional y la acumulación de deudas.\n\nDurante este período, la [Concept('concept_credit', '$concept_credit_debt$')|l] pública española se convirtió en un problema significativo que afectó tanto a la economía nacional como a la reputación crediticia internacional del país.\n\nLa administración financiera era caótica, y la falta de estabilidad política dificultaba la implementación de políticas fiscales coherentes lo que contribuyó al aumento de la [Concept('concept_credit', '$concept_credit_debt$')|l] pública.\n\nEl endeudamiento a menudo superaba la capacidad del gobierno para pagar los intereses y reducir el principal. Esto llevó a un ciclo de préstamos sucesivos para pagar las deudas anteriores, lo que agravó aún más la situación de la [Concept('concept_credit', '$concept_credit_debt$')|l]."
+ je_deuda_esp_goal: "Lo de abajo durante #bold 12 años#!"
+ je_deuda_esp_1: "La deuda española es de menos de 50000 @money!\n\n#bold Si no lo cumplimos empezaremos a perder progreso.#!"
+
+ pago_deuda_but_name: "Pagar [Concept('concept_credit', '$concept_credit_debt$')|l] extra"
+ pago_deuda_but_desc: "Tenemos que trabajar en la implementación de una buena politca fiscal que acelere el pago de la deuda."
+ pago_deuda_but_tt: "Por cada pago mensual restaríamos a la deuda total 15 dias extras."
+ stop_pago_deuda_but_name: "Detener pagos de [Concept('concept_credit', '$concept_credit_debt$')|l] extra"
+ stop_pago_deuda_but_tt: "Añadiríamos en torno a 8 meses de pagos."
+ stop_pago_deuda_but_desc: "Este despilfarro no puede continuar. Necesitamos el dinero."
+
+ je_infraestructura_esp: "Red de Comunicación ferroviaria"
+ je_infraestructura_esp_reason: "La falta de una red ferroviaria en [ROOT.GetCountry.GetName] en la década de 1830 fue un factor importante que contribuyó al retraso en el proceso de industrialización y desarrollo económico del país. La ausencia de un sistema ferroviario eficiente limitó la movilidad de bienes y personas, obstaculizando el comercio y la industrialización, y tuvo un impacto negativo en la economía y el progreso del país en ese momento."
+ je_infraestructura_esp_tt: "Ningún [Concept('concept_state', '$concept_state$')|l] con déficit de [concept_infrastructure|l]."
+
+ je_falta_capital_esp: "Falta de Capital"
+ je_falta_capital_esp_reason: "La falta de capital es un factor significativo que obstaculiza el desarrollo económico y la inversión. La escasez de recursos financieros limita la capacidad del país para emprender proyectos de infraestructura y desarrollo industrial. Esto se debe a una combinación de factores, como la deuda pública acumulada por conflictos bélicos anteriores, la dependencia de una economía predominantemente agraria y la falta de confianza de los inversores, tanto nacionales como extranjeros, en la economía española en ese momento.\n\nEsta falta de capital tiene un impacto negativo en la inversión en sectores clave como la modernización de la industria y la promoción del crecimiento económico.\n\n#bold También podemos reenfocar nuestra economía hacia una más agrícola pasando la ley [GetLawType('law_agrarianism').GetName] dejando de depender gradualmente de los $capitalists$.#!\n\n#bold Si abandonamos el sistema capitalista pasando ciertas #tooltippable;tooltip:leyes_anticapitalismo_tooltip leyes económicas#! el capital dejará de ser problema.#!"
+ je_falta_capital_esp_goal: "Lo de abajo durante #bold 1 año#! "
+
+ leyes_anticapitalismo_tooltip: "#tooltip_header Las [Concept('concept_law', '$concept_laws$')|l] que abandonan el capitalismo son:#!\n$TOOLTIP_DELIMITER$\n[GetLawType('law_command_economy').GetName], [GetLawType('law_cooperative_ownership').GetName] o [GetLawType('law_industry_banned').GetName]." 
+
+ je_medizabal_esp: "Nombramiento de Mendizábal"
+ je_medizabal_esp_reason: "[GetInterestGroupVariant('ig_intelligentsia',GetPlayer).GetLeader.GetFullName] regreso a [ROOT.GetCountry.GetName] del exilio el 1 de septiembre de 1835, cuando el nuevo presidente del Consejo de ministros,  #bold José María Queipo de Llano#!, lo nombró 'ministro de Hacienda', gracias a la promesa de [GetInterestGroupVariant('ig_intelligentsia',GetPlayer).GetLeader.GetLastName] de encontrar financiación para la guerra carlista. \n\nNada más entrar en  [ROOT.GetCountry.GetName], se encontró con la «Revolución de las Juntas», revoluciones de carácter liberal y anticlericales y, en un intento de aprovecharlas a su favor, [GetInterestGroupVariant('ig_intelligentsia',GetPlayer).GetLeader.GetLastName] publicó un manifiesto en el que ponía en entredicha la autoridad del conde de Toreno,  #bold José María Queipo de Llano#!, acabando este cediendo a la presión y siendo el 14 de septiembre el dia en que [GetInterestGroupVariant('ig_intelligentsia',GetPlayer).GetLeader.GetLastName] pasó a ocupar la presidencia del gobierno, acompañado sólo de dos ministros."  
+ je_medizabal_esp_tt: "Ya no habrá repercusión por sacar a la [GetInterestGroupVariant('ig_intelligentsia',GetPlayer).GetName|l] del [concept_government|l]."
+
+ je_la_granja_esp: "Motín de la Granja"
+ je_la_granja_esp_reason: "Tras la destitución del primer ministro Mendizábal los sectores liberales de nuestra población han salido a la calle a reclamar reformas urgentes, buscando la reinstauración de la #bold Constitución de 1812 #!.\n\nA la par, [SCOPE.sCharacter('mendizabal_scope').GetLastName] no abandonó la lucha política sino que incrementó su presencia en la prensa y apoyó a las sociedades secretas que preparaban un movimiento revolucionario como el del verano del año anterior.\n\n#bold Exiliar a [SCOPE.sCharacter('mendizabal_scope').GetLastName] puede tener consecuencias.#! " 
+ je_la_granja_esp_tt: "Al menos tenemos la ley de [GetLawType('law_landed_voting').GetName]"
+ je_la_granja_esp_tt1: "Desparecen los [Concept('concept_modifier', '$concept_modifiers$')|l] por «Juntas Provinciales»"
+ je_la_granja_esp_tt2: "María Cristina ya no es la [SCOPE.sCharacter('maria_scope').GetPrimaryRoleTitle]"
+ je_la_granja_esp_tt3: "Los periódicos liberales se desmantelarán"
+
+ caza_liberales_but_name: "Censurar la prensa liberal"
+ caza_liberales_but_desc: "No podemos seguir a este ritmo. La autoridad del estado se está viendo socavada"
+
+ stop_caza_liberales_but_name: "Acabar con la censura"
+ stop_caza_liberales_but_desc: "Ya es hora de acabar con tal infame decisión y poner fin a la censura"
+ caza_liberales_but_tt: "Los modificadores del [concept_modifier|l] #bold «Prensa Liberal» #!se verán reducidos a la mitad"
+ je_la_granja_esp_status: "Se está redactando una nueva constitución"
+
+ je_motin_la_granja_esp: "La Sargentada"
+ je_motin_la_granja_esp_reason: "La intranquilidad que se respira en el Palacio Real de Segovia no era sino un reflejo de la agitación que se vive en el exterior. La #bold Guardia Real#!, experimenta día tras día un crecimiento palpable de la tensión entre sus filas.\nEl ambiente enrarecido genera una sensación de incertidumbre, donde la más mínima debilidad puede desencadenar en una reacción de imprevisible magnitud.\n\nLos [GetPopType('officers').GetName] de la #bold Guardia Real#!, se encuentran en una posición delicada, equilibrando entre la obediencia al monarca y la empatía hacia las demandas populares. La responsabilidad recae sobre sus hombros, pues son conscientes de que el futuro de este país puede depender de ellos."
+ je_motin_la_granja_esp_tt: "Si se cumplen algunas de las condiciones de arriba, habrá una cierta posibilidad de un motín entre los [GetPopType('officers').GetName] de la #bold Guardia Real#!\n\nSi la [concept_turmoil|l] llega al #bold 10.00%#! en [SCOPE.sState('palacio_real').GetName] habrá una mínima posibilidad de que se desencadene"
+ je_motin_la_granja_esp_tt1: "Se proclamarán #bold Cortes Constituyentes#! para reformar el texto constitucional de Cádiz mientras dure el $forced_regime_change$"
+
+ # je_ambiciones_guinea: "Crisis de Guinea"
+ # je_ambiciones_guinea_reason: "Ante la negativa de devolvernos lo que es nuestro, se abre la oportunidad de reclamar la Guinea para nosotros."
+ # je_ambiciones_guinea_goal: "Ha pasado 1 año desde el inicio de la crisis"
+ # je_ambiciones_guinea_tt: "Te has establecido en la #bold Guinea Española #!"

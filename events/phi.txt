@@ -1,0 +1,196 @@
+namespace = phi
+
+phi.1 = {
+	type = country_event
+	placement = s:STATE_LUZON.region_state:PHI
+
+	title = phi.1.t
+	desc = phi.1.d
+	flavor = phi.1.f
+
+	event_image = {
+		video = "gfx/event_pictures/africa_construction_colony.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/signed_contract"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	duration = 3
+
+	trigger = {
+	}
+
+	immediate = {
+		sr:region_indonesia = {
+			random_scope_state = {
+				limit = {
+					state_region = { is_homeland = cu:filipino }
+					owner = { 
+						NOT = { country_has_primary_culture = cu:filipino }
+						ROOT = {
+							OR = {
+								has_diplomatic_pact = {
+									who = prev
+									type = dominion
+								}
+								has_diplomatic_pact = {
+									who = prev
+									type = puppet
+								}
+							}
+						}
+					}
+				}
+				save_scope_as = estado_scope
+			}
+		}
+		scope:estado_scope = {
+			owner = {
+				save_scope_as = owner_scope
+			}
+		}
+		random_subject_or_below = {
+			limit = {
+				country_has_primary_culture = cu:filipino
+			}
+			save_scope_as = phi_scope
+		}
+	}
+
+	option = {
+		name = phi.1.a
+		scope:owner_scope = {
+			if = {
+				limit = {
+					any_scope_state = {
+						count = 1
+					}
+				}
+				scope:phi_scope = {
+					annex = prev
+				}
+			} else = {
+				scope:phi_scope = {
+					scope:estado_scope = {
+						set_state_owner = prev
+					}
+				}
+			}
+		}
+	}
+}
+phi.2 = {
+	type = country_event
+	placement = s:STATE_LUZON.region_state:PHI
+
+	title = phi.2.t
+	desc = phi.2.d
+	flavor = phi.2.f
+
+	event_image = {
+		video = "gfx/event_pictures/africa_diplomats_negotiating.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/signed_contract"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	duration = 1
+
+	trigger = {
+	}
+
+	immediate = {
+		sr:region_indonesia = {
+			random_scope_state = {
+				limit = {
+					state_region = { is_homeland = cu:filipino }
+					owner = { 
+						is_country_type = unrecognized
+						NOT = { country_has_primary_culture = cu:filipino }
+						ROOT = {
+							has_diplomatic_pact = {
+								who = prev
+								type = protectorate
+							}
+						}
+					}
+					state_population < 200000
+				}
+				save_scope_as = estado_scope
+			}
+		}
+		scope:estado_scope = {
+			owner = {
+				save_scope_as = owner_scope
+			}
+		}
+		random_subject_or_below = {
+			limit = {
+				country_has_primary_culture = cu:filipino
+			}
+			save_scope_as = phi_scope
+		}
+	}
+	option = {
+		name = phi.2.a
+		default_option = yes
+		scope:owner_scope = {
+			add_modifier = {
+				name = compensacion_recibir
+				months = short_modifier_time
+			}
+		}
+		scope:phi_scope = {
+			scope:estado_scope = {
+				set_state_owner = prev
+			}
+		}
+	}
+}
+phi.3 = {
+	type = country_event
+	placement = s:STATE_LUZON.region_state:PHI
+
+	title = phi.3.t
+	desc = phi.3.d
+	flavor = phi.3.f
+
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/military_parade"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	duration = 3
+
+	trigger = {
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = phi.3.a
+		custom_tooltip = {
+			text = bufo_filipina
+			c:PHI = {
+				ruler = {
+					add_modifier = {
+						name = popular_autocrat
+					}
+				}
+				add_modifier = {
+					name = warlord_legitimacy
+					months = normal_modifier_time
+				}
+			}
+		}
+	}
+}

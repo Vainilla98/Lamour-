@@ -1,0 +1,45 @@
+﻿l_spanish:
+ Carlos_M_I: "Carlos María Isidro"
+ CAR_FLAVOR_TEXT: "Tras tres arduos años de conflicto, la fatiga de una contienda prolongada se hace cada vez más patente entre las filas carlistas. Mientras tanto los cristininos han consolidado sus fuerzas y se preparan para poner fin de una vez por todas a esta situación. Cada día que pasa, Carlos María Isidro ve cómo el sueño de la corona se aleja más, sin embargo, la guerra aun no está perdida."
+
+ de_Zumalacarregui:0 "Zumalacarregui"
+ guerra_carlista:0 "Guerra Carlista"
+ dp_guerra_carlista: "Guerra Carlista"
+ gov_carlistas:0 "Monarquía Carlista"
+ gov_carlistas_desc:2 "Este es una facción revolucionaria que lucha por instituir a una rama de los borbones en el trono español."
+ 
+ je_carlist_victory: "Guerra Carlista"
+ je_carlist_victory_reason: "La Primera Guerra Carlista se luchó entre dos facciones por la sucesión al trono y la naturaleza de la monarquía española: los conservadores y reaccionarios partidarios del hermano del fallecido rey, Carlos María Isidro de Borbón, se conocieron como los Carlistas, mientras que los progresistas y centralistas partidarios de la regente, María Cristina, que actuaba en nombre de Isabel II de España, se llamaban cristinos o isabelinos.\n\n#bold Mientras tengamos el modificador de -Guerra Carlista- ganaremos semanalmente 1 punto de [concept_war_support|l] #!"
+ je_carlist_victory_status: "Derroca al gobierno español."
+
+ win_civil_war:0 "Ha derrocado el gobierno de María Cristina"
+ je_carlist_victory_1: "Los problemas de España pasaran a nosotros."
+
+ je_cristininos_victory: "Guerra Carlista"
+ je_cristininos_victory_reason: "La Primera Guerra Carlista se luchó entre dos facciones por la sucesión al trono y la naturaleza de la monarquía española: los conservadores y reaccionarios partidarios del hermano del fallecido rey, Carlos María Isidro de Borbón, se conocieron como los Carlistas, mientras que los progresistas y centralistas partidarios de la regente, María Cristina, que actuaba en nombre de Isabel II de España, se llamaban cristinos o isabelinos.\n\n#bold Mientras tengamos el modificador de - Guerra Carlista - ganaremos semanalmente 1 punto de [concept_war_support|l] #!"
+ je_cristininos_victory_status: "Aplasta la rebelión carlista."
+ derrota_carlistas:0 "Ha logrado derrotar la rebelión"
+ je_cristininos_victory_tt: "Todos los modificadores relacionados con la guerra desparecerán"
+
+
+esp.98.t:0 "Prueba"
+esp.98.d:0 "Prueba"
+esp.98.f:0 "Prueba"
+esp.98.a:0 "Si"
+
+esp.99.t:0 "Prueba"
+esp.99.d:0 "Prueba"
+esp.99.f:0 "Prueba"
+esp.99.a:0 "Si"
+
+
+
+esp.98.t:0 "Prueba"
+esp.98.d:0 "Prueba"
+esp.98.f:0 "Prueba"
+esp.98.a:0 "Si"
+
+esp.99.t:0 "Prueba"
+esp.99.d:0 "Prueba"
+esp.99.f:0 "Prueba"
+esp.99.a:0 "Si"

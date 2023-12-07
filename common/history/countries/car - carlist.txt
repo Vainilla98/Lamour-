@@ -1,0 +1,61 @@
+﻿COUNTRIES = {
+	c:CAR = {
+		
+		effect_starting_technology_tier_3_tech = yes
+		effect_starting_politics_conservative = yes
+
+		set_tax_level = very_high
+		
+		add_taxed_goods = g:liquor
+		
+		set_tariffs_import_priority = g:artillery
+		set_tariffs_import_priority = g:small_arms
+		
+		# Estatuto Real de 1834 was in effect; the Constitution of 1812 was not restored until August of 1836
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_landed_voting
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_hereditary_bureaucrats
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_land_based_taxation	
+		activate_law = law_type:law_religious_schools
+		activate_law = law_type:law_charitable_health_system
+		activate_law = law_type:law_autocracy
+        activate_law = law_type:law_peasant_levies
+		activate_law = law_type:law_colonial_resettlement
+
+		add_journal_entry = { type = je_carlist_victory }
+
+		
+		ig:ig_devout = {
+			add_ruling_interest_group = yes
+		}
+		
+		
+		ig:ig_devout = { 
+			set_interest_group_name = ig_catholic_church
+		}
+
+		add_modifier = {
+			name = slow_colonies_esp
+			months = very_long_modifier_time
+		}
+
+		add_modifier = {
+			name = guerra_total
+		}
+
+		add_modifier = {
+			name = carlistas_atrincherados
+			months = normal_modifier_time
+		}
+
+		ig:ig_landowners = {
+			add_ideology = ideology_pious
+            add_ruling_interest_group = yes
+		}
+	}
+}

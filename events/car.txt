@@ -1,0 +1,61 @@
+namespace = car
+
+car.1 = {
+	type = country_event
+	placement = ROOT
+
+	title = car.1.t
+	desc = car.1.d
+	flavor = car.1.f
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	duration = 3
+
+	trigger = {
+	
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				any_scope_general = { has_variable = is_gomez_damas } 
+			}
+			random_scope_general = {
+				limit = { has_variable = is_gomez_damas }
+				save_scope_as = gomez_damas
+			}
+		} else = {
+			random_scope_general = {
+				limit = { is_ruler = no }
+				save_scope_as = gomez_damas
+			}
+		}
+	}
+
+	option = {
+		name = car.1.a
+		custom_label = car.1.tt
+		
+	}
+}
+
+car.2 = {
+	type = country_event
+	hidden = yes
+	
+	immediate = {
+		root = {
+			save_scope_as = spa_scope
+		}
+		every_country = {
+			post_notification = fin_guerra_carlista_carlsitas
+		}
+	}
+}

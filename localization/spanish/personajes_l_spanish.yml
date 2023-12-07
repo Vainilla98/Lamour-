@@ -1,0 +1,279 @@
+﻿l_spanish:
+ juan_prim_nombre:0 "Juan"
+ juan_prim_apellido:0 "Prim y Prats"
+ alvarez_medizabal:0 "Álvarez Mendizábal"
+ francisco:0 "Francisco"
+ serrano_dominguez:0 "Serrano y Domínguez"
+ bautista_topete:0 "Bautista Topete"
+ maria_cristina_nombre:0 "María Cristina"
+ gomez_damas:0 "Gómez Damas"
+
+ ideology_radical2: "Progresista Moderado"
+ ideology_radical2_desc: "#lore Un tipo de líder liberal moderado que lucha por reformas liberales que hagan avanzar los ideales democráticos pero sin pasarse. #!"
+
+ esp.1.t:0 "El Ascenso de [SCOPE.sCharacter('prim_scope').GetFullName]"
+ esp.1.d:0 "Un célebre coronel, héroe de la 1ª Guerra Carlista, ha logrado abrirse hueco en la esfera política española, reclamando reformas liberales en el país."
+ esp.1.f:0 "[SCOPE.sCharacter('prim_scope').GetFullName], conde de Reus, marqués de los Castillejos y vizconde del Bruch, fue un militar y político liberal  [ROOT.GetCountry.GetAdjective] del siglo XIX que llegó a ser presidente del Consejo de ministros. En su vida militar participó en la 1ª Guerra Carlista y en la 1ª Guerra del Marruecos, donde mostró relevantes dotes de mando, valor y temeridad. Tras la Revolución de 1868 se convirtió en uno de los hombres más influyentes en la [ROOT.GetCountry.GetName] del momento, patrocinando la entronización de la Casa de Saboya en la persona de Amadeo I. Murió asesinado poco después."
+ esp.1.a:0 "Sin duda lo que necesita el país"
+ esp.1.b:0 "No necesitamos otra revolución"
+
+ je_guardia_civil_esp:0 "Guardia Civil"
+ je_guardia_civil_esp_reason:0 "[SCOPE.sCharacter('guardia_civil_scope').GetFullName] ha propuesto la creación de un cuerpo armado para [ROOT.GetCountry.GetName] dedicado a mantener la seguridad en el campo y el orden público en general. Sobre todo, nos ayudaría a combatir el bandolerismo en las regiones del sur peninsular."
+
+ je_gloriosa:0 "La Gloriosa"
+ je_gloriosa_reason:0 "Mucha gente espera que con la entrada al poder de [ROOT.GetCountry.GetRuler.GetFirstName], empiece un proceso de modernización que muchos en la [SCOPE.gsInterestGroup('union_scope').GetName] y entre los jóvenes [GetPopType('officers').GetName] de las [SCOPE.gsInterestGroup('ejercito_scope').GetName] desean. También la [SCOPE.gsInterestGroup('rural_scope').GetName] esperan dedicación a las tierras de cultivo, y los [SCOPE.gsInterestGroup('industrialistas_scope').GetName] junto con la [SCOPE.gsInterestGroup('burguesia_scope').GetName], esperan que lentamente el país se vaya poniendo al dia en el asunto económico. En caso de no encontrar sus exigencias cumplidas, es muy probable que empiecen a conspirar contra el régimen de [ROOT.GetCountry.GetRuler.GetFirstName], con el apoyo del ala radical de la [SCOPE.gsInterestGroup('union_scope').GetName].\n\nEl pulso se libra entre los agentes políticos #tooltippable;tooltip:ideologia_conservadora_tooltip conservadores#!, liderados por los [SCOPE.gsInterestGroup('terratenientes_scope').GetName] y los #tooltippable;tooltip:ideologia_liberal_tooltip liberales#!, liderados por la [SCOPE.gsInterestGroup('union_scope').GetName] con el apoyo de la [SCOPE.gsInterestGroup('burguesia_scope').GetName], buscando cada uno llevar a [ROOT.GetCountry.GetName] a una dirección diferente.\n\nUn [Concept('concept_agitator', 'agitador')] que se encuentre [Concept('concept_exile', 'exiliado')] en el $EXILE_POOL$ podrá apoyar el golpe desde el exterior."
+ je_gloriosa_goal:0 "La inestabilidad ha estado el suficiente tiempo presente"
+
+ golpe_directo:0 "Hay una [Concept('concept_revolution', 'revolución')] al #bold 80%#! de progreso no liderada por los [SCOPE.gsInterestGroup('terratenientes_scope').GetName] o por la [SCOPE.gsInterestGroup('curas_scope').GetName]"
+
+ sin_fuelle:0 "El golpe se vino abajo con un 0 de progreso"
+ revolucion_esp:0 "Se acercan grandes cambios en el panorama político de España
+ agitador_gloriosa_0:0 "No hay disidencia extranjera"
+ agitador_gloriosa_1:1 "Hay un agitador exiliado unido al movimiento"
+ agitador_gloriosa_2:2 "Hay 2 agitadores exiliados unidos al movimiento"
+ agitador_gloriosa_3:3 "Hay 3 agitadores exiliados unidos al movimiento"
+ agitador_gloriosa_4:4 "Hay demasiados agitadores exiliados unidos al movimiento"
+
+ prim_politico:0 "Juan Prim regresará del exilio y asumirá el cargo como político"
+
+ gloriosa_button: "Progreso del golpe: #variable [ROOT.GetCountry.MakeScope.Var('salvacion_timer').GetValue|0]#! (#tooltippable;tooltip:[ROOT.GetCountry.GetTooltipTag],gloriosa_var_tooltip [ROOT.GetCountry.MakeScope.Var('gloriosa_progess_next').GetValue|1+=]#!) / #bold 600 #!"
+ gloriosa_button_desc: "Francia alcanzó la cima de su gloria de mano del emperador Napoleón. La restauración de la Casa de Bonaparte es claramente lo que conviene a nuestro país."
+
+ ideologia_conservadora_tooltip: "#tooltip_header Las [Concept('concept_ideology', 'ideologías')] conservadoras son:#!\n$TOOLTIP_DELIMITER$\n[GetIdeology('ideology_traditionalist').GetName], [GetIdeology('ideology_authoritarian').GetName], [GetIdeology('ideology_theocrat').GetName], [GetIdeology('ideology_slaver').GetName] y [GetIdeology('ideology_royalist').GetName]. Tambien suman los lideres de los [GetInterestGroupVariant('ig_landowners',GetPlayer).GetName] y la [GetInterestGroupVariant('ig_devout',GetPlayer).GetName]" 
+
+ ideologia_liberal_tooltip: "#tooltip_header Las [Concept('concept_ideology', 'ideologías')] liberales son:#!\n$TOOLTIP_DELIMITER$\n[GetIdeology('ideology_republican_leader').GetName], [GetIdeology('ideology_radical').GetName], [GetIdeology('ideology_radical2').GetName], [GetIdeology('ideology_reformer').GetName], [GetIdeology('ideology_humanitarian').GetName], [GetIdeology('ideology_abolitionist').GetName], [GetIdeology('ideology_positivist').GetName] y [GetIdeology('ideology_atheist').GetName]. También suman los lideres de la [GetInterestGroupVariant('ig_intelligentsia',GetPlayer).GetName] o de la [GetInterestGroupVariant('ig_petty_bourgeoisie',GetPlayer).GetName]" 
+
+ gloriosa_var_tooltip: "#tooltip_header Cambios mensuales debidos a los siguientes motivos:#!\n$TOOLTIP_DELIMITER$ $lista_exiliados$ $lista_agitadores_locales$ $lista_generales_liberales$ $lista_generales_liberales_bat$ $lista_generales_conservadores$ $lista_generales_conservadores_bat$ $lista_almirantes_liberales$ $lista_almirantes_liberales_bat$ $lista_almirantes_conservadores$ $lista_almirantes_conservadores_bat$ $lista_fuerza_intellisensia$ $lista_fuerza_burguesia$ $lista_fuerza_terrateniente$ $lista_fuerza_iglesia$ $lista_legitimidad$ $lista_radicales$ $lista_lealistas$ " 
+
+ lista_exiliados:0 "\n#variable [Country.MakeScope.Var('gloriosa_progess_de_exiliados').GetValue|+=]#! por la [concept_popularity|l] mermada combinada de los [Concept('concept_agitator', 'disidentes')] en el [concept_exile|l]"
+ lista_agitadores_locales:0 "\n#variable [Country.MakeScope.Var('gloriosa_progess_de_agitadores').GetValue|+=]#! por la [concept_popularity|l] combinada de los [Concept('concept_agitator', 'agitadores')] aquí"
+ lista_generales_liberales:0 "\n#variable [Country.MakeScope.Var('gloriosa_progess_de_generales').GetValue|+=]#! por la [concept_popularity|l] combinada de los [Concept('concept_general', 'generales')] #tooltippable;tooltip:ideologia_liberal_tooltip liberales#!"
+ lista_generales_liberales_bat:0 "\n#variable [Country.MakeScope.Var('gloriosa_progess_de_generales_bat').GetValue|+=]#! por los [Concept('concept_battalion', 'batallones')] combinados de los [Concept('concept_general', 'generales')] #tooltippable;tooltip:ideologia_liberal_tooltip liberales#!"
+ lista_generales_conservadores:0 "\n#variable [Country.MakeScope.Var('gloriosa_decess_de_generales').GetValue|+=]#! por la [concept_popularity|l] combinada de los [Concept('concept_general', 'generales')] #tooltippable;tooltip:ideologia_conservadora_tooltip conservadores#!"
+ lista_generales_conservadores_bat:0 "\n#variable [Country.MakeScope.Var('gloriosa_decess_de_generales_bat').GetValue|+=]#! por los [Concept('concept_battalion', 'batallones')] combinados de los [Concept('concept_general', 'generales')] #tooltippable;tooltip:ideologia_conservadora_tooltip conservadores#!"
+ lista_almirantes_liberales:0 "\n#variable [Country.MakeScope.Var('gloriosa_progess_de_almirantes').GetValue|+=]#! por la [concept_popularity|l] combinada de los [Concept('concept_admiral', 'almirantes')] #tooltippable;tooltip:ideologia_liberal_tooltip liberales#!"
+ lista_almirantes_liberales_bat:0 "\n#variable [Country.MakeScope.Var('gloriosa_progess_de_almirantes_bat').GetValue|+=]#! por las [Concept('concept_flotilla','flotillas')] combinadas de los [Concept('concept_admiral', 'almirantes')] #tooltippable;tooltip:ideologia_liberal_tooltip liberales#!"
+ lista_almirantes_conservadores:0 "\n#variable [Country.MakeScope.Var('gloriosa_decress_de_almirantes').GetValue|+=]#! por la [concept_popularity|l] combinada de los [Concept('concept_admiral', 'almirantes')] #tooltippable;tooltip:ideologia_conservadora_tooltip conservadores#!"
+ lista_almirantes_conservadores_bat:0 "\n#variable [Country.MakeScope.Var('gloriosa_decress_de_almirantes_bat').GetValue|+=]#! por las [Concept('concept_flotilla','flotillas')] combinadas de los [Concept('concept_admiral', 'almirantes')] #tooltippable;tooltip:ideologia_conservadora_tooltip conservadores#!"
+
+ lista_fuerza_intellisensia:0 "\n#variable [Country.MakeScope.Var('gloriosa_progess_de_poder_intelligentsia').GetValue|+=]#! por el [concept_clout|l] de la [GetInterestGroupVariant('ig_intelligentsia',GetPlayer).GetName]"
+ lista_fuerza_burguesia:0 "\n#variable [Country.MakeScope.Var('gloriosa_progess_de_poder_burgueses').GetValue|+=]#! por el [concept_clout|l] de la [GetInterestGroupVariant('ig_petty_bourgeoisie',GetPlayer).GetName]"
+ lista_fuerza_terrateniente:0 "\n#variable [Country.MakeScope.Var('gloriosa_progess_de_poder_landowners').GetValue|+=]#! por el [concept_clout|l] de los [GetInterestGroupVariant('ig_landowners',GetPlayer).GetName]"
+ lista_fuerza_iglesia:0 "\n#variable [Country.MakeScope.Var('gloriosa_progess_de_poder_iglesia').GetValue|+=]#! por el [concept_clout|l] de la [GetInterestGroupVariant('ig_devout',GetPlayer).GetName]"
+ lista_legitimidad:0 "\n#variable [Country.MakeScope.Var('gloriosa_progess_de_legitimidad').GetValue|+=]#! por la [concept_legitimacy|l] del [concept_government|l]"
+ lista_radicales:0 "\n#variable [Country.MakeScope.Var('gloriosa_progess_de_radicales').GetValue|+=]#! por la proporción de [Concept('concept_radical', '$concept_radicals$')|l]"
+ lista_lealistas:0 "\n#variable [Country.MakeScope.Var('gloriosa_progess_de_lealistas').GetValue|+=]#! por la proporción de [Concept('concept_loyalist', '$concept_loyalists$')|l]"
+
+ # lista_otros:0 "\n#variable [Country.MakeScope.Var('gloriosa_progess_de_lealistas').GetValue|+=]#! por el número de lealistas\n#variable [Country.MakeScope.Var('bonapartist_progress_from_effects').GetValue|+=]#! por otros efectos"
+
+ je_regencia_esp:0 "Regencia de [ROOT.GetCountry.GetRuler.GetFirstName]"
+ je_regencia_esp_reason:0 "La pequeña [ROOT.GetCountry.GetHeir.GetFirstName] apenas tiene #variable [ROOT.GetCountry.GetHeir.GetAge]#! años, por lo que, [ROOT.GetCountry.GetRuler.GetFullName] ha asumido el cargo de la regencia, hasta que [ROOT.GetCountry.GetHeir.GetFirstName] se considera capaz de asumir la tarea de gobernar el país."
+ je_regencia_esp_desc:0 "La regencia se ha acabado"
+ je_regencia_esp_indicacion:0 "María Cristina o Espartero se mantiene en la regencia."
+ je_regencia_esp_indicacion2:0 "María Cristina o Espartero ha abandonado la regencia"
+ je_regencia_esp_indicacion3:0 "Isabel tiene 17 años."
+ je_regencia_esp_indicacion4:0 "Isabel ya no es la heredera"
+
+ car.1.t:0 "Expedición de [SCOPE.sCharacter('gomez_damas').GetLastName]"
+ car.1.d:0 "Nuestro $concept_general$ [SCOPE.sCharacter('gomez_damas').GetFullName] ha iniciado marcha por el norte peninsular buscando desviar la atención de las fuerzas cristininas de la Expedición Real."
+ car.1.f:0 "La Expedición Gómez fue una acción militar, durante la Primera Guerra Carlista La expedición se llevó a cabo en el norte del país y tuvo como objetivo principal avanzar hacia el sur con el fin de apoyar a las tropas [SCOPE.sCountry('car_scope').GetAdjective|l] que luchaban por el pretendiente al trono, Carlos María Isidro de Borbón.\nLa expedición comenzó en agosto de 1836 y tuvo ciertos éxitos iniciales, avanzando por la región de La Rioja y Navarra, donde logró reclutar nuevos seguidores para la causa carlista. Sin embargo, la marcha de Gómez se vio obstaculizada por la falta de recursos y apoyo logístico, lo que dificultó su avance hacia el sur peninsular. La derrota en Aranzueque fue un duro golpe para la causa carlista y para las esperanzas de Gómez de avanzar hacia el sur. Después de esta derrota, la expedición se desmoronó y Gómez se vio obligado a retirarse hacia el norte peninsular."
+ car.1.a:0 "Buena suerte"
+ car.1.tt:0 "[SCOPE.sCharacter('gomez_damas').GetFullName] no estara disponible mientras dure la expedición"
+
+ esp.3.t:0 "Coronación de [ROOT.GetCountry.GetHeir.GetFirstName]"
+ esp.3.d:0 "Ante la necesidad inmediata, se ha considerado que [ROOT.GetCountry.GetHeir.GetFirstName] a sus 17 años ya está lista para asumir el cargo de reina de [ROOT.GetCountry.GetName]"
+ esp.3.f:0 "[ROOT.GetCountry.GetHeir.GetFirstName] II de [ROOT.GetCountry.GetName], llamada «la de los Tristes Destinos» o «la Reina Castiza», fue reina de [ROOT.GetCountry.GetName] entre 1833 y 1868, gracias a la derogación del Reglamento de sucesión de 1713 (comúnmente denominado «Ley Sálica») por medio de la Pragmática Sanción de 1830. Esto provocó la insurgencia del infante Carlos María Isidro, que era hermano de Fernando VII y tío de [ROOT.GetCountry.GetHeir.GetFirstName] II, y que ya había intentado proclamarse rey con el apoyo de los grupos llamados «carlistas» durante la agonía de Fernando."
+ esp.3.a:0 "Esperemos que sea mejor que el padre"
+
+ esp.4.t:0 "Guerrilla en el Norte"
+ esp.4.d:0 "Varios encontronazos entre las fuerzas [SCOPE.sCountry('car_scope').GetAdjective|l] y las cristininas han dejado la zona norte del país devastada."
+ esp.4.f:0 "Aunque el grueso de las fuerzas [SCOPE.sCountry('car_scope').GetAdjective|l] se encuentra por la zona de Navarra, norte de Cataluña y Aragón, algunas escaramuzas han surgido por todo el norte peninsular fruto de las expediciones [SCOPE.sCountry('car_scope').GetAdjective|l] en territorio cristino."
+ esp.4.a:0 "Dificultara el movimiento de efectivos"
+
+ esp.5.t:0 "Fin persecución periódicos liberales"
+ esp.5.d:0 "Ante la escasez de [concept_authority|l], hemos tenido que dejar de censurar a los periódicos liberales. [SCOPE.sCharacter('leader_ig').GetLastName] ha salido muy beneficiado de esta situación."
+ esp.5.f:0 "«La pluma se volvió tan temida como la espada» - Exclamaba Martín\n\nUn valiente editor, Martín Serrano, lideraba un periódico liberal que desafiaba abiertamente la opresión del gobierno absolutista.\n\nSus palabras incendiarias inspiraron a las masas, pero también provocaron la furia de las autoridades. La censura se cernió sobre su publicación, tachando con tinta negra cada línea que desafiaba el status quo. A pesar de la represión, Serrano y su equipo persistieron, distribuyendo clandestinamente copias de su periódico para mantener viva la llama de la resistencia en las sombras de una prensa silenciada."
+ esp.5.a:0 "Maldita sea"
+
+ esp.6.t:0 "Golpe de Estado de [SCOPE.sCharacter('spartero_scope').GetLastName]"
+ esp.6.d:0 "Tras la renuncia de la [ROOT.GetCountry.GetRuler.GetFullNameWithTitle] por las presiones liberales, el general [SCOPE.sCharacter('spartero_scope').GetFullName] ha asumido el cargo de regentar el reino."
+ esp.6.f:0 "El Gobierno moderado presentó un proyecto de ley de ayuntamientos que recortaba las competencias municipales. Los progresistas se opusieron rotundamente. Esto llevó a una campaña para que la regente no sancionara la ley y para que [SCOPE.sCharacter('spartero_scope').GetFullName] evitara su promulgación. Espartero aceptó la presidencia del Consejo de ministros y se enfrentó a los moderados para evitar la aprobación de la ley. Estallaron revueltas progresistas por toda [ROOT.GetCountry.GetName], en las que se formaron juntas revolucionarias que desafiaron la autoridad del Gobierno. Finalmente la Reina regente abandonó la regencia y [SCOPE.sCharacter('spartero_scope').GetFullName] ha asumido su cargo."
+ esp.6.a:0 "A ver si sabe controlar la situación"
+
+ esp.7.t:0 "La Gloriosa"
+ esp.7.d:0 "Tras un desembarco en [SCOPE.sState('estado_desembarco').GetStateRegion.GetPortHubName] por varios lideres exiliados y el apoyo del general [SCOPE.sCharacter('golpista').GetLastName] y de [SCOPE.sCharacter('prim_scope').GetLastName], los golpistas han logrado entrar exitosamente en [SCOPE.sState('capital').GetStateRegion.GetCityHubName]. A [ROOT.GetCountry.GetRuler.GetFullName] no le ha quedado otra que abdicar"
+ esp.7.f:0 "La Gloriosa es el nombre que se le da al levantamiento revolucionario que se produjo en [ROOT.GetCountry.GetName] en 1868 y que llevó a la caída de la Isabel II y al establecimiento de un gobierno provisional. Las causas de la Gloriosa son diversas, pero se pueden destacar la crisis económica, el descontento popular con la monarquía y la corrupción política. Además, hubo un descontento entre algunos sectores militares que veían la necesidad de modernizar el país y de establecer una constitución que limitara el poder absoluto de la monarquía.\n\n#italic «¡Abajo los Borbones!»\n- Juan Prim #!"
+ esp.7.a:0 "El heredero [ROOT.GetCountry.GetHeir.GetFullName] es nuestra salvación."
+ esp.7.b:0 "La república es la única solución"
+ esp.7.c:0 "Tenemos que llamar a Amadeo."
+ esp.7.razon:0 "El heredero será el nuevo monarca"
+
+ esp.8.t:0 "Era de los Pronunciamientos"
+ esp.8.d:0 "Han pasado 2 años desde la coronación de [ROOT.GetCountry.GetRuler.GetFullNameWithTitle], y muchos esperan mucho de su reinado. Es necesario mantener la estabilidad en [ROOT.GetCountry.GetName], si queremos que sobreviva el régimen."
+ esp.8.f:0 "Los pronunciamientos en [ROOT.GetCountry.GetName], se refieren a una serie de levantamientos militares que tuvieron lugar a lo largo del siglo XIX y principios del XX. Estos pronunciamientos fueron una forma en que los militares intentaron influir en la política del país, a menudo en un intento de defender los intereses de su propio grupo o facción. Los pronunciamientos fueron un reflejo de la inestabilidad política y la lucha por el poder en [ROOT.GetCountry.GetName] durante gran parte del siglo XIX y principios del XX. Si bien pueden haber sido efectivos en algunos casos para lograr cambios políticos, también fueron un recordatorio de la tendencia del país a depender en gran medida de la fuerza militar para mantener la estabilidad política."
+ esp.8.a:0 "Se vienen unas décadas interesantes"
+
+ esp.9.t:0 "La Expedición Real"
+ esp.9.d:0 "[SCOPE.sCountry('car_scope').GetRuler.GetFullName] ha empezado una serie de campañas a lo largo del norte para buscar apoyo a lo largo de [ROOT.GetCountry.GetName]."
+ esp.9.f:0 "Expedición Real fue el nombre que se le dio al intento de [SCOPE.sCountry('car_scope').GetRuler.GetFullName] de tomar Madrid y destronar a su sobrina [ROOT.GetCountry.GetHeir.GetFullName], partiendo con un ejército desde el territorio [Concept('concept_state', 'navarro')] dominado por los [SCOPE.sCountry('car_scope').GetAdjective|l].\n\nLa estrategia consistía en marchar por [Concept('concept_state', 'Aragón')] a [Concept('concept_state', 'Cataluña')], reforzar el ejército con las tropas [SCOPE.sCountry('car_scope').GetAdjective|l] allí existentes, cruzar el Ebro y reunirse con la tropa de Cabrera en el Maestrazgo, tras lo cual el ejército tendría fuerza suficiente para enfrentarse a cualquiera de los ejércitos cristinos, teniendo asegurado el camino para apoderarse de [Concept('concept_state', 'Madrid')] y sentar en el trono al Pretendiente."
+ esp.9.a:0 "Los [SCOPE.sCountry('car_scope').GetAdjective|l] no consolidaran ni un metro cuadrado más"
+ esp.9.b:0 "No podemos desviar nuestra atención"
+ esp.9.b_tt3: "Los insurgentes [SCOPE.sCountry('car_scope').GetAdjective|l] aseguraran la zona del bajo [SCOPE.sState('aragon_español').GetStateRegion.GetName]"
+ esp.9.b_tt: "Los [SCOPE.sCountry('car_scope').GetAdjective|l] le pondan sitio a #bold Barcelona#!"
+ esp.9.b_tt1: "Insurgentes [SCOPE.sCountry('car_scope').GetAdjective|l] surgiran al norte de [SCOPE.sState('valencia_español').GetStateRegion.GetName]"
+
+ esp.10.t:0 "El Pacto de Ostende"
+ esp.10.d:0 "Esta mañana en el pequeño puerto de Ostende, cerca de la ciudad [SCOPE.sCountry('ocupador_flanders').GetAdjective] de [SCOPE.sState('flanders_scope').GetStateRegion.GetPortHubName], [SCOPE.sCharacter('agitador_esp_scope').GetFullName] se ha unido a una declaración escrita en la que se declara la contrariedad al régimen actual [ROOT.GetCountry.GetAdjective]."
+ esp.10.f:0 "El Pacto de Ostende fue el acuerdo firmado el 16 de agosto de 1866 en la ciudad belga de Ostende por el Partido Progresista y por el Partido Demócrata, por iniciativa del general progresista Juan Prim, para derribar la monarquía de Isabel II de [ROOT.GetCountry.GetName]. Este pacto, al que a principios de 1868 se sumó la Unión Liberal, fue el origen de «La Gloriosa», la revolución que en septiembre de 1868 depuso a la reina española."
+ esp.10.a:0 "Tenemos que deshacernos de ese malnacido"
+ conspirando1:0 "Este agitador respaldará el golpe desde el exilio"
+
+ esp.11.t:0 "Surgimiento del republicanismo"
+ esp.11.d:0 "Tras la decisión del ala moderada de la [GetInterestGroupVariant('ig_intelligentsia',GetPlayer).GetName] tras La Revolución de la Gloriosa de mantener la [GetLawType('law_monarchy').GetName] ha enfurecido al ala [GetIdeology('ideology_republican_leader').GetName], favorable a una [GetLawType('law_presidential_republic').GetName]. Un destacado político, llamado [SCOPE.sCharacter('ig_lider').GetFullName] se ha abierto paso dentro de las filas de la [GetInterestGroupVariant('ig_intelligentsia',GetPlayer).GetName] convirtiéndose en su líder."
+ esp.11.f:0 "[SCOPE.sCharacter('ig_lider').GetFullName], que estudió Derecho, fue partidario de un modelo federal para el Estado, conjugando influencias de Proudhon, el socialismo democrático y el socialismo libertario. Contrario a la [GetLawType('law_monarchy').GetName] en cualquiera de sus variantes y formas, participó activamente en la oposición a la misma, por lo que sufrió censura, cárcel y exilio. Después de la Revolución Gloriosa fue diputado en Cortes, donde dirigió el Partido Federal, y ministro de la Gobernación con Estanislao Figueras. Tras la dimisión de este, las Cortes le eligieron presidente, cargo que asumió el 11 de junio de 1873 y desde el cual se enfrentó a la Tercera Guerra Carlista y la Revolución Cantonal, defendiendo el Proyecto de Constitución Federal de 1873. Se vio obligado a dimitir poco más de un mes después, el 18 de julio, ante la imposibilidad de desarrollar su labor de gobierno tras el Cantón de Cartagena."
+ esp.11.a:0 "Salimos de un agujero para meternos en otro"
+
+ esp.12.t:0 "Sublevaciones en [SCOPE.sState('estado_rebelde').GetStateRegion.GetCityHubName]"
+ esp.12.d:0 "Un grupo de [GetPopType('officers').GetName] junto con [GetPopType('soldiers').GetName] de la guardia nacional, ha protagonizado hoy un pronunciamiento en la ciudad de [SCOPE.sState('estado_rebelde').GetStateRegion.GetCityHubName] en [SCOPE.sState('estado_rebelde').GetStateRegion.GetName] protestando por la destitución del Presidente del Consejo de Ministros además de exigir la restauración de la #bold Constitución de 1812#!"
+ esp.12.f:0 "La respuesta de los liberales a la destitución fue iniciar una serie de revueltas populares en diversas ciudades, en muchos casos encabezadas por la Guardia Nacional, que se extendieron por todo el país —singularmente en Málaga, Zaragoza y Barcelona—, y que estuvieron acompañadas de conatos de insurrección de algunas unidades militares"
+ esp.12.a:0 "Debemos restaurar el orden"
+
+ esp.13.t:0 "Constitución de [ROOT.GetCountry.MakeScope.Var('anno').GetValue|0]"
+ esp.13.d:0 "La firma de esta constitución para [ROOT.GetCountry.GetName] supondrá finalmente el fin del #bold Estatuto Real de 1834#!, junto con todo el antiguo régimen, siendo el inicio de una nueva era para la nación."
+ esp.13.f:0 "La Constitución de [ROOT.GetCountry.MakeScope.Var('anno').GetValue|0] estableció una monarquía constitucional y representativa, donde se reconocían ciertos derechos y libertades a los ciudadanos. Entre sus principales características, destacaba el sufragio censitario restringido, lo que limitaba el derecho al voto a una minoría de ciudadanos con ciertas propiedades. A pesar de estas limitaciones, sentó un precedente importante en el proceso de establecimiento de un sistema parlamentario y la protección de ciertos derechos civiles.\nAdemás, establecía la separación de poderes, con un Poder Legislativo formado por las Cortes Generales y un Poder Ejecutivo encabezado por el monarca, quien debía ejercer su autoridad junto a un Consejo de ministros responsables ante las Cortes."
+ esp.13.a:0 "Finalmente logramos retomar lo que Riego empezó"
+
+ esp.15.t:0 "Motín de La Granja de San Ildefonso"
+ esp.15.d:0 "[GetPopType('officers').GetName] de la Guardia Real del palacio de La Granja de San Ildefonso en Segovia se han amotinado mientras [ROOT.GetCountry.GetRuler.GetFirstName] se encontraba allí."
+ esp.15.f:0 "Finalmente ha ocurrido. Meses de intensos motines y sublevaciones han culminado en este crucial evento. Durante el motín, la misma [ROOT.GetCountry.GetRuler.GetFirstName] y su séquito intentaron convencerles de que depusieran su actitud recordándoles que el enemigo eran los carlistas, a lo que los dos [GetPopType('officers').GetName] respondieron que ellos combatían no solo «por los derechos de nuestra reina» sino también «por la libertad». Cuando terminó la entrevista los [GetPopType('officers').GetName] amotinados exigieron una nueva entrevista, durante la cual la regente se vio obligada a firmar, a altas horas de la madrugada, un decreto en el que restablecía la «Constitución política del año 12, ínterin que reunida la nación en Cortes, manifieste expresamente su voluntad, o dé otra Constitución conforme a las necesidades de la misma»"
+ esp.15.a:0 "Espero que no acabe igual que en 1823"
+ esp.15_tt: "Cumpliras las condiciones de la [concept_journal_entry|l] de #bold «La Sargentada»#!"
+
+ esp.16.t: "Junta Provincial de [SCOPE.sState('estado_junta').GetStateRegion.GetCityHubName]"
+ esp.16.d: "Un grupo de [GetPopType('officers').GetName] junto con [GetPopType('bureaucrats').GetName] afines a la [SCOPE.gsInterestGroup('intel_ig').GetName] local, han proclamado en la ciudad de [SCOPE.sState('estado_junta').GetStateRegion.GetCityHubName], en [SCOPE.sState('estado_junta').GetStateRegion.GetName], la creación de una Junta Provincial exigiendo el retorno de la #bold Constitución de 1812#!."
+ esp.16.f: "Los [GetPopType('officers').GetName] liberales fueron rápidos. Rápidamente una turba de personas junto con efectivos de la Guardia Nacional asaltó los edificios gubernamentales de [SCOPE.sState('estado_junta').GetStateRegion.GetCityHubName] y no pasó mucho hasta que se perdiera contacto con la adminsitracion local."
+ esp.16.a: "Perdemos al país"
+ esp.16.tooltip: "La [concept_legitimacy|l] del [concept_government|l] se verá según el número de Juntas provinciales"
+
+ esp.17.t:0 "Indisciplina en el ejército"
+ esp.17.d:0 "Hoy los [GetPopType('soldiers').GetName] de los [SCOPE.sBuilding('cuartel_malo').GetName] de [SCOPE.sState('estado_isubordinacion').GetStateRegion.GetName] han cometido ciertos actos de insubordinación frente a sus superiores."
+ esp.17.f:0 " - Luchamos en condiciones inhumanas y llevamos un buen tiempo sin recibir ningún salario - decía un soldado.\n\nDurante la Primera Guerra Carlista, uno de los problemas más recurrentes y desafiantes para el ejército fue el impago de salarios a la tropa. Esta situación generó un profundo descontento y malestar entre los soldados, lo que contribuyó a la inestabilidad y la desmoralización en las filas del ejército cristinino.\n\nLa guerra carlista supuso un alto costo financiero y una considerable movilización de recursos, lo que resultó en la acumulación de deudas y retrasos en el pago de salarios. Los soldados se veían obligados a soportar condiciones difíciles, a menudo sin recibir la comida adecuada, alojamiento decente o vestimenta suficiente para enfrentar los rigores de la guerra."
+ esp.17.a:0 "Tenemos que mejorar sus condiciones"
+ esp.17.b:0 "El estado no puede permitirse más gastos"
+ esp.17.b_tt: "Los soldados en los [SCOPE.sBuilding('cuartel_malo').GetName|l] de [SCOPE.sState('estado_isubordinacion').GetStateRegion.GetName] perderan un poquito de su [concept_morale|l]"
+
+ esp.18.t:0 "Expedición de [SCOPE.sCharacter('gomez_damas').GetLastName]"
+ esp.18.d:0 "El $concept_general$ Carlista [SCOPE.sCharacter('gomez_damas').GetFullName] ha iniciado marcha por el norte peninsular buscando desviar la atención de las fuerzas cristininas de la Expedición Real. En la entrada del diario encontráremos las opciones de cómo tratarla"
+ esp.18.f:0 "La Expedición Gómez fue una acción militar, durante la Primera Guerra Carlista La expedición se llevó a cabo en el norte del país y tuvo como objetivo principal avanzar hacia el sur con el fin de apoyar a las tropas [SCOPE.sCountry('car_scope').GetAdjective|l] que luchaban por el pretendiente al trono, Carlos María Isidro de Borbón.\nLa expedición comenzó en agosto de 1836 y tuvo ciertos éxitos iniciales, avanzando por la región de La Rioja y Navarra, donde logró reclutar nuevos seguidores para la causa carlista. Sin embargo, la marcha de Gómez se vio obstaculizada por la falta de recursos y apoyo logístico, lo que dificultó su avance hacia el sur de [ROOT.GetCountry.GetName]. La derrota en Aranzueque fue un duro golpe para la causa carlista y para las esperanzas de Gómez de avanzar hacia el sur. Después de esta derrota, la expedición se desmoronó y Gómez se vio obligado a retirarse hacia el norte de [ROOT.GetCountry.GetName]."
+ esp.18.a:0 "Hay que darles caza"
+
+ esp.19.t:0 "Elección de $concept_general$"
+ esp.19.d:0 "Debemos elegir qué $concept_general$ con su respectivo ejército, será el encargado de salir a su contra."
+ esp.19.f:0 "Durante la expedición, Gómez Damas, logró formar un ejército de hasta 6000 hombres gracias a los carlistas que se le unieron en el camino (como Ramón Cabrera) y se enfrentó a los generales liberales en varias ocasiones: venció a Tello en Baranda y a López en Matilla, sin embargo fue derrotado por Espartero en Escaro y por Alaix en Villarrobledo. Además, los generales Rodil y Narváez lo persiguieron infructuosamente (batalla del Majaceite), llegando a movilizar tras de sí, en el momento culmen, a casi 25.000 soldados liberales"
+ esp.19.a: "[SCOPE.sCharacter('expedition_leader_1').GetPrimaryRoleTitle] [SCOPE.sCharacter('expedition_leader_1').GetFullName]"
+ esp.19.b: "[SCOPE.sCharacter('expedition_leader_2').GetPrimaryRoleTitle] [SCOPE.sCharacter('expedition_leader_2').GetFullName]"
+ esp.19.c: "[SCOPE.sCharacter('expedition_leader_3').GetPrimaryRoleTitle] [SCOPE.sCharacter('expedition_leader_3').GetFullName]"
+
+ esp.20.t:0 "Descontento con la situación"
+ esp.20.d:0 "Con la expedición de [SCOPE.sCharacter('gomez_damas').GetFullName] avanzando sin oposición por la provincia de [SCOPE.sState('estado_paseo').GetStateRegion.GetName], el descontento entre la población por los saqueos carlistas ha aumentado, aparte de reducir nuestra capacidad militar en [SCOPE.sState('estado_paseo').GetStateRegion.GetName]."
+ esp.20.f:0 "La expedición de [SCOPE.sCharacter('gomez_damas').GetLastName] está provocando un aumento de la agitación y la inestabilidad política en el país. Su avance hacia el sur de [ROOT.GetCountry.GetName], reclutando seguidores en el camino, continua. Los territorios que atravesaba la expedición se convirtieron en escenarios de conflicto y saqueos por ambos bandos.\n\nLa capacidad de [SCOPE.sCharacter('gomez_damas').GetLastName] para movilizar seguidores y avanzar hacia el sur, muestra la persistencia y fuerza de la causa carlista, lo que podía minar la confianza en el gobierno y en la estabilidad de la monarquía."
+ esp.20.a: "Maldito sea"
+ esp.20.tooltip:0 "La [concept_legitimacy|l] del [concept_government|l] se verá afectada"
+ esp.20.tooltip2:0 "Nuestra capacidad de hacer leva se verá destruida. Intenta usar el [concept_decree|l] de [GetDecreeType('decree_enlistment_efforts').GetName]"
+
+ esp.21.t:0 "[SCOPE.sCharacter('gomez_damas').GetFullName] derrotado"
+ esp.21.d:0 "Finalmente nuestro [SCOPE.sCharacter('perseguidor').GetPrimaryRoleTitle] [SCOPE.sCharacter('perseguidor').GetFullName] ha logrado encotnrar y derrotar la expedición de [SCOPE.sCharacter('gomez_damas').GetFullName] en [SCOPE.sState('estado_captura').GetStateRegion.GetName]."
+ esp.21.f:0 "Finalmente, la Expedición Gómez llegó a la provincia de Guadalajara, pero sus fuerzas estaban agotadas y debilitadas por la falta de suministros y los rigores de la guerra. En esta situación, el 24 de noviembre de 1836, las tropas [SCOPE.sCountry('car_scope').GetAdjective|l] de Gómez se enfrentaron a las fuerzas cristininas en la Batalla de Aranzueque.\nLa expedición de Gómez sufrió una contundente derrota. Las tropas [SCOPE.sCountry('car_scope').GetAdjective|l] no pudieron resistir el embate de las fuerzas gubernamentales mejor equipadas y entrenadas. La derrota fue devastadora para los [SCOPE.sCountry('car_scope').GetAdjective|l] y representó un duro golpe para las esperanzas de avanzar hacia el sur de [ROOT.GetCountry.GetName].\nTras la derrota en Aranzueque, la expedición de Gómez se desmoronó y tuvo que retirarse hacia el norte de [ROOT.GetCountry.GetName], perdiendo gran parte del territorio que habían conquistado previamente."
+ esp.21.a: "Finalmente se acabó"
+
+ esp.22.t:0 "Exilio de [SCOPE.sCharacter('mendizabal_scope').GetLastName]"
+ esp.22.d:0 "Cuando las noticias de que [SCOPE.sCharacter('mendizabal_scope').GetFullName] había tenido que abandonar [ROOT.GetCountry.GetName], la ira a la par del descontrol se apoderaron de la [SCOPE.gsInterestGroup('intelectuales_scope').GetName]. La ida de [SCOPE.sCharacter('mendizabal_scope').GetLastName] sin duda ha debilitado a la [SCOPE.gsInterestGroup('intelectuales_scope').GetName], pero sin embargo su radicalismo sigue en aumento por momentos."
+ esp.22.f:0 "La ausencia de [SCOPE.sCharacter('mendizabal_scope').GetLastName] ha dejado un vacío en el liderazgo y las decisiones políticas de la [SCOPE.gsInterestGroup('intelectuales_scope').GetName], dejando las puertas abiertas a otros actores que pueden asumir el poder y tomar rumbos diferentes en la dirección del país.\n\nAdemás, el exilio de [SCOPE.sCharacter('mendizabal_scope').GetLastName] ha afectado la estabilidad política en [ROOT.GetCountry.GetName]. Como figura política prominente, tenía seguidores y opositores, y su destitución ha generado tensiones y divisiones en el gobierno, la sociedad y dentro del ejército. Su exilio podría llevar a protestas y conflictos en su apoyo, mientras que sus opositores podrían haber aprovechado la situación para fortalecer su posición política."
+ esp.22.a: "Espero no arrepentirme"
+
+ esp.23.t:0 "Abrazo de Vergara"
+ esp.23.d:0 "[SCOPE.sCharacter('general_esp').GetFullName] se reunió en el pueblo navarro de Oñate con el general carlista Rafael Maroto para poner fin a la contienda, firmando un tratado que pondría fin a esta sangrienta lucha."
+ esp.23.f:0 "En las campas de Vergara se reunieron los dos ejércitos formados para realizar el acto final de la guerra en el norte. De los carlistas estaban presentes batallones de Vizcaya, Guipúzcoa y Castilla. Cuenta Maroto:\n\n «... pusieron luego sus armas en pabellones, se mezclaron libre y alegremente las tropas y quedó sellada la paz con el mayor contento y armonía... ¡Soldados nunca humillados ni vencidos, depusieron sus temibles armas ante las aras de la patria; cual tributo de paz olvidaron sus rencores y el abrazo de fraternidad sublimó tan heroica acción... tan español proceder!»"
+ esp.23.a:0 "Buen final"
+
+ esp.24.t:0 "El regreso de los carlistas"
+ esp.24.d:0 "Derrotados, pero no vencidos, los representantes carlistas en el exilio han empezado a conspirar para organizar otro levantamiento en [ROOT.GetCountry.GetName]."
+ esp.24.f:0 "El 30 de junio de 1869 el pretendiente publicó una Carta-Manifiesto, conocida como «Carta de Don Carlos a su hermano Don Alfonso», en la que manifestaba que aspiraba a reinar en [ROOT.GetCountry.GetName] y no a ser el mero jefe de un partido. Esta carta, redactada por Antonio Aparisi y Guijarro, que se convertiría en uno de los más íntimos colaboradores del pretendiente, fue reproducida por la prensa carlista, repartiéndose centenares de miles de ejemplares en hojas volanderas."
+ esp.24.a:0 "Cuantas veces tengo que enseñarte esta lección viejo"
+
+ esp.25.t:0 "Renegociación de la [Concept('concept_credit', '$concept_credit_debt$')|l]"
+ esp.25.d:0 "Un grupo de hombres de negocio, alineados con el grupo de [SCOPE.gsInterestGroup('ig_interesado').GetName] ha ofrecido un acuerdo para renegociar la [Concept('concept_credit', '$concept_credit_debt$')|l] nacional que tenemos con ellos."
+ esp.25.f:0 "- Así que este es el trato, ofrecemos una renegociación de la [Concept('concept_credit', '$concept_credit_debt$')|l] española que tenéis con nosotros y exigimos a cambio, unas ligeras concesiones.\n\nEl líder del equipo español, miró a los delegados:\n\n - 'Estamos dispuestos a considerar una renegociación de la [Concept('concept_credit', '$concept_credit_debt$')|l] española', comenzó. 'Pero necesitamos entender claramente cuáles son las concesiones que exigen a cambio'.\n\n- Es un tema delicado, pero estamos dispuestos a tratarlo..."
+ esp.25.a: "No es mal trato"
+ esp.25.a_tt: "Avanzaremos el equivalente a 8 meses en pagos de [Concept('concept_credit', '$concept_credit_debt$')|l]"
+ esp.25.b: "No necesitamos limosnas"
+
+ ferrocarril_cubano_but_name: "Experimento Cubano"
+ ferrocarril_cubano_but_desc: "Son muchas las voces que claman que apoyemos a nuestro capitán general en Cuba en su empresa de construir la primera línea de [GetBuildingType('building_railway').GetName|l] en la isla."
+ ferrocarril_cubano_but_tt: "Una vez finalizado, obtendremos un gran avance en la #bold Tecnología de Ferrocaril#! además de construir un [GetBuildingType('building_railway').GetName|l] en Cuba"
+
+ esp.26.t: "Línea La Habana - Bejucal"
+ esp.26.d: "Tras más de 4 años de intensos trabajos intensos, la empresa de nuestro capitán general ha concluido y hoy la primera línea de tren en Cuba ha entrado en funcionamiento."
+ esp.26.f: "El primer tren que se deslizó por las paralelas de hierro salió del Taller de Ciénaga en La Habana, en un viaje de prueba, el 13 de noviembre de 1837. Arribó a Bejucal a las 10:18. Esa prueba la publicó el Diario de la Marina, el 18 de noviembre de 1837. El 19 de noviembre de 1837, en homenaje al santo de la Reina Isabel II, se inauguró este primer tramo de 27,5 km, solemnemente por la Junta de Fomento. Ese día a las 8:00 a. m., salió el primer tren en dirección a Bejucal.\n\n Con su partida, Cuba se convertía en el séptimo lugar del mundo en disponer de esa vía de transporte, solo 12 años después del primer servicio de ferrocarril público inglés, siendo la primera provincia española. La España peninsular contaría con este medio de transporte únicamente a partir de 1848. Sería el primer ferrocarril en América Latina y el segundo país en el continente americano, solo después de EEUU."
+ esp.26.a: "Hemos sacado valiosa información"
+ esp.27.a: "Chu chu"
+
+ expedicion_gomez_but_1:0 "Todavía no hay nadie encargado de darle caza"
+ expedicion_gomez_but_11:0 "Hay una [concept_military_formation|l] con al menos 10 [Concept('concept_unit','$concept_units$')|l] con un [concept_general|l]"
+ expedicion_gomez_but_name:0 "Darle caza a la Expedición"
+ expedicion_gomez_but_desc:0 "Debemos parar la incursión. Cuanto más tiempo este el $concept_general$ campando sin oposición, más descredito le dará al régimen."
+
+ conspirando:0 "Este agitador respaldará el golpe desde el exilio"
+
+ RULER_TITLE_REGENTE:0 "Regente"
+ RULER_TITLE_REGENTA:0 "Reina Regente"
+ gov_regencia_monarchy:0 "Regencia"
+ gov_regencia_monarchy_desc:2 "En este [concept_government_type|l], el poder recae principalmente sobre un [Concept('concept_ruler','$RULER_TITLE_REGENTE$')|l] o una [Concept('concept_ruler','$RULER_TITLE_REGENTA$')] mientras el heredero no pueda gobernar.\n\n$TRANSFER_OF_POWER_NAME_DESC$"
+
+ bufo_filipina:0 "El gobierno colonial filipino, tendrá un aumento temporal a su [concept_legitimacy]"
+
+ phi.1.t:0 "Integración de estados súbditos"
+ phi.1.d:0 "Tras un gran esfuerzo burocrático, muchos en la [SCOPE.sCountry('phi_scope').GetName] quieren que los territorios de [SCOPE.sState('estado_scope').GetName], pertenecientes a nuestro vasallo [SCOPE.sCountry('owner_scope').GetName], se integren dentro del gobierno central."
+ phi.1.f:0 "Muchos consideran que el estado [ROOT.GetCountry.GetAdjective] debe invertir en la unión política de todos los estados en el archipiélago filipino, para así asegurar la preservación de la [SCOPE.sCountry('phi_scope').GetName]."
+ phi.1.a:0 "A los burócratas de [ROOT.GetCountry.GetCapital.GetCityHubName] no les va a gustar esto"
+
+ phi.2.t:0 "Reajuste en las fronteras"
+ phi.2.d:0 "La cuestión de la administración del territorio de [SCOPE.sState('estado_scope').GetName] es tema de debate y el [SCOPE.sCountry('phi_scope').GetRuler.GetFullNameWithTitle] ha solicitado su incorporación a la [SCOPE.sCountry('phi_scope').GetName]."
+ phi.2.f:0 "Tras una rápida reunión con el [SCOPE.sCountry('owner_scope').GetRuler.GetFullNameWithTitle], se ha llegado a un acuerdo para la cesión de territorio en el archipiélago filipino para su mejor administración desde [SCOPE.sCountry('phi_scope').GetCapital.GetCityHubName].\nSin duda es un pequeño avance en la tarea de dominar el archipiélago. Si rechazamos la oferta, podemos dar a entender a las demás potencias debilidad por nuestra parte."
+ phi.2.a:0 "Nuevos súbditos de la corona"
+
+ phi.3.t:0 "Fin de la Expansión"
+ phi.3.d:0 "Finalmente, tras varios siglos de lucha, hemos logrado que por primera vez en la historia de [ROOT.GetCountry.GetName], todo el archipiélago filipino este bajo la influencia de [ROOT.GetCountry.GetName]."
+ phi.3.f:0 "La Capitanía General de Filipinas, también conocida como Reino de Filipinas, fue una entidad territorial española, adjunta como entidad autónoma del Virreinato de Nueva España hasta 1830, que fue establecida por la Monarquía Hispánica en las llamadas Indias Orientales —zonas de Asia y Oceanía—, con capital en Manila."
+ phi.3.a:0 "Un gran dia para celebrar"
+ 
+ quitar_bandoleros_andalucia: "Acabar con el bandolerismo en Andalucía"
+ quitar_bandoleros_andalucia_desc: "Debemos deshacernos de los bandidos y pillos que pueblan la vieja tierra española de Andalucía."
+
+ je_filipinas_esp:0 "Completar la conquista de Filipinas"
+ je_filipinas_esp_reason:0 "[ROOT.GetCountry.GetName] controla la mayor parte del archipiélago filipino a través de la [SCOPE.sCountry('phim_scope').GetName]. Es hora de acabar con los pequeños sultanatos que quedan en el archipiélago e incorporarlos a la [SCOPE.sCountry('phim_scope').GetName]. Es hora de terminar lo que una vez España empezó y por primera vez en la historia de las Islas Filipinas, unificarlas bajo una misma administración."
+
+ compra_territorio:0 "Reajuste Territorial"
+ compra_territorio_desc:0 "A través de meticulosa negociación con alguno de los [Concept('concept_country','estados')|l] dentro del archipiélago, podríamos conseguir que uno de estos aceptase un reajuste de fronteras."
+ compra_territorio_ct:0 "Un [concept_protectorate|l] tiene un [concept_state|l] con menos de #bold 200000 #![Concept('concept_pop', 'habitantes')] en el archipiélago"
+
+ incorpora_territorio:0 "Integración territorial"
+ incorpora_territorio_desc:0 "Es hora que uno de los [Concept('concept_ruler','gobernantes')] autónomos dentro del archipielago sea integrado dentro de [SCOPE.sCountry('phim_scope').GetName]. Lo podremos incorporar directamente independientemente del número de [Concept('concept_pop', 'habitantes')]"
+ incorpora_territorio_ct:0 "Un [concept_puppet|l] o [concept_dominion|l] controla un estado dentro del archipiélago"
+
+ je_retorno_caristras_esp:0 "Retorno de los Carlistas"
+ je_retorno_caristras_esp_reason:0 "Pese a su primera derrota en la #bold Guerra Carlista #! los diferentes sucesores carlistas siguen reclamando la corona de [ROOT.GetCountry.GetName]. Sin lugar a duda, aprovecharan cualquier mínima turbulencia política en el país, para unir adeptos a su causa."
+ je_retorno_caristras_esp_goal:0 "Los carlistas se han consolidado"
+ sin_fuelle2:0 "El progreso el golpe ha llegado a 0"
+ avance_car:0 "El avance semanal es de #tooltippable;tooltip:[ROOT.GetCountry.GetTooltipTag],carr_var_tooltip [ROOT.GetCountry.MakeScope.Var('carlistas_progess_next').GetValue|2+=]#!"
+ no_guerra_civil:0 "No hay ninguna [concept_civil_war|l] en marcha"
+ je_retorno_caristras_esp_tt:0 "Los #bold carlistas #!se alzarán de nuevo"
+
+ carr_var_tooltip: "#tooltip_header Cambios mensuales debidos a los siguientes motivos:#!\n$TOOLTIP_DELIMITER$ $lista_legitimidad_car$" 
+ lista_legitimidad_car:0 "\n#variable [Country.MakeScope.Var('carlistas_progess_next').GetValue|+=]#! por la [concept_legitimacy|l] del [concept_government|l]" 
+
+ ambiciones_en_guinea: "Establecer presencia en Guinea"
+ ambiciones_en_guinea_desc: "Con la posesión de la isla de Fernando Poo se nos abre las puertas a pisar tierra en guinea y expandirnos allí."
+ ambiciones_en_guinea_tt: "Ningún [concept_country|l] se ha establecido en la #bold Guinea Española #!"
+
+

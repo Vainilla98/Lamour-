@@ -1,0 +1,24 @@
+﻿l_english:
+ Carlos_M_I: "Carlos María Isidro"
+ CAR_FLAVOR_TEXT: "After three arduous years of conflict, the fatigue of a prolonged struggle is becoming increasingly evident among the Carlist ranks. Meanwhile, the Cristinos have consolidated their forces and are preparing to put an end to this situation once and for all. With each passing day, Carlos María Isidro sees the dream of the crown slipping further away, yet the war is not yet lost."
+
+ de_Zumalacarregui:0 "Zumalacarregui"
+ guerra_carlista:0 "Carlist War"
+ dp_guerra_carlista: "Carlist War"
+ gov_carlistas:0 "Carlist Monarchy"
+ gov_carlistas_desc:2 "This is a revolutionary faction fighting to establish a branch of the Bourbons on the Spanish throne."
+ 
+ je_carlist_victory: "Carlist War"
+ je_carlist_victory_reason: "The First Carlist War was fought between two factions over the succession to the throne and the nature of the Spanish monarchy: the conservative and reactionary supporters of the deceased king's brother, Carlos María Isidro de Borbón, were known as Carlists, while the progressives and centralists supporters of the regent, María Cristina, acting on behalf of Isabel II of Spain, were called Cristinos or Isabelinos.\n\n#bold As long as we have the modifier -Carlist War- we will gain 1 point of [concept_war_support|l] weekly #!"
+ je_carlist_victory_status: "Overthrow the Spanish government."
+
+ win_civil_war:0 "Has overthrown the government of María Cristina"
+ je_carlist_victory_1: "Spain's problems will pass to us."
+
+ je_cristininos_victory: "Carlist War"
+ je_cristininos_victory_reason: "The First Carlist War was fought between two factions over the succession to the throne and the nature of the Spanish monarchy: the conservative and reactionary supporters of the deceased king's brother, Carlos María Isidro de Borbón, were known as Carlists, while the progressives and centralists supporters of the regent, María Cristina, acting on behalf of Isabel II of Spain, were called Cristinos or Isabelinos.\n\n#bold As long as we have the modifier - Carlist War - we will gain 1 point of [concept_war_support|l] weekly #!"
+ je_cristininos_victory_status: "Crush the Carlist rebellion."
+ derrota_carlistas:0 "Has managed to defeat the rebellion"
+ je_cristininos_victory_tt: "All modifiers related to the war will disappear"
+
+

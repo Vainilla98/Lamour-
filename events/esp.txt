@@ -1,0 +1,1966 @@
+namespace = esp
+
+esp.1 = { # Juan Prim asciende a la politica
+	type = country_event
+	placement = s:STATE_CATALONIA.region_state:SPA
+
+	title = esp.1.t
+	desc = esp.1.d
+	flavor = esp.1.f
+
+	event_image = {
+		video = "gfx/event_pictures/unspecific_ruler_speaking_to_people.bk2"
+	}
+
+	duration = 3
+	
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/london_center"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	
+	immediate = {
+		random_character = {
+			limit = { has_variable = is_prim }
+			save_scope_as = prim_scope
+		}
+	}
+
+	option = { # Hacer a Prim radical
+		ai_chance = {
+			base = 2	
+		}
+		default_option = yes
+		name = esp.1.a
+	}
+	option = { # exiliar a Prim
+		name = esp.1.b
+		scope:prim_scope = {
+			exile_character = yes
+		}
+		ai_chance = {
+			base = 1
+			modifier = {
+				trigger = {
+					OR = {
+						has_strategy = ai_strategy_conservative_agenda
+						has_strategy = ai_strategy_reactionary_agenda
+					}
+				}
+				add = 2
+			}
+		}
+	}
+}
+
+esp.3 = {
+	type = country_event
+	placement = ROOT
+
+	title = esp.3.t
+	desc = esp.3.d
+	flavor = esp.3.f
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_london_center.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/london_center"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	duration = 3
+
+	trigger = {
+	}
+
+	immediate = {
+
+	}
+
+	option = {
+		name = esp.3.a
+		heir = {
+			set_character_as_ruler = yes
+		}
+		hidden_effect = {
+			heir = {
+				disinherit_character = yes
+			}
+			c:SPA = {
+				save_scope_as = spa_scope
+			}
+			every_country = {
+				post_notification = ascenso_de_isabel_notification
+			}
+		}
+	}
+}
+
+esp.4 = {
+	type = country_event
+	placement = s:STATE_NAVARRA.region_state:CAR
+
+	title = esp.4.t
+	desc = esp.4.d
+	flavor = esp.4.f
+
+	event_image = {
+		video = "gfx/event_pictures/unspecific_vandalized_storefront.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/london_center"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	duration = 1
+
+	trigger = {
+		NOT = { has_variable = sabotaje }
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = esp.4.a
+		if = {
+			limit = { has_state_in_state_region = STATE_GALICIA }
+			s:STATE_GALICIA = {
+				add_devastation = 70
+			}
+		}
+		if = {
+			limit = { has_state_in_state_region = STATE_ASTURIAS }
+			s:STATE_ASTURIAS = {
+				add_devastation = 70
+			}
+		}
+		if = {
+			limit = { has_state_in_state_region = STATE_CASTILE }
+			s:STATE_CASTILE = {
+				add_devastation = 50
+			}
+		}
+		if = {
+			limit = { has_state_in_state_region = STATE_ARAGON }
+			s:STATE_ARAGON = {
+				add_devastation = 30
+			}
+		}
+		if = {
+			limit = { has_state_in_state_region = STATE_CATALONIA }
+			s:STATE_CATALONIA = {
+				add_devastation = 30
+			}
+		}
+		hidden_effect = {
+			set_variable = sabotaje
+		}
+	}
+}
+
+esp.5 = {
+	type = country_event
+	placement = ROOT
+
+	title = esp.5.t
+	desc = esp.5.d
+	flavor = esp.5.f
+
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/military_parade"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	duration = 1
+
+	trigger = {
+		authority < 0
+		has_modifier = caza_periodicos
+	}
+
+	immediate = {
+		ig:ig_intelligentsia.leader = {
+			save_scope_as = leader_ig
+		}
+	}
+
+	option = {
+		name = esp.5.a
+		remove_modifier = caza_periodicos
+		remove_modifier = peridoicos_liberales
+		add_modifier = {
+			name = peridoicos_liberales
+			multiplier = 2
+		}
+		scope:leader_ig = {
+			add_modifier = {
+				name = vicotria_liberal
+				months = short_modifier_time
+			}
+		}
+		random_scope_state = {
+			add_radicals_in_state = {
+				value = small_radicals
+			}
+		}
+	}
+}
+
+
+esp.6 = {
+	type = country_event
+	placement = ROOT
+
+	title = esp.6.t
+	desc = esp.6.d
+	flavor = esp.6.f
+
+	event_image = {
+		video = "gfx/event_pictures/unspecific_military_parade.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/military_parade"
+
+	icon = "gfx/interface/icons/event_icons/event_fire.dds"
+
+	duration = 3
+
+	trigger = {
+		NOT = { ruler = { has_variable = is_esp }}
+		ig:ig_petty_bourgeoisie = {
+			ig_clout >= 0.1
+			leader = {
+				has_variable = is_esp
+			}
+		}
+		OR = {
+			government_legitimacy < 50
+			ig:ig_intelligentsia = {
+				ig_approval <= unhappy
+			}
+			ig:ig_intelligentsia = {
+				is_powerful = yes
+			}
+		}
+	}
+
+	immediate = {
+		random_scope_politician = {
+			limit = { has_variable = is_esp }
+			save_scope_as = spartero_scope
+		}
+	}
+
+	option = {
+		name = esp.6.a
+		scope:spartero_scope = {
+			set_character_as_ruler = yes
+			add_modifier = {
+				name = popular_autocrat
+				months = short_modifier_time
+			}
+			interest_group = {
+				add_modifier = {
+					name = popular_autocrat_ig
+					months = short_modifier_time
+				}
+			}
+		}
+	}
+}
+
+esp.7 = {
+	type = country_event
+	placement = ROOT
+
+	title = esp.7.t
+	desc = esp.7.d
+	flavor = esp.7.f
+
+	event_image = {
+		video = "la_gloriosa"
+	}
+	
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	duration = 2
+
+	immediate = {
+		ig:ig_intelligentsia = {
+			save_scope_as = union_scope
+			leader = {
+				save_scope_as = prim_scope
+			}
+		}
+		c:SPA = {
+			save_scope_as = spa_scope
+		}
+		random_scope_character = {
+			limit = {
+				OR = {
+					has_role = admiral
+					has_role = general
+				}
+				OR = {
+					has_ideology = ideology:ideology_republican_leader
+					has_ideology = ideology:ideology_radical
+					has_ideology = ideology:ideology_radical2
+					has_ideology = ideology:ideology_reformer
+					has_ideology = ideology:ideology_humanitarian
+					has_ideology = ideology:ideology_atheist
+					has_ideology = ideology:ideology_moderate
+				}
+				interest_group = { 
+					OR = {
+						is_interest_group_type = ig_intelligentsia
+						is_interest_group_type = ig_petty_bourgeoisie
+					}
+				}
+			}
+			save_scope_as = golpista
+		}
+		random_scope_state = {
+			limit = {
+				is_coastal = yes
+				region = sr:region_iberia
+			}
+			save_scope_as = estado_desembarco
+		}
+		capital = {
+			save_scope_as = capital
+		}
+		every_country = {
+			post_notification = la_gloriosa_notification
+		}
+	}
+
+	option = {
+		default_option = yes
+		trigger = {
+			exists = heir
+		}
+		name = esp.7.a
+		custom_tooltip = {
+			text = esp.7.razon
+			heir = {
+				set_character_as_ruler = yes
+				disinherit_character = yes
+			}
+		}
+		add_modifier = {
+			name = la_gloriosa_esp
+			months = normal_modifier_time
+		}
+		hidden_effect = {
+			trigger_event = { id = esp.11 days = 45 } 
+		}
+		ai_chance = {
+			base = 2
+		}
+	}
+	option = {
+		name = esp.7.b
+		add_modifier = {
+			name = la_gloriosa_esp
+			months = normal_modifier_time
+		}
+		if = {
+			limit = { 
+				NOR = {
+					has_law = law_type:law_census_voting
+				 	has_law = law_type:law_universal_suffrage
+				}
+			}
+			activate_law = law_type:law_census_voting
+		}
+		activate_law = law_type:law_presidential_republic
+		ai_chance = {
+			base = 2
+		}
+	}
+	option = {
+		name = esp.7.c
+		# highlighted_option = yes
+		add_modifier = {
+			name = la_gloriosa_esp
+			months = normal_modifier_time
+		}
+		if = {
+			limit = { 
+				OR = {
+					has_law = law_type:law_autocracy
+				 	has_law = law_type:law_technocracy
+					has_law = law_type:law_oligarchy
+				}
+			}
+			activate_law = law_type:law_landed_voting
+		}
+		if = {
+			limit = { exists = c:SAR }
+			change_relations = {
+				country = c:SAR
+				value = 60
+			}
+		} else_if = {
+			limit = { exists = c:ITA }
+			change_relations = {
+				country = c:ITA
+				value = 60
+			}
+		}
+		hidden_effect = {
+			if = {
+				limit = { exists = heir }
+				heir = {
+					disinherit_character = yes
+					set_character_as_ruler = yes
+				}
+			}
+		}
+		create_character = {
+			first_name = Amadeo
+			last_name = di_Savoia-Aosta
+			female = no
+			ruler = yes
+			historical = yes
+			culture = cu:north_italian
+			religion = rel:catholic
+			ideology = ideology_reformer
+			interest_group = ig_intelligentsia
+			# birth_date = 1845.5.30
+			age = 27
+			dna = dna_amadeo_saboya
+			traits = {
+				ambitious
+				brave
+				basic_diplomat
+			}
+			on_created = {
+				add_modifier = {
+					name = repudio_general2
+					months = long_modifier_time
+					is_decaying = yes
+				}
+				set_variable = is_married
+			}
+		}
+		add_modifier = {
+			name = repudio_general
+			months = long_modifier_time
+			is_decaying = yes
+		}
+		ai_chance = {
+			base = 5
+		}
+	}
+}
+
+esp.8 = {
+	type = country_event
+	placement = ROOT
+
+	title = esp.8.t
+	desc = esp.8.d
+	flavor = esp.8.f
+
+	event_image = {
+		video = "gfx/event_pictures/unspecific_military_parade.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/military_parade"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	duration = 3
+
+	trigger = {
+		NOT = { has_variable = evento_gloriosa }
+		ROOT = c:SPA
+		NOT = { has_variable = vicotria_carlista }
+		year > 1855
+		has_law = law_type:law_monarchy
+		NOT = {
+			has_law = law_type:law_census_voting
+			has_law = law_type:law_universal_suffrage
+		}
+		ig:ig_intelligentsia = { is_marginal = no }
+	}
+
+	immediate = {	
+	}
+
+	option = {
+		name = esp.8.a
+		set_variable = evento_gloriosa
+		add_journal_entry = {
+			type = je_gloriosa
+		}
+	}
+}
+
+esp.9 = {
+	type = country_event
+	placement = s:STATE_CATALONIA.region_state:SPA
+
+	title = esp.9.t
+	desc = esp.9.d
+	flavor = esp.9.f
+
+	event_image = {
+		video = "gfx/event_pictures/unspecific_military_parade.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/military_parade"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	duration = 1
+
+	trigger = {
+		NOT = { has_variable = marcha_real_var }
+	}
+
+	immediate = {
+		c:CAR = { save_scope_as = car_scope }
+		set_variable = marcha_real_var
+
+		random_scope_state = {
+			limit = {
+				owner = root
+				state_region = s:STATE_ARAGON
+			}
+			save_scope_as = aragon_español
+		}
+		
+		random_scope_state = {
+			limit = {
+				owner = root
+				state_region = s:STATE_CATALONIA
+			}
+			save_scope_as = catalunna_español
+		}
+
+		random_scope_state = {
+			limit = {
+				owner = root
+				state_region = s:STATE_VALENCIA
+			}
+			save_scope_as = valencia_español
+		}
+	}
+
+	option = {
+		name = esp.9.a
+		default_option = yes
+		ai_chance = {
+			base = 10
+		}
+		add_modifier = {
+			name = marcha_real
+			months = short_modifier_time
+		}
+		random_military_formation = {
+			limit = {
+				num_units > 10
+			}
+			add_organization = {
+				value = organization
+				multiply = -0.25
+			}
+		}
+	}
+	option = {
+		name = esp.9.b
+		ai_chance = {
+			base = 1
+		}
+		trigger = {
+			OR = {
+				exists = scope:aragon_español
+				exists = scope:catalunna_español
+				exists = scope:valencia_español
+			}
+		}
+		if = {
+			limit = { 
+				s:STATE_ARAGON= {
+					p:x5FB607 = {
+						owner = ROOT
+					}
+					p:x9060C0 = {
+						owner = ROOT
+					}
+				} 
+			}
+			custom_tooltip = {
+				text = esp.9.b_tt3
+				s:STATE_ARAGON= {
+					set_owner_of_provinces = {
+						country = scope:car_scope
+						provinces = { x5FB607 x9060C0 }
+					}
+				}
+			}
+		}
+		if = {
+			limit = { 
+				s:STATE_CATALONIA= {
+					p:x11E041 = {
+						owner = ROOT
+					}
+					p:x936FF3 = {
+						owner = ROOT
+					}
+					p:x906040 = {
+						owner = ROOT
+					}
+					p:x890622 = {
+						owner = ROOT
+					}
+					p:xC2FFD9 = {
+						owner = ROOT
+					}
+				}
+			}
+			custom_tooltip = {
+				text = esp.9.b_tt
+				s:STATE_CATALONIA= {
+					set_owner_of_provinces = {
+						country = scope:car_scope
+						provinces = { x11E041 x936FF3 x906040 x890622 xC2FFD9 }
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				s:STATE_TOLEDO = {
+					p:x093A56 = {
+						owner = ROOT
+					}
+				}
+				s:STATE_VALENCIA = {
+					p:x99E5CE = {
+						owner = ROOT
+					}
+				}
+			} 
+			custom_tooltip = {
+				text = esp.9.b_tt1
+				s:STATE_TOLEDO = {
+					set_owner_of_provinces = {
+						country = scope:car_scope
+						provinces = { x093A56 }
+					}
+				}
+				s:STATE_VALENCIA = {
+					set_owner_of_provinces = {
+						country = scope:car_scope
+						provinces = { x99E5CE }
+					}
+				}
+				scope:car_scope = {
+					create_military_formation = {
+						type = army
+						hq_region = sr:region_iberia
+						name = "Insurgentes Valencianos"
+	
+						combat_unit = {
+							type = unit_type:combat_unit_type_irregular_infantry
+							state_region = s:STATE_VALENCIA
+							count = 1
+						}
+	
+						save_scope_as = formacion
+					}
+				}
+				trigger_event = { id = esp.98 days = 9 }
+			}
+		}
+	}
+}
+
+
+esp.10 = {
+	type = country_event
+	placement = ROOT
+
+	title = esp.10.t
+	desc = esp.10.d
+	flavor = esp.10.f
+
+	event_image = {
+		video = "gfx/event_pictures/unspecific_signed_contract.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/signed_contract"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	duration = 3
+
+	trigger = {
+		any_character_in_exile_pool = {
+			OR = {
+				has_culture = cu:spanish
+				has_culture = cu:catalan
+				has_culture = cu:galician
+			}
+			OR = {
+				has_ideology = ideology:ideology_republican_leader
+				has_ideology = ideology:ideology_radical
+				has_ideology = ideology:ideology_vanguardist
+				has_ideology = ideology:ideology_radical2
+				has_ideology = ideology:ideology_reformer
+			}
+			popularity > 20
+			NOT = { has_variable = consiprando_contra_esp }
+		}
+	}
+
+	immediate = {
+		s:STATE_FLANDERS = {
+			random_scope_state = {
+				save_scope_as = flanders_scope
+				owner = {
+					save_scope_as = ocupador_flanders
+				}
+			}
+		}
+		random_character_in_exile_pool = {
+			limit = {
+				OR = {
+					has_culture = cu:spanish
+					has_culture = cu:catalan
+					has_culture = cu:galician
+				}
+				OR = {
+					has_ideology = ideology:ideology_republican_leader
+					has_ideology = ideology:ideology_radical
+					has_ideology = ideology:ideology_vanguardist
+					has_ideology = ideology:ideology_radical2
+					has_ideology = ideology:ideology_reformer
+				}
+				popularity > 20
+			}
+			save_scope_as = agitador_esp_scope
+		}
+	}
+
+	option = {
+		name = esp.10.a
+		custom_tooltip = {
+			text = conspirando1
+			scope:agitador_esp_scope = {
+			 	set_variable = consiprando_contra_esp
+			}
+			change_variable = {
+				name = salvacion_timer
+				add = 10
+			}
+		}
+	}
+}
+
+esp.11 = {
+	type = country_event
+	placement = ROOT
+
+	title = esp.11.t
+	desc = esp.11.d
+	flavor = esp.11.f
+
+	event_image = {
+		video = "gfx/event_pictures/unspecific_ruler_speaking_to_people.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/leader_speaking_to_a_group_of_people"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	duration = 3
+
+	immediate = {
+		create_character = {
+			first_name = Francisco
+			last_name= pi_Margall
+			culture = cu:catalan
+			historical = yes
+			female = no
+			ig_leader = yes
+			ideology = ideology_republican_leader
+			interest_group = ig_intelligentsia
+			traits = {
+				demagogue
+			}
+			on_created = {
+				add_modifier = {
+					name = popular_republican
+					months = long_modifier_time
+				}
+			}
+		}
+		ig:ig_intelligentsia.leader = {
+			save_scope_as = ig_lider
+		} 
+	}
+
+	option = {
+		name = esp.11.a
+	}
+}
+
+esp.12 = {
+	type = country_event
+	placement = scope:estado_rebelde
+
+	title = esp.12.t
+	desc = esp.12.d
+	flavor = esp.12.f
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/military_parade"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	duration = 2
+
+	trigger = {
+		NOT = { has_variable = constitucion_redactada }
+		any_scope_state = {
+			OR = { 
+				NOT = { has_modifier = junta_provincial }
+				state_region = s:STATE_CASTILE
+			}
+			is_incorporated = yes
+			ig_state_pol_strength_share = {
+				target = scope:intel_ig
+				value >= 0.08
+			}
+		}
+	}
+
+	immediate = {
+		random_scope_state = {
+			limit = {
+				OR = { 
+					NOT = { has_modifier = junta_provincial }
+					state_region = s:STATE_CASTILE
+				}
+				is_incorporated = yes
+				ig_state_pol_strength_share = {
+					target = scope:intel_ig
+					value >= 0.08
+				}
+			 }
+			save_scope_as = estado_rebelde
+		}
+	}
+
+	option = {
+		name = esp.12.a
+		scope:estado_rebelde = {
+			add_radicals_in_state = {
+				value = medium_radicals
+				strata = poor
+			}
+			add_radicals_in_state = {
+				value = large_radicals
+				strata = middle
+			}
+			add_radicals_in_state = {
+				value = very_large_radicals
+				strata = rich
+			}
+		}
+	}
+}
+
+esp.13 = {
+	type = country_event
+	placement = ROOT
+
+	title = esp.13.t
+	desc = esp.13.d
+	flavor = esp.13.f
+
+	event_image = {
+		video = "europenorthamerica_political_extremism"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/world_fair"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	duration = 3
+
+	immediate = {
+		set_variable = {
+			name = anno
+			value = year
+		}
+	}
+
+	option = {
+		name = esp.13.a
+		activate_law = law_type:law_landed_voting
+		remove_variable = anno
+	}
+}
+
+esp.14 = {
+	type = country_event
+	hidden = yes
+	
+	immediate = {
+		random_scope_war = {
+			add_war_war_support = {
+				target = ROOT
+				value = 1
+			}
+		}
+	}
+}
+
+esp.15 = {
+	type = country_event
+	placement = s:STATE_CASTILE.region_state:SPA
+
+	title = esp.15.t
+	desc = esp.15.d
+	flavor = esp.15.f
+
+	event_image = {
+		video = "votp_barricade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	duration = 3
+
+	trigger = {
+		OR = {
+			any_scope_state = {
+				state_region = s:STATE_CASTILE
+				owner = root
+				turmoil >= 0.25
+			}
+			any_scope_state = {
+				has_modifier = junta_provincial
+				count >= 5
+			}
+		}
+	}
+
+	immediate = {
+		root = {
+			save_scope_as = spa_scope
+		}
+	}
+
+	option = {
+		name = esp.15.a
+		custom_tooltip = esp.15_tt
+		every_country = {
+			post_notification = motin_de_la_granja
+		}
+		set_variable = {
+			name = constitucion_redactada
+		}
+		if = {
+			limit = { 
+				ig:ig_intelligentsia = {
+					has_modifier = destitucion_mendizabal
+				}
+			}
+			ig:ig_intelligentsia = {
+				remove_modifier = destitucion_mendizabal
+			}
+		}
+		if = {
+			limit = { 
+				ig:ig_intelligentsia = {
+					has_modifier = exilio_mendizabal
+				}
+			}
+			ig:ig_intelligentsia = {
+				remove_modifier = exilio_mendizabal
+			}
+		}
+	}
+}
+
+esp.16 = {
+	type = country_event
+	placement = scope:estado_junta
+
+	title = esp.16.t
+	desc = esp.16.d
+	flavor = esp.16.f
+
+	event_image = {
+		video = "votp_cops_march"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	duration = 1
+
+	cooldown = { months = 2 }
+
+	trigger = {
+		NOT = { has_variable = constitucion_redactada }
+		NOT = { has_modifier = forced_regime_change }
+		any_scope_state = {
+			is_incorporated = yes
+			turmoil > 0.1
+			ig_state_pol_strength_share = {
+				target = scope:intel_ig
+				value >= 0.10
+			}
+			NOT = { has_modifier = junta_provincial }
+			is_capital = no 
+		}
+	}
+
+	immediate = {
+		random_scope_state = {
+			limit = {
+				is_incorporated = yes
+				turmoil > 0.1
+				ig_state_pol_strength_share = {
+					target = scope:intel_ig
+					value >= 0.10
+				}
+				NOT = { has_modifier = junta_provincial }
+				is_capital = no 
+			}
+			save_scope_as = estado_junta
+		}
+	}
+
+	option = {
+		name = esp.16.a
+		custom_tooltip = {
+			text = esp.16.tooltip
+			incrementar_modificador_junta_provincial = yes
+		}
+		scope:estado_junta = {
+			add_modifier = {
+				name = junta_provincial
+				months = normal_modifier_time
+			}
+			add_radicals_in_state = {
+				value = medium_radicals
+			}
+		}
+	}
+}
+
+esp.17 = {
+	type = country_event
+	placement = scope:estado_isubordinacion
+
+	title = esp.17.t
+	desc = esp.17.d
+	flavor = esp.17.f
+
+	event_image = {
+		video = "middleeast_battlefield_trenches"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	duration = 3
+
+	cooldown = { months = 6 }
+
+	trigger = {
+		any_scope_state = {
+			is_incorporated = yes
+			NOT = { has_modifier = salarios_bajos }
+			any_scope_building = {
+				is_building_type = building_barracks
+				level > 1
+			}
+		}
+	}
+
+	immediate = {
+		random_scope_state = {
+			limit = {
+				NOT = { has_modifier = salarios_bajos }
+				has_building = building_barracks
+				is_incorporated = yes
+			 }
+			save_scope_as = estado_isubordinacion
+			random_scope_building = {
+				limit = {
+					is_building_type = building_barracks
+					level > 1
+				}
+				save_scope_as = cuartel_malo
+			}
+		}
+	}
+
+	option = {
+		name = esp.17.a
+		add_modifier = {
+			name = mejoras_salarios
+			months = short_modifier_time
+		}
+	}
+
+	option = {
+		name = esp.17.b
+		default_option = yes
+		custom_tooltip = {
+			text = esp.17.b_tt
+			every_military_formation = {
+				every_combat_unit = {
+					limit = {
+						building = {	
+							this = scope:cuartel_malo
+						}
+					}
+					add_morale = {
+						value = morale
+						multiply = -0.1
+					}
+				}
+			}
+		}
+		scope:estado_isubordinacion = {
+			add_modifier = {
+				name = salarios_bajos
+				months = short_modifier_time
+			}
+			add_radicals_in_state = {
+				pop_type = officers
+				value = very_large_radicals
+			}
+			add_radicals_in_state = {
+				pop_type = soldiers
+				value = small_radicals
+			}
+		}
+	}
+}
+
+esp.18 = {
+	type = country_event
+	placement = s:STATE_ASTURIAS.region_state:SPA
+
+	title = esp.18.t
+	desc = esp.18.d
+	flavor = esp.18.f
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	duration = 1
+
+	trigger = {
+		NOT = { has_variable = expedición_gomez }
+	}
+
+	immediate = {
+		ig:ig_armed_forces = {
+			save_scope_as = ejercito_scope
+		}
+		c:CAR = {
+			if = {
+				limit = { 
+					any_scope_general = { has_variable = is_gomez_damas } 
+				}
+				 random_scope_general = {
+					limit = { has_variable = is_gomez_damas }
+					save_scope_as = gomez_damas
+				}
+			} else = {
+				random_scope_general = {
+					limit = { is_ruler = no }
+					save_scope_as = gomez_damas
+				}
+			}
+			save_scope_as = car_scope
+		}
+	}
+
+	option = {
+		name = esp.18.a
+		add_radicals = {
+			value = large_radicals
+			interest_group = scope:ejercito_scope
+		}
+		hidden_effect = {
+			scope:gomez_damas = {
+				set_character_busy_and_immortal = yes
+			}
+			set_variable = expedición_gomez
+			scope:car_scope = {
+				trigger_event = { id = car.1 }
+			}
+		}
+	}
+}
+
+esp.19 = { #Choose commander
+	type = country_event
+    placement = ROOT
+
+    title = esp.19.t
+    desc = esp.19.d
+    flavor = esp.19.f
+
+    event_image = {
+		video = "europenorthamerica_before_the_battle"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+    duration = 3
+
+	trigger = {
+		any_military_formation = {
+			num_units >= 10
+			any_scope_general = {
+				is_busy = no
+				is_ruler = no
+			}
+		}
+	}
+
+	immediate = {
+		random_military_formation = {
+			limit = {
+				num_units >= 10
+			}
+			random_scope_general = {
+				limit = {
+					is_busy = no
+					is_ruler = no
+				}
+				save_scope_as = expedition_leader_1
+				
+			}
+			save_scope_as = formacion_1
+		}
+
+		random_military_formation = {
+			limit = {
+				num_units >= 10
+			}
+			random_scope_general = {
+				limit = {
+					is_busy = no
+					is_ruler = no
+					NOT = {
+						this = scope:expedition_leader_1
+					}
+				}
+				save_scope_as = expedition_leader_2
+			}
+			save_scope_as = formacion_2
+		}
+
+		random_military_formation = {
+			limit = {
+				num_units >= 10
+			}
+			random_scope_general = {
+				limit = {
+					is_busy = no
+					is_ruler = no
+					NOR = {
+						this = scope:expedition_leader_1
+						this = scope:expedition_leader_2
+					}
+				}
+				save_scope_as = expedition_leader_3
+			}
+			save_scope_as = formacion_3
+		}
+	}
+
+	option = {
+		name = esp.19.a
+		default_option = yes
+		# custom_tooltip = expedition_costs_tt
+		scope:expedition_leader_1 = {
+			set_variable = expedition_contra
+			set_character_busy_and_immortal = yes
+		}
+		scope:formacion_1 = {
+			add_modifier = {
+				name = marcha_real
+			}
+		}
+	}
+
+	option = {
+		name = esp.19.b
+		# custom_tooltip = expedition_costs_tt
+		trigger = {
+			exists = scope:expedition_leader_2
+		}
+		scope:expedition_leader_2 = {
+			set_variable = expedition_contra
+			set_character_busy_and_immortal = yes
+		}
+	}
+
+	option = {
+		name = esp.19.c
+		# custom_tooltip = expedition_costs_tt
+		trigger = {
+			exists = scope:expedition_leader_3
+		}
+		scope:expedition_leader_3 = {
+			set_variable = expedition_contra
+			set_character_busy_and_immortal = yes
+		}
+	}
+}
+
+
+esp.20 = {
+	type = country_event
+	placement = scope:estado_paseo
+
+	title = esp.20.t
+	desc = esp.20.d
+	flavor = esp.20.f
+
+	event_image = {
+		video = "europenorthamerica_before_the_battle"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	duration = 3
+
+	cooldown = { months = 2 }
+
+	trigger = {
+		NOT = { has_variable = capturado }
+		has_variable = expedición_gomez
+	}
+
+	immediate = {
+		c:CAR = {
+			random_scope_general = {
+				limit = {
+					is_busy = yes
+				}
+				save_scope_as = gomez_damas
+			}
+		}
+		random_scope_building = {
+			limit = {
+				OR = {
+					is_building_type = building_barracks
+					is_building_type = building_conscription_center
+				}
+			}
+			save_scope_as = edificio_pasando
+			state = {
+				save_scope_as = estado_paseo
+			}
+		}
+	}
+
+	option = {
+		name = esp.20.a
+		if = {
+			limit = { exists = scope:edificio_pasando }
+			scope:estado_paseo = {
+				if = {
+					limit = { NOT = { has_modifier = expedicion_gomez } }
+					custom_tooltip = {
+						text = esp.20.tooltip2
+						add_modifier = {
+							name = expedicion_gomez
+							months = short_modifier_time
+						}
+					}
+				}
+				add_radicals = {
+					value = medium_radicals
+				}
+				state_region = {
+					add_devastation = 10
+				}
+			}
+			# scope:edificio_pasando = {
+			# 	add_modifier = {
+			# 		name = expedicion_gomez
+			# 		months = normal_modifier_time
+			# 	}
+			# }
+		}
+		custom_tooltip = {
+			text = esp.20.tooltip
+			incrementar_modificador = yes
+		}
+	}
+}
+
+esp.21 = {
+	type = country_event
+	placement = sCOPE:estado_captura
+
+	title = esp.21.t
+	desc = esp.21.d
+	flavor = esp.21.f
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	duration = 3
+
+	trigger = {
+		has_variable = dando_caza 
+	}
+
+	immediate = {
+		c:CAR = {
+			random_scope_general = {
+				limit = {
+					is_busy = yes
+				}
+				save_scope_as = gomez_damas
+			}
+		}
+		random_scope_general = {
+			limit = {
+				has_variable = expedition_contra
+			}
+			save_scope_as = perseguidor
+		}
+		random_scope_state = {
+			limit = {
+				OR = {
+					state_region = s:STATE_ASTURIAS
+					state_region = s:STATE_GALICIA
+					state_region = s:STATE_CASTILE
+					state_region = s:STATE_BADAJOZ
+					state_region = s:STATE_GRANADA
+				}
+			}
+			save_scope_as = estado_captura
+		}
+	}
+
+	option = {
+		name = esp.21.a
+		eliminar_modificador = yes
+		remove_modifier = parar_expedicion
+		scope:perseguidor = {
+			set_character_busy_and_immortal = no
+			remove_variable = expedition_contra
+		}
+		hidden_effect = {
+			set_variable = capturado
+			scope:gomez_damas = {
+				set_character_busy_and_immortal = no
+			}
+			if = {
+				limit = { has_variable = dando_caza }
+				remove_variable = dando_caza
+			}
+		}
+	}
+}
+
+esp.22 = {
+	type = country_event
+	placement = ROOT
+
+	title = esp.22.t
+	desc = esp.22.d
+	flavor = esp.22.f
+
+	event_image = {
+		video = "unspecific_politicians_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	duration = 3
+
+	trigger = {
+		any_character_in_exile_pool = {
+			has_variable = is_mendizabal 
+		}
+		NOT = { has_variable = exilio_mendi }
+	}
+
+	immediate = {
+		random_character_in_exile_pool = {
+			limit = { has_variable = is_mendizabal }
+			save_scope_as = mendizabal_scope
+		}
+		ig:ig_intelligentsia = {
+			save_scope_as = intelectuales_scope
+		}
+	}
+
+	option = {
+		name = esp.22.a
+		set_variable = exilio_mendi
+		add_radicals = {
+			value = 0.5
+			interest_group = scope:intelectuales_scope
+		}
+		add_radicals = {
+			value = medium_radicals
+		}
+		scope:intelectuales_scope = {
+			add_modifier = {
+				name = exilio_mendizabal
+				months = normal_modifier_time
+			}
+		}
+	}
+}
+
+esp.23 = {
+	type = country_event
+	placement = s:STATE_NAVARRA.region_state:SPA
+
+	title = esp.23.t
+	desc = esp.23.d
+	flavor = esp.23.f
+
+	event_image = {
+		video = "abrazo_vergara"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	duration = 3
+
+	trigger = {
+
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				any_scope_general = {
+					has_variable = is_esp
+				}
+			}
+			random_scope_general = {
+				limit = { has_variable = is_esp }
+				save_scope_as = general_esp
+			}
+		} else = {
+			random_scope_general = {
+				save_scope_as = general_esp
+			}
+		}
+		ig:ig_intelligentsia = {
+			save_scope_as = intelectuales_scope
+		}
+		root = {
+			save_scope_as = spa_scope
+		}
+	}
+
+	option = {
+		name = esp.23.a
+		every_country = {
+			post_notification = fin_guerra_carlista_isabelinos
+		}
+		add_loyalists = {
+			value = 0.1
+			interest_group = scope:intelectuales_scope
+		}
+		add_loyalists = {
+			value = 0.02
+		}
+		add_loyalists = {
+			culture = cu:catalan
+			value = 0.05
+		}
+		add_loyalists = {
+			culture = cu:basque
+			value = 0.05
+		}
+	}
+}
+
+esp.24 = {
+	type = country_event
+	placement = s:STATE_NAVARRA.region_state:SPA
+
+	title = esp.24.t
+	desc = esp.24.d
+	flavor = esp.24.f
+
+	event_image = {
+		video = "europenorthamerica_capitalists_meeting"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	duration = 3
+
+	trigger = {
+		ROOT = c:SPA
+		NOT = { has_variable = vicotria_carlista }
+		NOT = { has_variable = evento_carlistas }
+		owns_entire_state_region = STATE_NAVARRA
+		year > 1860
+	}
+
+	immediate = {
+		set_variable = {
+			name = golpe_car
+			value = 0
+		}
+	}
+
+	option = {
+		name = esp.24.a
+		set_variable = evento_carlistas
+		add_journal_entry = {
+			type = je_retorno_caristras_esp
+		}
+		change_variable = {
+			name = golpe_car
+			add = 100
+		}
+	}
+}
+
+esp.25 = {
+	type = country_event
+	placement = ROOT
+
+	title = esp.25.t
+	desc = esp.25.d
+	flavor = esp.25.f
+
+	event_image = {
+		video = "europenorthamerica_capitalists_meeting"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_trade.dds"
+
+	duration = 3
+
+	trigger = {
+		NOT = { has_journal_entry = je_cristininos_victory }
+		any_interest_group = {
+			is_marginal = no
+			OR = {
+				is_interest_group_type = ig_industrialists
+				is_interest_group_type = ig_intelligentsia
+				is_interest_group_type = ig_petty_bourgeoisie
+				is_interest_group_type = ig_landowners
+			}
+			ig_approval > -5
+		}
+	}
+
+	immediate = {
+		random_interest_group = {
+			limit = {
+				is_marginal = no
+				OR = {
+					is_interest_group_type = ig_industrialists
+					is_interest_group_type = ig_intelligentsia
+					is_interest_group_type = ig_petty_bourgeoisie
+					is_interest_group_type = ig_landowners
+				}
+				ig_approval > -5
+			}
+			save_scope_as = ig_interesado
+		}
+	}
+
+	option = {
+		name = esp.25.a
+		default_option = yes
+		custom_tooltip = {
+			text = esp.25.a_tt
+			change_variable = {
+				name = dinero_tiempo
+				add = 16
+			}
+		}
+		scope:ig_interesado = {
+			add_modifier = {
+				name = apoyo_ig
+				months = normal_modifier_time
+			}
+		}
+	}
+
+	option = {
+		name = esp.25.b
+		scope:ig_interesado = {
+			add_modifier = {
+				name = rechazo_apoyo_ig
+				months = short_modifier_time
+			}
+		}
+	}
+}
+
+esp.26 = {
+	type = country_event
+	placement = ROOT
+
+	title = esp.26.t
+	desc = esp.26.d
+	flavor = esp.26.f
+
+	event_image = {
+		video = "unspecific_armored_train"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+
+	duration = 3
+
+	trigger = {
+		
+	}
+
+	immediate = {
+		s:STATE_CUBA = {
+			random_scope_state = {
+				limit = {
+					owner = {
+						OR = {
+							has_diplomatic_pact = {
+								who = ROOT
+								type = puppet
+							}
+							has_diplomatic_pact = {
+								who = ROOT
+								type = dominion
+							}
+						}
+					}
+				}
+				owner = {
+					save_scope_as = cuba_scope
+				}
+			}
+		}
+	}
+
+	option = {
+		name = esp.26.a
+		add_technology_progress = { 
+			progress = 6500 
+			technology = railways 
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					exists = scope:cuba_scope 
+				}
+				scope:cuba_scope = {
+					trigger_event = {
+						id = esp.27
+						popup = yes
+					}
+				}
+			}
+		}
+	}
+}
+
+esp.27 = {
+	type = country_event
+	placement = ROOT
+
+	title = esp.26.t
+	desc = esp.26.d
+	flavor = esp.26.f
+
+	event_image = {
+		video = "unspecific_armored_train"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+
+	duration = 3
+
+	trigger = {
+		
+	}
+
+	immediate = {
+		s:STATE_CUBA = {
+			random_scope_state = {
+				save_scope_as = cuba_estado_scope
+			}
+		}
+	}
+
+	option = {
+		name = esp.27.a
+		scope:cuba_estado_scope = {
+			start_building_construction = building_railway
+		}
+	}
+}
+
+esp.97 = {
+	type = country_event
+	hidden = yes
+	
+	trigger = {
+		any_scope_state = {
+			state_region = s:STATE_CASTILE
+			owner = root
+			turmoil >= 0.10
+		}
+	}
+
+	immediate = {
+		trigger_event = { id = esp.15 }
+	}
+}
+
+
+esp.98 = {
+	type = country_event
+	hidden = yes
+	
+	immediate = {
+		every_military_formation = {
+			limit = { num_units < 3 }
+			fully_mobilize_army = yes
+			teleport_to_front = p:x99E5CE.front
+		}
+	}
+}
+
+esp.99 = {
+	type = country_event
+	placement = ROOT
+
+	title = esp.99.t
+	desc = esp.99.d
+	flavor = esp.99.f
+
+	event_image = {
+		video = "unspecific_armored_train"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/signed_contract"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	duration = 3
+
+	trigger = {
+		any_subject_or_below = {
+			country_has_primary_culture = cu:filipino
+			is_direct_subject_of = ROOT
+			OR = {
+				is_subject_type = subject_type_dominion
+				is_subject_type = subject_type_puppet
+			}
+		}
+		country_rank > c:SUL.country_rank
+		c:SUL = {
+			NOT = { is_direct_subject_of = ROOT }
+			OR = {
+				has_state_in_state_region = STATE_MINDANAO
+				has_state_in_state_region = STATE_LUZON
+				has_state_in_state_region = STATE_VISAYAS
+			}
+		}
+	}
+
+	immediate = {
+		
+	}
+
+	option = {
+		name = esp.99.a
+		# create_character = {
+		# 	first_name = juan_prim_nombre
+		# 	last_name = juan_prim_apellido
+		# 	culture = cu:catalan
+		# 	female = no
+		# 	religion = rel:catholic
+		# 	# ruler = yes
+		# 	ig_leader = yes
+		# 	historical = yes
+		# 	birth_date = 1800.12.6 
+		# 	interest_group = ig_petty_bourgeoisie
+		# 	dna = dna_juan_prim
+		# 	ideology = ideology_fascist
+		# 	traits = {
+		# 		brave
+		# 		persistent
+		# 		basic_diplomat
+		# 		basic_artillery_commander
+		# 	}
+		# }
+	}
+}

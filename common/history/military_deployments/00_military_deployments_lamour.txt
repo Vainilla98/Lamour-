@@ -1,0 +1,58 @@
+﻿MILITARY_DEPLOYMENTS = {
+	c:SPA = {
+		random_scope_general = {
+			limit = {
+				has_variable = is_esp
+			}
+
+			commander_military_formation = {
+				fully_mobilize_army = yes
+				teleport_to_front = p:x5FB607.front
+				add_organization = {
+					value = organization
+					multiply = -0.5
+				}
+				every_combat_unit = {
+					add_morale = {
+						value = morale
+						multiply = -0.25
+					}
+				}
+			}
+		}
+		every_military_formation = {
+			limit = {
+				is_army = yes
+				any_scope_general = {
+					NOT = { has_variable = is_esp }
+				}
+			}
+			add_organization = {
+				value = organization
+				multiply = -0.75
+			}
+			every_combat_unit = {
+				add_morale = {
+					value = morale
+					multiply = -0.5
+				}
+			}
+		}
+	}
+	c:CAR = {
+		every_military_formation = {
+			fully_mobilize_army = yes
+			teleport_to_front = p:x506040.front
+			add_organization = {
+				value = organization
+				multiply = -0.1
+			}
+			every_combat_unit = {
+				add_morale = {
+					value = morale
+					multiply = -0.1
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,46 @@
+﻿l_english:
+ je_deuda_esp: "Debt Situation"
+je_deuda_esp_reason: "In the 1830s, [ROOT.GetCountry.GetName] experienced a complex economic and financial situation marked by political instability, institutional weakness, and accumulating debts.\n\nDuring this period, the Spanish public [Concept('concept_credit', '$concept_credit_debt$')|l] became a significant issue affecting both the national economy and the country's international credit reputation.\n\nFinancial administration was chaotic, and the lack of political stability hindered the implementation of coherent fiscal policies, contributing to the increase in [Concept('concept_credit', '$concept_credit_debt$')|l].\n\nDebt often exceeded the government's capacity to pay interest and reduce the principal. This led to a cycle of successive loans to pay off previous debts, further worsening the [Concept('concept_credit', '$concept_credit_debt$')|l] situation."
+je_deuda_esp_goal: "The following for #bold 12 years#!"
+je_deuda_esp_1: "Spanish debt is less than 50000 @money!\n\n#bold If we fail to achieve this, we will start losing progress.#!"
+
+pago_deuda_but_name: "Pay Extra [Concept('concept_credit', '$concept_credit_debt$')|l]"
+pago_deuda_but_desc: "We need to work on implementing a good fiscal policy that accelerates debt repayment."
+pago_deuda_but_tt: "For each monthly payment, we will subtract 15 extra days from the total debt."
+stop_pago_deuda_but_name: "Stop Extra [Concept('concept_credit', '$concept_credit_debt$')|l] Payments"
+stop_pago_deuda_but_tt: "We would add around 8 months of payments."
+stop_pago_deuda_but_desc: "This waste cannot continue. We need the money."
+
+je_infraestructura_esp: "Railway Communication Network"
+je_infraestructura_esp_reason: "The lack of a railway network in [ROOT.GetCountry.GetName] in the 1830s was a significant factor contributing to the delay in the industrialization and economic development of the country. The absence of an efficient railway system limited the mobility of goods and people, hindering trade and industrialization, and negatively impacting the economy and progress of the country at that time."
+je_infraestructura_esp_tt: "No [Concept('concept_state', '$concept_state$')|l] with a deficit of [concept_infrastructure|l]."
+
+je_falta_capital_esp: "Lack of Capital"
+je_falta_capital_esp_reason: "The lack of capital is a significant factor hindering economic development and investment. The shortage of financial resources limits the country's ability to undertake infrastructure and industrial development projects. This is due to a combination of factors, such as public debt accumulated from previous conflicts, dependence on a predominantly agrarian economy, and the lack of confidence from both national and foreign investors in the Spanish economy at that time.\n\nThis lack of capital has a negative impact on investment in key sectors such as industrial modernization and the promotion of economic growth.\n\n#bold We can also refocus our economy towards a more agricultural one by passing the [GetLawType('law_agrarianism').GetName] law, gradually moving away from dependence on $capitalists$.#!\n\n#bold If we abandon the capitalist system by passing certain #tooltippable;tooltip:anti-capitalism_laws_tooltip economic laws#!, capital will cease to be a problem.#!"
+je_falta_capital_esp_goal: "The following for #bold 1 year#!"
+
+anti-capitalism_laws_tooltip: "#tooltip_header Laws that abandon capitalism are:#!\n$TOOLTIP_DELIMITER$\n[GetLawType('law_command_economy').GetName], [GetLawType('law_cooperative_ownership').GetName] or [GetLawType('law_industry_banned').GetName]."
+
+je_medizabal_esp: "Appointment of Mendizábal"
+je_medizabal_esp_reason: "[GetInterestGroupVariant('ig_intelligentsia',GetPlayer).GetLeader.GetFullName] returned to [ROOT.GetCountry.GetName] from exile on September 1, 1835, when the new Prime Minister, #bold José María Queipo de Llano#!, appointed him as 'Minister of Finance,' thanks to [GetInterestGroupVariant('ig_intelligentsia',GetPlayer).GetLeader.GetLastName]'s promise to find funding for the Carlist War.\n\nUpon entering [ROOT.GetCountry.GetName], he encountered the 'Revolution of the Juntas,' liberal and anticlerical revolutions. In an attempt to capitalize on them, [GetInterestGroupVariant('ig_intelligentsia',GetPlayer).GetLeader.GetLastName] published a manifesto questioning the authority of Count Toreno, #bold José María Queipo de Llano#!, eventually leading to [GetInterestGroupVariant('ig_intelligentsia',GetPlayer).GetLeader.GetLastName] assuming the presidency of the government on September 14, accompanied by only two ministers."
+je_medizabal_esp_tt: "There will be no repercussions for removing [GetInterestGroupVariant('ig_intelligentsia',GetPlayer).GetName|l] from [concept_government|l]."
+
+je_la_granja_esp: "La Granja Mutiny"
+je_la_granja_esp_reason: "Following the dismissal of Prime Minister Mendizábal, liberal sectors of our population have taken to the streets to demand urgent reforms, seeking the reinstatement of the #bold Constitution of 1812#!.\n\nSimultaneously, [SCOPE.sCharacter('mendizabal_scope').GetLastName] did not leave the political scene but increased his presence in the press and supported secret societies preparing for a revolutionary movement, similar to the one in the previous summer.\n\n#bold Exiling [SCOPE.sCharacter('mendizabal_scope').GetLastName] can have consequences.#!"
+je_la_granja_esp_tt: "At least we have the [GetLawType('law_landed_voting').GetName] law."
+je_la_granja_esp_tt1: "The [Concept('concept_modifier', '$concept_modifiers$')|l] for 'Provincial Juntas' disappear."
+je_la_granja_esp_tt2: "Maria Cristina is no longer [SCOPE.sCharacter('maria_scope').GetPrimaryRoleTitle]."
+je_la_granja_esp_tt3: "Liberal newspapers will disband."
+
+caza_liberales_but_name: "Censor Liberal Press"
+caza_liberales_but_desc: "We cannot continue at this pace. State authority is being undermined."
+
+stop_caza_liberales_but_name: "End Censorship"
+stop_caza_liberales_but_desc: "It is time to end this infamous decision and put an end to censorship."
+caza_liberales_but_tt: "Modifiers for [concept_modifier|l] #bold 'Liberal Press' #! will be halved."
+je_la_granja_esp_status: "A new constitution is being drafted."
+
+je_motin_la_granja_esp: "The Sargentada"
+je_motin_la_granja_esp_reason: "The unease felt in the Royal Palace of Segovia was but a reflection of the agitation occurring outside. The #bold Royal Guard#! experiences a palpable growth of tension among its ranks day by day.\nThe tense atmosphere creates a sense of uncertainty, where the slightest weakness can trigger an unpredictable reaction.\n\nThe [GetPopType('officers').GetName] of the #bold Royal Guard#! are in a delicate position, balancing between obedience to the monarch and empathy toward popular demands. The responsibility falls on their shoulders, as they are aware that the future of this country may depend on them."
+je_motin_la_granja_esp_tt: "If some of the above conditions are met, there will be a certain possibility of a mutiny among the #bold Royal Guard#! [GetPopType('officers').GetName].\n\nIf [concept_turmoil|l] reaches #bold 10.00%#! in [SCOPE.sState('palacio_real').GetName], there will be a minimal chance of it triggering."
+je_motin_la_granja_esp_tt1: "#bold Constituent Courts#! will be proclaimed to reform the constitutional text of Cádiz as long as $forced_regime_change$ lasts."

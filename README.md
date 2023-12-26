@@ -1,4 +1,4 @@
-Mod (original)(https://steamcommunity.com/sharedfiles/filedetails/?id=2994900442] en Steam Workshop
+Mod (original)[https://steamcommunity.com/sharedfiles/filedetails/?id=2994900442] en Steam Workshop
 
 # ¿Amour pour l'Espange?
 

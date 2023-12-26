@@ -1,7 +1,7 @@
 ﻿l_spanish:
  caw.1.t: "Contienda española"
  caw.1.d: "Con la entrada del nuevo año, nuestro gabinete se pregunta como deberiamos seguir apoyando a la [SCOPE.sCountry('spa_scope').GetName] isabelina, en su contienda contra la reaccionaria [SCOPE.sCountry('car_scope').GetName]."
- caw.1.f: "Tras el estallido de la Primera Guerra Carlista en [SCOPE.sCountry('spa_scope').GetName], tanto Francia como Gran Bretaña ofrecieron apoyo al gobierno isabelino, mandando fuerzas expedicionarias para unirse al combate en contra de los carlistas. La Gran Bretaña organizó la Legión Auxiliar Británica y Francia ofreció ceder su Legión Extranjera a España. Ambas legiones desempeñaron un papel secundario en el conflicto en comparación con las fuerzas españolas involucradas en el conflicto, pero sin embargo sirvieron como una buena fuerza de apoyo al ejército regular [SCOPE.sCountry('spa_scope').GetAdjetive]."
+ caw.1.f: "Tras el estallido de la Primera Guerra Carlista en [SCOPE.sCountry('spa_scope').GetName], tanto Francia como Gran Bretaña ofrecieron apoyo al gobierno isabelino, mandando fuerzas expedicionarias para unirse al combate en contra de los carlistas. La Gran Bretaña organizó la Legión Auxiliar Británica y Francia ofreció ceder su Legión Extranjera a España. Ambas legiones desempeñaron un papel secundario en el conflicto en comparación con las fuerzas españolas involucradas en el conflicto, pero sin embargo sirvieron como una buena fuerza de apoyo al ejército regular [SCOPE.sCountry('spa_scope').GetAdjectiveNoFormatting]."
  caw.1.a: "Mantendremos la legión auxiliar" 
  caw.1_tt: "El modificador depaparecerá cuando la [SCOPE.sCountry('car_scope').GetName] sea derrotada" 
  caw.1.b: "Se acabó la aventura española"

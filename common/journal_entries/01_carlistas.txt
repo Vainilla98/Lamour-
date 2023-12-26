@@ -12,9 +12,21 @@
 		}	
 	}
 
+	scripted_button = expedicion_gomez
+	scripted_button = expedicion_real
+
 	on_weekly_pulse = {
 		effect = {
-			trigger_event = { id = esp.14 }
+			if = {
+				limit = { has_modifier = guerra_total }
+				random_scope_war = {
+					add_war_war_support = {
+						target = root
+						value = 1
+					}
+				}
+			}
+			# trigger_event = { id = esp.14 }
 		}
 	}
 
@@ -25,38 +37,26 @@
 		}
 		change_tag = SPA
 		set_capital = STATE_TOLEDO
+		remove_modifier = carlistas_atrincherados
 
-		if = {
-			limit = { 
-				any_scope_building = {
-					has_modifier = division_auxiliar_fra
+		c:FRA = {
+			if = {
+				limit = { 
+					has_modifier = apoyo_isabelino 
 				}
-			}
-			random_scope_building = {
-				limit = {
-					has_modifier = division_auxiliar_fra
+				hidden_effect = {
+					trigger_event = { id = caw.6 days = 1 } 
 				}
-				remove_modifier = division_auxiliar_fra
-			}
-			hidden_effect = {
-				c:FRA = { trigger_event = { id = caw.6 days = 1 } }
 			}
 		}
-
-		if = {
-			limit = { 
-				any_scope_building = {
-					has_modifier = legion_auxiliar_gbr
+		c:GBR = {
+			if = {
+				limit = { 
+					has_modifier = apoyo_isabelino 
 				}
-			}
-			random_scope_building = {
-				limit = {
-					has_modifier = legion_auxiliar_gbr
+				hidden_effect = {
+					trigger_event = { id = caw.6 days = 1 } 
 				}
-				remove_modifier = legion_auxiliar_gbr
-			}
-			hidden_effect = {
-				c:GBR = { trigger_event = { id = caw.6 days = 1 } }
 			}
 		}
 
@@ -124,7 +124,15 @@ je_cristininos_victory = {
 
 	on_weekly_pulse = {
 		effect = {
-			trigger_event = { id = esp.14 } 
+			if = {
+				limit = { has_modifier = guerra_total }
+				random_scope_war = {
+					add_war_war_support = {
+						target = root
+						value = 1
+					}
+				}
+			}
 		}
 	}
 
@@ -135,8 +143,8 @@ je_cristininos_victory = {
 			20 = esp.20 # descontento expedicion Gomez 
 			5 = esp.17 # salarios ejercito
 			3 = esp.4 # sabotaje carlista
-			3 = esp.9 # la marcha real
-			3 = esp.18 # expedicion de gomez
+			# 3 = esp.9 # la marcha real
+			# 3 = esp.18 # expedicion de gomez
 			1 = esp.21 # captura de gomez
 			3 = 0 # Nada
 		}

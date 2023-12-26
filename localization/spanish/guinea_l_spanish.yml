@@ -1,0 +1,34 @@
+﻿l_spanish:
+ je_ambiciones_guinea: "Crisis de Guinea"
+ je_ambiciones_guinea_reason: "Nuestro [concept_country|l] goza de una histórica reclamación sobre la costa de Guinea a traves de la isla de #bold Fernando Poo#! en [SCOPE.sState('scope_camerun').GetStateRegion.GetName]. Es hora de exigir a las demas [Concept('concept_great_power', '$concept_great_powers$')|l] que es nuestro derecho permanecer ahí, negociando una pequeña concesion territorial.\n\nAntes de enviar un últimatum, debemos esperar 10 semanas mientras las [Concept('concept_great_power', '$concept_great_powers$')|l] deciden."
+ je_ambiciones_guinea_res:0 "Votos favorables: #variable [ROOT.GetCountry.MakeScope.Var('voto_positivo').GetValue|0]#! \nVotos negativos: #variable [ROOT.GetCountry.MakeScope.Var('voto_negativo').GetValue|0]#! "
+ je_ambiciones_guinea_tt: "Tenemos territorio en la #bold costa de Guinea#!"
+ je_ambiciones_guinea_tt1: "Hemos perdido la isla de #bold Fernando Poo#!"
+
+
+ ultimatum_ocupador_tt: "Hay al menos los mismos votos #bold negativos#! que #bold positivos#!"
+ ultimatum_ocupador_tt1: "Han pasado 10 semanas desde el inicio de la crisis"
+
+ ultimatum_ocupador1_name: "Exigir cumplimiento a [SCOPE.sCountry('ocupador_guinea').GetName]"
+ ultimatum_ocupador1_desc: "Segun lo acordado, [SCOPE.sCountry('ocupador_guinea').GetName] debe etregar su parte ocupada de Guinea para nosotros."
+
+ ultimatum_ocupador2_name: "Exigir cumplimiento a [SCOPE.sCountry('ocupador_guinea2').GetName]"
+ ultimatum_ocupador2_desc: "Segun lo acordado, [SCOPE.sCountry('ocupador_guinea2').GetName] debe etregar su parte ocupada de Guinea para nosotros."
+
+ ultimatum_ocupador3_name: "Exigir cumplimiento a [SCOPE.sCountry('ocupador_guinea3').GetName]"
+ ultimatum_ocupador3_desc: "Segun lo acordado, [SCOPE.sCountry('ocupador_guinea3').GetName] debe etregar su parte ocupada de Guinea para nosotros."
+
+
+ gui.1.t: "Reclamo [SCOPE.sCountry('scope_reclamador').GetAdjectiveNoFormatting] sobre Guinea"
+ gui.1.d: "Diplomaticos de [SCOPE.sCountry('scope_reclamador').GetName] han pedido que se reconozca su legitimidad sobre los reclamos en el golfo de Guinea, buscando la aprobación de las demas [Concept('concept_great_power', '$concept_great_powers$')|l] para enviar un últimatum."
+ gui.1.f: "En la bulliciosa sala de conferencias, entre suntuosos tapices y el tintineo de las tazas de té, diplomáticos de [SCOPE.sCountry('scope_reclamador').GetName], con sombreros de copa y bigotes imponentes, se esforzaban por ganar el reconocimiento de sus reclamos en el Golfo de Guinea.\n\n- "Nuestro derecho histórico es innegable", proclamaba el embajador [SCOPE.sCountry('scope_reclamador').GetAdjectiveNoFormatting] con gestos teatrales.\n\nFrente a él, representantes de otras [Concept('concept_great_power', '$concept_great_powers$')|l] intercambiaban miradas escépticas. Un diplomático británico, ajustando su corbata, respondió con astucia:\n\n- "La historia, mi querido amigo, a veces se desvanece ante las realidades presentes""
+ gui.1.a: "Tienen nuestro visto bueno"
+ gui.1.b: "No es nuestro problema"
+ gui.1.c: "Jamas toleraremos ningún [SCOPE.sCountry('scope_reclamador').GetAdjectiveNoFormatting] sobre Guinea"
+
+
+ gui.2.t: "Exigencia de cumplimiento de [SCOPE.sCountry('scope_reclamador').GetName]"
+ gui.2.d: "Diplomaticos de [SCOPE.sCountry('scope_reclamador').GetName], basandose en legitimidad que les da su posesión en la isla de Fernando Poo, en [SCOPE.sState('scope_camerun').GetStateRegion.GetName] han pedido que se reconozca su derecho de montar una base en la costa de [SCOPE.sState('scope_gabon').GetStateRegion.GetName], decisión respaldada por las [Concept('concept_great_power', '$concept_great_powers$')|l]."
+ gui.2.f: "Los Territorios Españoles del Golfo de Guinea fueron un conjunto de territorios insulares y continentales controlados por España desde 1778 en el Golfo de Guinea y en el Golfo de Biafra, en África Central.\n\nTras unos años de relativo abandono en los que incluso hubo una breve ocupación inglesa, se afianzó la posesión española tras una expedición de Juan José Lerena y Barry a Fernando Poo en 1843."
+ gui.2.a: "Tenemos que respetar los acuerdos"
+ gui.2.b: "Nos lo arrebataran de nuestras manos firas"

@@ -67,6 +67,7 @@ MILITARY_FORMATIONS = {
 			on_created = {
 				set_variable = is_esp
 				set_variable = is_married
+				add_modifier ={ name = hombre_de_la_reina }
 			}
 			save_scope_as = espartero
 		}

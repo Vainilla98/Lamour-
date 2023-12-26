@@ -1,0 +1,95 @@
+je_independencia_rep_dominicana_hai = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	group = je_group_crises
+
+	is_shown_when_inactive = {
+		s:STATE_SANTO_DOMINGO = {
+			any_scope_state = {
+				owner = root
+			}
+		}
+		NOT = { 
+			country_has_primary_culture = cu:caribeno
+		}
+	}
+
+	possible = {
+		has_any_secessionists_possible = yes
+		radical_fraction = {
+			value >= 0.5
+			culture = cu:caribeno
+		}
+	}
+
+	immediate = {
+		s:STATE_SANTO_DOMINGO = {
+			random_scope_state = {
+				limit = {
+					owner = root
+				}
+				save_scope_as = santo_domingo_scope
+			}
+		}
+		scope:santo_domingo_scope = {
+			add_radicals_in_state = {
+				value = small_radicals
+				culture = cu:caribeno
+			}
+			add_radicals_in_state = {
+				value = small_radicals
+				culture = cu:afro_caribeno
+			}
+			add_radicals_in_state = {
+				value = medium_radicals
+				culture = cu:spanish
+			}
+		}
+		cu:caribeno = {
+			save_scope_as = caribeno_scope
+		}
+	}
+
+	fail = {
+		# always = no
+		radical_fraction = {
+			value >= 0.5
+			culture = cu:caribeno
+		}
+		has_any_secessionists_broken_out = yes
+	}
+
+	on_fail = {
+		trigger_event = {
+			id = hai.1
+			# days = 1
+			popup = yes
+		}
+	}
+
+	complete = {
+		has_any_secessionists_possible = no
+		radical_fraction = {
+			value < 0.5
+			culture = cu:caribeno
+		}
+	}
+
+	invalid = {
+		s:STATE_SANTO_DOMINGO = {
+			any_scope_state = {
+				NOT = { owner = root }
+			}
+		}
+	}
+
+	transferable = yes
+	# can_deactivate = yes
+
+	# timeout = 12775
+
+	weight = 200
+
+	should_be_pinned_by_default = yes
+}
+

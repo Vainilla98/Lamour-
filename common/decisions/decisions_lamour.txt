@@ -52,118 +52,126 @@ quitar_bandoleros_andalucia = {
 
 ambiciones_en_guinea = {
 	is_shown = {
-		# root = c:SPA
 		NOR = { 
 			has_law = law_type:law_no_colonial_affairs 
-			# has_law = law_type:law_frontier_colonialism
+			has_law = law_type:law_frontier_colonization
 		}
 		s:STATE_SOUTH_CAMEROON = {
 			p:x902089 = {
 				owner = root
 			}
 		}
-		s:STATE_GABON = {
-			p:x3BD4AD = {
-				owner = {
-					is_country_type = decentralized
-				}
-			}
-			p:x3DD6EF = {
-				owner = {
-					is_country_type = decentralized
-				}
-			}
-			p:x402090 = {
-				owner = {
-					is_country_type = decentralized
-				}
-			}
-		}
+		NOT = { has_variable = crisis_guinea }
 	}
 
 	possible = {
-		# root = c:SPA
 		has_technology_researched = civilizing_mission
 		institution_investment_level = {
 			institution = institution_colonial_affairs
 			value = 2
 		}
-		custom_tooltip = {
-			text = ambiciones_en_guinea_tt
-			s:STATE_GABON = {
-				p:x3BD4AD = {
-					owner = {
-						is_country_type = decentralized
-					}
-				}
-				p:x3DD6EF = {
-					owner = {
-						is_country_type = decentralized
-					}
-				}
-				p:x402090 = {
-					owner = {
-						is_country_type = decentralized
-					}
-				}
-			}
-		}
-	}
 
-	when_taken = {
-		s:STATE_GABON = {
-			set_owner_of_provinces = {
-				country = root
-				provinces = { x3BD4AD x3DD6EF x402090}
-			}
-		}
-		add_modifier = {
-			name = aventura_guinea
-			months = normal_modifier_time
-		}
-
-		# if = {
-		# 	limit = {
-		# 		OR = {
-		# 			s:STATE_GABON = {
-		# 				p:x3BD4AD = {
-		# 					owner = {
-		# 						NOT = { is_country_type = decentralized }
-		# 					}
-		# 				}
-		# 				p:x3DD6EF = {
-		# 					owner = {
-		# 						NOT = { is_country_type = decentralized }
-		# 					}
-		# 				}
-		# 				p:x402090 = {
-		# 					owner = {
-		# 						NOT = { is_country_type = decentralized }
-		# 					}
-		# 				}
+		# custom_tooltip = {
+		# 	text = ambiciones_en_guinea_tt
+		# 	s:STATE_GABON = {
+		# 		p:x3BD4AD = {
+		# 			owner = {
+		# 				is_country_type = decentralized
+		# 			}
+		# 		}
+		# 		p:x3DD6EF = {
+		# 			owner = {
+		# 				is_country_type = decentralized
+		# 			}
+		# 		}
+		# 		p:x402090 = {
+		# 			owner = {
+		# 				is_country_type = decentralized
 		# 			}
 		# 		}
 		# 	}
-		# 	add_journal_entry = { type = je_ambiciones_guinea } 
-		# } else = {
-		# 	s:STATE_GABON = {
-		# 		set_owner_of_provinces = {
-		# 			country = root
-		# 			provinces = { x3BD4AD x3DD6EF x402090}
-		# 		}
-		# 	}
-		# 	add_modifier = {
-		# 		name = aventura_guinea
-		# 		months = normal_modifier_time
+		# }
+	}
+
+	when_taken = {
+		# s:STATE_GABON = {
+		# 	set_owner_of_provinces = {
+		# 		country = root
+		# 		provinces = { x3BD4AD x3DD6EF x402090}
 		# 	}
 		# }
+		# add_modifier = {
+		# 	name = aventura_guinea
+		# 	months = normal_modifier_time
+		# 	is_decaying = yes
+		# }
+		set_variable = crisis_guinea
+		if = {
+			limit = {
+				OR = {
+					s:STATE_GABON = {
+						p:x3BD4AD = {
+							owner = {
+								NOT = { is_country_type = decentralized }
+							}
+						}
+						p:x3DD6EF = {
+							owner = {
+								NOT = { is_country_type = decentralized }
+							}
+						}
+						p:x402090 = {
+							owner = {
+								NOT = { is_country_type = decentralized }
+							}
+						}
+					}
+				}
+			}
+			custom_tooltip = {
+				text = ambiciones_en_guinea_tt
+			}
+			set_variable = {
+				name = voto_positivo
+				value = 0
+			}
+			set_variable = {
+				name = voto_negativo
+				value = 0
+			}
+			add_journal_entry = { type = je_ambiciones_guinea } 
+			s:STATE_GABON = {
+				add_claim = root
+			}
+		} else = {
+			s:STATE_GABON = {
+				set_owner_of_provinces = {
+					country = root
+					provinces = { x3BD4AD x3DD6EF x402090}
+				}
+			}
+			add_modifier = {
+				name = aventura_guinea
+				months = normal_modifier_time
+				is_decaying = yes
+			}
+		}
 	}
 
 	ai_chance = {
 		base = 0
 		modifier = {
+			trigger = {
+				OR = {
+					is_at_war = yes
+					is_diplomatic_play_committed_participant = yes
+				}
+			}
+			add = -100
+		}
+		modifier = {
 			trigger = { gold_reserves > 600000 }
-			add = 20
+			add = 10
 		}
 		modifier = {
 			trigger = { weekly_net_fixed_income > 55000 }

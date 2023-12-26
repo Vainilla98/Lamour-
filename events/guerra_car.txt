@@ -132,17 +132,6 @@ caw.2 = {
 	option = {
 		name = caw.2.a
 		custom_label = caw.2.tt
-		create_military_formation = {
-			type = army
-			hq_region = sr:region_iberia
-			name = "División Auxiliar francesa"
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_VALENCIA 
-				count = 1
-			}
-		}
 		s:STATE_VALENCIA.region_state:SPA = {
 			create_pop = {
 				culture = spanish
@@ -151,6 +140,16 @@ caw.2 = {
 				size = 1000
 			}
 			
+		}
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_iberia
+			name = "División Auxiliar francesa"
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_VALENCIA 
+				count = 1
+			}
 		}
 	}	
 }

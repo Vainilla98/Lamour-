@@ -53,6 +53,209 @@ esp.1 = { # Juan Prim asciende a la politica
 	}
 }
 
+esp.2 = { # Retorno de los carlistas
+	type = country_event
+	placement = root
+
+	title = esp.2.t
+	desc = esp.2.d
+	flavor = esp.2.f
+
+	event_image = {
+		video = "europenorthamerica_american_civil_war"
+	}
+
+	duration = 3
+	
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	
+	immediate = {
+		create_country = {
+			tag = CAR
+			origin = ROOT
+			province = p:x48868C
+			state = s:STATE_NAVARRA.region_state:CAR
+			on_created = {
+				s:STATE_NAVARRA = {
+					set_owner_of_provinces = {
+						country = c:CAR
+						provinces = { x48868C x702080 x10E0C0 xABE0B3 xAC1425 x9EC9B8 xCB3245 }
+					}
+				}
+				if = {
+					limit = { 
+						c:SPA = {
+							owns_entire_state_region = STATE_ARAGON
+						}
+					}
+					s:STATE_ARAGON = {
+						set_owner_of_provinces = {
+							country = c:CAR
+							provinces = { x2555A4 x202982 x339B06 x076DE0 x45B331 x3CBF9E }
+						}
+					}
+				}
+				if = {
+					limit = { 
+						c:SPA = {
+							owns_entire_state_region = STATE_CATALONIA
+						}
+					}
+					s:STATE_CATALONIA = {
+						set_owner_of_provinces = {
+							country = c:CAR
+							provinces = { xE0C020 x11E041 x906040 x936FF3 xC2FFD9 x890622 x2914C3 x08B4D6 xD616D2 x945748 x0C64AC }
+						}
+					}
+				}
+
+				every_scope_state = {
+					set_state_type = incorporated
+				}
+
+				effect_starting_technology_tier_3_tech = yes
+				effect_starting_politics_conservative = yes
+
+				set_tax_level = very_high
+				
+				add_taxed_goods = g:liquor
+				
+				set_tariffs_import_priority = g:artillery
+				set_tariffs_import_priority = g:small_arms
+
+				ig:ig_devout = {
+					set_interest_group_name = ig_catholic_church
+					add_ruling_interest_group = yes
+				}
+
+				ig:ig_landowners = {
+					add_ideology = ideology_pious
+					add_ruling_interest_group = yes
+				}
+				
+				add_modifier = {
+					name = guerra_total
+				}
+				set_variable = espanna_carlista2
+				add_modifier = {
+					name = carlistas_atrincherados
+					months = normal_modifier_time
+				}
+
+				if = {
+					limit = {
+						NOT = { has_law = law_type:law_monarchy }
+					}
+					activate_law = law_type:law_monarchy
+				}
+				if = {
+					limit = {
+						NOT = { has_law = law_type:law_state_religion }
+					}
+					activate_law = law_type:law_state_religion
+				}
+				if = {
+					limit = {
+						NOT = { has_law = law_type:law_legacy_slavery }
+					}
+					activate_law = law_type:law_legacy_slavery
+				}
+				if = {
+					limit = {
+						NOT = { has_law = law_type:law_racial_segregation }
+					}
+					activate_law = law_type:law_racial_segregation
+				}
+				if = {
+					limit = {
+						NOT = { has_law = law_type:law_mercantilism }
+					}
+					activate_law = law_type:law_mercantilism
+				}
+				if = {
+					limit = {
+						NOT = { has_law = law_type:law_hereditary_bureaucrats }
+					}
+					activate_law = law_type:law_hereditary_bureaucrats
+				}
+				if = {
+					limit = {
+						NOT = { has_law = law_type:law_traditionalism }
+					}
+					activate_law = law_type:law_traditionalism
+				}
+				if = {
+					limit = {
+						NOT = { has_law = law_type:law_land_based_taxation }
+					}
+					activate_law = law_type:law_land_based_taxation
+				}
+				if = {
+					limit = {
+						NOT = { has_law = law_type:law_religious_schools }
+					}
+					activate_law = law_type:law_religious_schools
+				}
+				if = {
+					limit = {
+						NOT = { has_law = law_type:law_charitable_health_system }
+					}
+					activate_law = law_type:law_charitable_health_system
+				}
+				if = {
+					limit = {
+						NOT = { has_law = law_type:law_autocracy }
+					}
+					activate_law = law_type:law_autocracy
+				}
+				if = {
+					limit = {
+						NOT = { has_law = law_type:law_peasant_levies }
+					}
+					activate_law = law_type:law_peasant_levies
+				}
+				if = {
+					limit = {
+						NOT = { has_law = law_type:law_colonial_resettlement }
+					}
+					activate_law = law_type:law_colonial_resettlement
+				}
+
+				add_journal_entry = { type = je_carlist_victory }
+
+				create_character = {
+					first_name = "Carlos"
+					last_name = "de_Borbon"
+					ruler = yes
+					historical = yes 
+					interest_group = ig_landowners
+					ideology = ideology_traditionalist
+					traits = {
+						
+					}
+				}
+			}
+		}
+		create_diplomatic_play = {
+			name = guerra_carlista
+			target_state = s:STATE_NAVARRA.region_state:CAR
+			escalation = 80
+			type = dp_revolution
+		}
+		add_journal_entry = { type = je_cristininos_victory }
+		add_modifier = {
+			name = guerra_total
+		}
+	}
+
+	option = { # Hacer a Prim radical
+		name = esp.2.a
+		
+	}
+}
+
 esp.3 = {
 	type = country_event
 	placement = ROOT
@@ -214,7 +417,6 @@ esp.5 = {
 	}
 }
 
-
 esp.6 = {
 	type = country_event
 	placement = ROOT
@@ -243,7 +445,7 @@ esp.6 = {
 			}
 		}
 		OR = {
-			government_legitimacy < 50
+			government_legitimacy < 70
 			ig:ig_intelligentsia = {
 				ig_approval <= unhappy
 			}
@@ -530,12 +732,11 @@ esp.9 = {
 	duration = 1
 
 	trigger = {
-		NOT = { has_variable = marcha_real_var }
+		
 	}
 
 	immediate = {
 		c:CAR = { save_scope_as = car_scope }
-		set_variable = marcha_real_var
 
 		random_scope_state = {
 			limit = {
@@ -1193,7 +1394,7 @@ esp.18 = {
 	duration = 1
 
 	trigger = {
-		NOT = { has_variable = expedición_gomez }
+		
 	}
 
 	immediate = {
@@ -1215,7 +1416,6 @@ esp.18 = {
 					save_scope_as = gomez_damas
 				}
 			}
-			save_scope_as = car_scope
 		}
 	}
 
@@ -1224,15 +1424,6 @@ esp.18 = {
 		add_radicals = {
 			value = large_radicals
 			interest_group = scope:ejercito_scope
-		}
-		hidden_effect = {
-			scope:gomez_damas = {
-				set_character_busy_and_immortal = yes
-			}
-			set_variable = expedición_gomez
-			scope:car_scope = {
-				trigger_event = { id = car.1 }
-			}
 		}
 	}
 }
@@ -1324,11 +1515,6 @@ esp.19 = { #Choose commander
 		scope:expedition_leader_1 = {
 			set_variable = expedition_contra
 			set_character_busy_and_immortal = yes
-		}
-		scope:formacion_1 = {
-			add_modifier = {
-				name = marcha_real
-			}
 		}
 	}
 
@@ -1534,14 +1720,13 @@ esp.22 = {
 
 	trigger = {
 		any_character_in_exile_pool = {
-			has_variable = is_mendizabal 
+			has_modifier = maritr_politico 
 		}
-		NOT = { has_variable = exilio_mendi }
 	}
 
 	immediate = {
 		random_character_in_exile_pool = {
-			limit = { has_variable = is_mendizabal }
+			limit = { has_modifier = maritr_politico }
 			save_scope_as = mendizabal_scope
 		}
 		ig:ig_intelligentsia = {
@@ -1551,19 +1736,17 @@ esp.22 = {
 
 	option = {
 		name = esp.22.a
-		set_variable = exilio_mendi
-		add_radicals = {
-			value = 0.5
-			interest_group = scope:intelectuales_scope
+		scope:mendizabal_scope = {
+			transfer_character = root
+			remove_modifier = maritr_politico
+			hidden_effect = {
+				remove_modifier = in_exile_modifier
+			}
+			set_ideology = ideology:ideology_moderate
 		}
 		add_radicals = {
 			value = medium_radicals
-		}
-		scope:intelectuales_scope = {
-			add_modifier = {
-				name = exilio_mendizabal
-				months = normal_modifier_time
-			}
+			interest_group = scope:intelectuales_scope
 		}
 	}
 }
@@ -1618,6 +1801,12 @@ esp.23 = {
 		name = esp.23.a
 		every_country = {
 			post_notification = fin_guerra_carlista_isabelinos
+		}
+		scope:general_esp = {
+			add_modifier = {
+				name = herroe_la_guerra_carlista
+				months = normal_modifier_time
+			}
 		}
 		add_loyalists = {
 			value = 0.1
@@ -1678,7 +1867,7 @@ esp.24 = {
 		}
 		change_variable = {
 			name = golpe_car
-			add = 100
+			add = 150
 		}
 	}
 }
@@ -1866,6 +2055,160 @@ esp.27 = {
 	}
 }
 
+esp.28 = { #break into an IG's meeting
+	type = country_event
+
+	title = ig_suppression_events.5.t
+	desc = ig_suppression_events.5.d
+	flavor = ig_suppression_events.5.f
+
+	event_image = {
+		video = "middleeast_police_breaking_door"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+
+	duration = 3
+
+	trigger = {
+
+	}
+
+	immediate = {
+		ig:ig_intelligentsia = {
+			save_scope_as = target
+		}
+	}
+
+	option = { #break by force
+		name = ig_suppression_events.5.b
+		trigger = {
+			NOT = { has_law = law_type:law_right_of_assembly }
+		}
+		random_scope_state = {
+			limit = { is_incorporated = yes }
+			add_radicals_in_state = {
+				value = medium_radicals
+			}
+		}
+		random_scope_state = {
+			limit = { is_incorporated = yes }
+			add_radicals_in_state = {
+				value = medium_radicals
+			}
+		}
+		scope:target = {
+			add_modifier = {
+				name = reunion_interrumpida
+				months = short_modifier_time
+			}
+		}
+	}
+
+	option = { #they have no right to be doing this!
+		name = esp.28.a
+		add_modifier = {
+			name = culpa_a_otro
+			months = short_modifier_time
+		}
+		scope:target = {
+			add_modifier = {
+				name = reunion_interrumpida
+				months = short_modifier_time
+			}
+		}
+	}
+
+	option = { #just walk in there
+		name = esp.28.b
+		default_option = yes
+		scope:target = {
+			add_modifier = {
+				name = permitir_reunion
+				months = short_modifier_time
+			}
+		}
+	}
+}
+
+esp.29 = { 
+	type = country_event
+
+	title = esp.29.t
+	desc = esp.29.d
+	flavor = esp.29.f
+
+	event_image = {
+		video = "southamerica_aristocrats"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_fire.dds"
+
+	duration = 3
+
+	trigger = {
+
+	}
+
+	immediate = {
+		s:STATE_SANTO_DOMINGO = {
+			random_scope_state = {
+				limit = {
+					owner =  root
+				}
+				save_scope_as = santo_domingo_scope
+			}
+		}
+	}
+
+	option = { #Provincia
+		name = esp.29.a
+		add_radicals = {
+			value = 0.2
+			culture = cu:caribeno
+		}
+		scope:santo_domingo_scope = {
+			add_radicals_in_state= {
+				value = 0.8
+				culture = cu:caribeno
+			}
+			add_radicals_in_state= {
+				value = 0.8
+				culture = cu:afro_caribeno
+			}
+			add_radicals_in_state = {
+				value = 1
+				culture = cu:afro_antillean
+			}
+		}
+	}
+}
+
+esp.96 = {
+	type = country_event
+	hidden = yes
+	
+	immediate = {
+		root = {
+			save_scope_as = spa_scope
+		}
+		if = {
+			limit = { has_journal_entry = je_expediciones_esp }
+			every_country = {
+				post_notification = anuncio_reclamos_hiberoamerica
+			}
+		} else = {
+			every_country = {
+				post_notification = renuncia_reclamos_hiberoamerica
+			}
+		}
+	}
+}
+
 esp.97 = {
 	type = country_event
 	hidden = yes
@@ -1900,6 +2243,7 @@ esp.98 = {
 esp.99 = {
 	type = country_event
 	placement = ROOT
+	orphan = yes
 
 	title = esp.99.t
 	desc = esp.99.d
@@ -1917,23 +2261,7 @@ esp.99 = {
 	duration = 3
 
 	trigger = {
-		any_subject_or_below = {
-			country_has_primary_culture = cu:filipino
-			is_direct_subject_of = ROOT
-			OR = {
-				is_subject_type = subject_type_dominion
-				is_subject_type = subject_type_puppet
-			}
-		}
-		country_rank > c:SUL.country_rank
-		c:SUL = {
-			NOT = { is_direct_subject_of = ROOT }
-			OR = {
-				has_state_in_state_region = STATE_MINDANAO
-				has_state_in_state_region = STATE_LUZON
-				has_state_in_state_region = STATE_VISAYAS
-			}
-		}
+		
 	}
 
 	immediate = {
@@ -1942,6 +2270,9 @@ esp.99 = {
 
 	option = {
 		name = esp.99.a
+		add_journal_entry = {
+			type = je_reconquista_rep_dominicana_esp
+		}
 		# create_character = {
 		# 	first_name = juan_prim_nombre
 		# 	last_name = juan_prim_apellido
@@ -1962,5 +2293,17 @@ esp.99 = {
 		# 		basic_artillery_commander
 		# 	}
 		# }
+	}
+	option = {
+		name = esp.99.b
+		every_country = {
+			limit = {
+				country_rank = rank_value:great_power
+			}
+			change_relations = {
+				country = root
+				value = -40
+			}
+		}
 	}
 }

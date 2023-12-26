@@ -1,111 +1,190 @@
-# je_ambiciones_guinea = {
-# 	icon = "gfx/interface/icons/invention_icons/colonization.dds"
+je_ambiciones_guinea = {
+	icon = "gfx/interface/icons/invention_icons/colonization.dds"
 
-# 	group = je_group_foreign_affairs
+	group = je_group_foreign_affairs
 
-# 	immediate = {
-# 		set_variable = {
-# 			name = tiempo_crisis
-# 			value = 0
-# 		}
-# 		s:STATE_GABON = {
-# 			p:x3BD4AD = {
-# 				owner = {
-# 					if = {
-# 						limit = { NOT = { is_country_type = decentralized } }
-# 						save_scope_as = ocupador_guinea
-# 					}
-# 				}
-# 			}
-# 			p:x3DD6EF = {
-# 				owner = {
-# 					if = {
-# 						limit = { NOT = { is_country_type = decentralized } }
-# 						save_scope_as = ocupador_guinea2
-# 					}
-# 				}
-# 			}
-# 			p:x402090 = {
-# 				owner = {
-# 					if = {
-# 						limit = { NOT = { is_country_type = decentralized } }
-# 						save_scope_as = ocupador_guinea3
-# 					}
-# 				}
-# 			}
-# 		}
-# 	}
-	
-# 	on_weekly_pulse = {
-# 		effect = {
-# 			if = {
-# 				limit= {
-# 					NOR = {
-# 						is_diplomatic_play_enemy_of = scope:ocupador_guinea
-# 						is_diplomatic_play_enemy_of = scope:ocupador_guinea2
-# 						is_diplomatic_play_enemy_of = scope:ocupador_guinea3
-# 					}
-# 				}
-# 				change_variable = {
-# 					name = tiempo_crisis
-# 					add = 1
-# 				}
-# 			}
-# 		}
-# 	}
+	immediate = {
+		s:STATE_GABON = {
+			p:x3BD4AD = {
+				owner = {
+					if = {
+						limit = { 
+							NOT = {
+								is_country_type = decentralized 
+								this = root
+							} 
+						}
+						save_scope_as = ocupador_guinea
+					}
+				}
+			}
+			p:x3DD6EF = {
+				owner = {
+					if = {
+						limit = { 
+							NOT = { 
+								is_country_type = decentralized 
+								this = root
+								this = scope:ocupador_guinea
+							} 
+						}
+						save_scope_as = ocupador_guinea2
+					}
+				}
+			}
+			p:x402090 = {
+				owner = {
+					if = {
+						limit = { 
+							NOT = { 
+								is_country_type = decentralized 
+								this = root
+								this = scope:ocupador_guinea
+								this = scope:ocupador_guinea2
+							} 
+						}
+						save_scope_as = ocupador_guinea3
+					}
+				}
+			}
+		}
 
-# 	current_value = {
-# 		value = root.var:tiempo_crisis
-# 	}
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_SOUTH_CAMEROON
+				owner = root
+			}
+			save_scope_as = scope_camerun
+		}
 
-# 	goal_add_value = {
-# 		value = 52
-# 	}
+		every_country = {
+			limit = {
+				NOR = {
+					this = root
+					this = scope:ocupador_guinea
+					this = scope:ocupador_guinea2
+					this = scope:ocupador_guinea3
+				}
+				country_rank = rank_value:great_power
+				OR = {
+					has_interest_marker_in_region = sr:region_congo # La zona de camerun  
+					has_interest_marker_in_region = sr:region_niger # hace forntera con Fernando de Po
+				}
+			}
+			trigger_event = { id = gui.1 days = 7 popup = yes }
+		}
+		set_variable = {
+			name = contador_boton
+			value = 0
+		}
+	}
 
-# 	progressbar = yes
+	progress_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_ambiciones_guinea_res
+			}
+		}
+	}
 
-# 	complete = {
-# 		custom_tooltip = {
-# 			text = je_ambiciones_guinea_tt
-# 			s:STATE_GABON = {
-# 				p:x3BD4AD = { owner = ROOT }
-# 				p:x3DD6EF = { owner = ROOT }
-# 				p:x402090 = { owner = ROOT }
-# 			}
-# 		}
-# 	}
+	progressbar = yes
 
-# 	on_complete = {
-# 		add_modifier = {
-# 			name = aventura_guinea
-# 			months = normal_modifier_time
-# 		}
-# 		remove_variable = tiempo_crisis
-# 	}
 
-# 	fail = {
-# 		scope:journal_entry = {
-# 			is_goal_complete = yes
-# 		}
-# 	}
+	current_value = {
+		value = root.var:contador_boton
+	}
 
-# 	on_fail = {
-# 		remove_variable = tiempo_crisis
-# 	}
+	goal_add_value = {
+		value = 10
+	}
 
-# 	invalid = {
-# 		s:STATE_SOUTH_CAMEROON = {
-# 			p:x902089 = {
-# 				NOT = { owner = root }
-# 			}
-# 		}
-# 	}
+	on_weekly_pulse = {
+		effect = {
+			if = {
+				limit = { root.var:contador_boton < 10 }
+				change_variable = {
+					name = contador_boton
+					add = 1
+				}
+			}
+		}
+	}
 
-# 	on_invalid = {
-# 		remove_variable = tiempo_crisis
-# 	}
+	scripted_button = ultimatum_ocupador1
+	scripted_button = ultimatum_ocupador2
+	scripted_button = ultimatum_ocupador3
 
-# 	weight = 200
-# 	can_revolution_inherit = yes
-# 	should_be_pinned_by_default = yes
-# }
+	complete = {
+		custom_tooltip = {
+			text = je_ambiciones_guinea_tt
+			s:STATE_GABON = {
+				p:x3BD4AD = { owner = ROOT }
+				p:x3DD6EF = { owner = ROOT }
+				p:x402090 = { owner = ROOT }
+			}
+		}
+	}
+
+	on_complete = {
+		add_modifier = {
+			name = aventura_guinea
+			months = normal_modifier_time
+			is_decaying = yes
+		}
+		add_modifier = {
+			name = victoria_diplomatica
+			months = normal_modifier_time
+		}
+		remove_variable = ultimatum_1
+		remove_variable = ultimatum_2
+		remove_variable = ultimatum_3
+		remove_variable = contador_boton
+	}
+
+	fail = {
+		custom_tooltip = {
+			text = je_ambiciones_guinea_tt1
+			s:STATE_SOUTH_CAMEROON = {
+				p:x902089 = {
+					NOT = { owner = root }
+				}
+			}
+		}
+	}
+
+	on_fail = {
+		s:STATE_GABON = {
+			remove_claim = root
+		}
+		add_modifier = {
+			name = reto_guinea_asumido
+			months = normal_modifier_time
+			is_decaying = yes
+		}
+		remove_variable = ultimatum_1
+		remove_variable = ultimatum_2
+		remove_variable = ultimatum_3
+		remove_variable = contador_boton
+	}
+
+	on_timeout = {
+		s:STATE_GABON = {
+			remove_claim = root
+		}
+		add_modifier = {
+			name = reto_guinea_asumido
+			months = normal_modifier_time
+			is_decaying = yes
+		}
+		remove_variable = ultimatum_1
+		remove_variable = ultimatum_2
+		remove_variable = ultimatum_3
+		remove_variable = contador_boton
+	}
+
+	timeout = 365
+
+	weight = 200
+	can_revolution_inherit = yes
+	should_be_pinned_by_default = yes
+}

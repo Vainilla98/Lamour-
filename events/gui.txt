@@ -1,0 +1,287 @@
+namespace = gui
+
+gui.1 = {
+	type = country_event
+	placement = scope:scope_camerun
+
+	title = gui.1.t
+	desc = gui.1.d
+	flavor = gui.1.f
+
+	event_image = {
+		video = "europenorthamerica_capitalists_meeting"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/signed_contract"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	duration = 2
+
+	trigger = {
+	}
+
+	immediate = {
+		random_country = {
+			limit = {
+				has_journal_entry = je_ambiciones_guinea
+			}
+			save_scope_as = scope_reclamador
+			random_scope_state = {
+				limit = {
+					state_region = s:STATE_GABON
+					owner = this
+				}
+				save_scope_as = scope_gabon
+			}
+		}
+		root = {
+			save_scope_as = scope_yo
+		}
+	}
+
+	option = {
+		name = gui.1.a
+		scope:scope_reclamador = {
+			change_variable = {
+				name = voto_positivo
+				add = 1
+			}
+			post_notification = voto_positivo
+		}
+		change_relations = {
+			country = scope:scope_reclamador
+			value = 20
+		}
+		ai_chance = {
+			base = 3
+			modifier = {
+				trigger = {
+					scope:scope_reclamador.relations:root <= relations_threshold:amicable
+				}
+				add = 1
+			}
+			modifier = {
+				trigger = {
+					scope:scope_reclamador.relations:root <= relations_threshold:friendly
+				}
+				add = 1
+			}
+			modifier = {
+				trigger = {
+					scope:scope_reclamador.relations:root <= relations_threshold:cordial
+				}
+				add = 1
+			}
+			modifier = {
+				trigger = {
+					OR = {
+						has_attitude = {
+							who = scope:scope_reclamador
+							attitude = protective
+						}
+						has_attitude = {
+							who = scope:scope_reclamador
+							attitude = genial
+						}
+						has_attitude = {
+							who = scope:scope_reclamador
+							attitude = cooperative
+						}
+						has_attitude = {
+							who = scope:scope_reclamador
+							attitude = conciliatory
+						}
+					}
+				}
+				add = 3
+			}
+		}
+	}
+
+	option = {
+		name = gui.1.b
+		default_option = yes
+		scope:scope_reclamador = {
+			post_notification = voto_abstencion
+		}
+		change_relations = {
+			country = scope:scope_reclamador
+			value = -10
+		}
+		ai_chance = {
+			base = 3
+			modifier = {
+				trigger = {
+					OR = {
+						has_attitude = {
+							who = scope:spa_scope
+							attitude = cautious
+						}
+						has_attitude = {
+							who = scope:spa_scope
+							attitude = disinterested
+						}
+					}
+				}
+				add = 2
+			}
+		}
+	}
+
+	option = {
+		name = gui.1.c
+		scope:scope_reclamador = {
+			change_variable = {
+				name = voto_negativo
+				add = 1
+			}
+			post_notification = voto_negativo
+		}
+		change_relations = {
+			country = scope:scope_reclamador
+			value = -20
+		}
+		ai_chance = {
+			base = 3
+			modifier = {
+				trigger = {
+					scope:scope_reclamador.relations:root <= relations_threshold:cold
+				}
+				add = 1
+			}
+			modifier = {
+				trigger = {
+					scope:scope_reclamador.relations:root <= relations_threshold:hostile
+				}
+				add = 1
+			}
+			modifier = {
+				trigger = {
+					scope:scope_reclamador.relations:root <= relations_threshold:poor
+				}
+				add = 1
+			}
+			modifier = {
+				trigger = {
+					OR = {
+						has_attitude = {
+							who = scope:spa_scope
+							attitude = belligerent
+						}
+						has_attitude = {
+							who = scope:spa_scope
+							attitude = antagonistic
+						}
+						has_attitude = {
+							who = scope:spa_scope
+							attitude = domineering
+						}
+					}
+				}
+				add = 3
+			}
+		}
+	}
+}
+
+gui.2 = {
+	type = country_event
+	placement = ROOT
+
+	title = gui.2.t
+	desc = gui.2.d
+	flavor = gui.2.f
+
+	event_image = {
+		video = "africa_construction_colony"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/signed_contract"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	duration = 3
+
+	trigger = {
+	}
+
+	immediate = {
+		random_country = {
+			limit = {
+				has_journal_entry = je_ambiciones_guinea
+			}
+			save_scope_as = scope_reclamador
+		}
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_GABON
+				owner = root
+			}
+			save_scope_as = scope_gabon
+		}
+	}
+
+	option = {
+		name = gui.2.a
+		default_option = yes
+		s:STATE_GABON = {
+			if = {
+				limit = {
+					p:x3BD4AD = { owner = root } 
+				}
+				set_owner_of_provinces = {
+					country = scope:scope_reclamador
+					provinces = { x3BD4AD}
+				}
+			}
+			if = {
+				limit = {
+					p:x3DD6EF = { owner = root } 
+				}
+				set_owner_of_provinces = {
+					country = scope:scope_reclamador
+					provinces = { x3DD6EF}
+				}
+			}
+			if = {
+				limit = {
+					p:x402090 = { owner = root } 
+				}
+				set_owner_of_provinces = {
+					country = scope:scope_reclamador
+					provinces = { x402090 }
+				}
+			}
+		}
+		ai_chance = {
+			base = 8
+			modifier = {
+				trigger = {
+					scope:scope_reclamador.navy_size > root.navy_size
+				}
+				add = 2
+			}
+		}
+	}
+
+	option = {
+		name = gui.2.b
+		change_relations = {
+			country = scope:scope_reclamador
+			value = -40
+		}
+		change_infamy = 30
+		ai_chance = {
+			base = 1
+			modifier = {
+				trigger = {
+					scope:scope_reclamador.navy_size < root.navy_size
+				}
+				add = 2
+			}
+		}
+	}
+}

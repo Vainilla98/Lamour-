@@ -1,5 +1,5 @@
 ﻿l_spanish:
- slow_colonies_esp: "Mala gestión colonial"
+ slow_colonies_esp: "Expediciones a Hispanoamérica"
  la_gloriosa_esp: "Agitación Política"
  popular_republican: "Republicano del pueblo"
  marcha_real: "Luchando contra la Marcha Real"
@@ -63,9 +63,23 @@
  experimento_cubano: "Experimento cubano"
  guerra_total_generales: "Guerrilla Carlista"
  revoluciones_anticlericales_1835: "Revolución de 1835"
- liberal_exhartado: "Figura impopular"
+ liberal_exhartado: "Conocido Masón"
 
  peridoicos_liberales: "Prensa Liberal"
  caza_periodicos: "Prohibición prensa liberal"
  vicotria_liberal: "Venció al estado"
+ hombre_de_la_reina: "Hombre de la Reina"
+ herroe_la_guerra_carlista: "Héroe de la Guerra Carlista"
+ 
+ permitir_reunion: "Reuniones Secretas"
+ reunion_interrumpida: "Reuniones censuradas"
+ culpa_a_otro: "Uso fuerza militar para censurar"
+ victoria_diplomatica: "Victoria diplomatíca"
+ reto_guinea_asumido: "Reto de Guinea asumido"
+ rechazo_ig_expedicion: "Rechazo expedición"
+ poder_adquirido: "Preparativos Expediciónes"
+ maritr_politico: "Apoyo de sus contactos"
 
+ ataque_sorpresa: "Ejercito desprevenido"
+ ataque_sorpresa2: "Suministros interrumpidos"
+ armamento_haitiano: "Armamento requisado"

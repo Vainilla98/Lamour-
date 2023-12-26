@@ -41,8 +41,15 @@ car.1 = {
 
 	option = {
 		name = car.1.a
-		custom_label = car.1.tt
-		
+		custom_tooltip = {
+			text = car.1.tt
+			scope:gomez_damas = {
+				set_character_busy_and_immortal = yes
+			}
+		}
+		c:SPA = {
+			trigger_event = { id = esp.18 popup = yes }
+		}
 	}
 }
 

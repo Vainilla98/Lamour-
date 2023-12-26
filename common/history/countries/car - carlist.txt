@@ -40,17 +40,18 @@
 		}
 
 		add_modifier = {
-			name = slow_colonies_esp
-			months = very_long_modifier_time
-		}
-
-		add_modifier = {
 			name = guerra_total
 		}
 
 		add_modifier = {
 			name = carlistas_atrincherados
 			months = normal_modifier_time
+		}
+
+		add_modifier = {
+			name = slow_colonies_esp
+			months = very_long_modifier_time
+			is_decaying = yes
 		}
 
 		ig:ig_landowners = {

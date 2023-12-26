@@ -1,7 +1,24 @@
 slow_colonies_esp = {
+	icon = gfx/interface/icons/timed_modifier_icons/unused/modifier_explosion_negative.dds
+	state_colony_growth_speed_mult = -1
+	state_colony_growth_creation_mult = -0.45
+}
+
+rechazo_ig_expedicion = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
-	state_colony_growth_speed_mult = -0.80
-	state_colony_growth_creation_mult = -0.05
+	interest_group_approval_add = -2
+}
+
+poder_adquirido = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
+	country_officers_pol_str_mult = 0.6
+	country_soldiers_pol_str_mult = 0.2
+	country_influence_mult = -0.5
+	country_authority_mult = -0.5
+	country_convoys_capacity_mult = -0.5
+	country_trade_route_competitiveness_mult = -0.5
+	country_legitimacy_ideological_incoherence_mult = 0.25
+	country_prestige_add = 100
 }
 
 la_gloriosa_esp = {
@@ -102,12 +119,13 @@ carlistas_atrincherados = {
 	unit_defense_mult = 0.2
 	unit_morale_loss_mult = -0.1
 	building_mobilization_cost_mult = -0.2
-	country_tax_income_add = 3000
-	country_war_exhaustion_casualties_mult = -0.7
+	unit_recovery_rate_add = 0.4
+	country_war_exhaustion_casualties_mult = -0.5
 }
 
 guerra_total = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds	
+	state_radicals_from_sol_change_mult = 0.4
 	country_officers_pol_str_mult = 0.1
 	country_soldiers_pol_str_mult = 0.05
 }
@@ -287,9 +305,21 @@ experimento_cubano = {
 
 aventura_guinea = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
-	country_expenses_add = 10000
+	country_expenses_add = 12000
 	country_convoys_capacity_mult = -0.1
-	state_colony_growth_creation_mult = -0.18
+	state_colony_growth_creation_mult = -0.2
+}
+
+victoria_diplomatica = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	country_influence_mult = 0.1
+	country_prestige_add = 30
+}
+
+reto_guinea_asumido = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
+	country_influence_mult = -0.1
+	country_prestige_add = -30
 }
 
 revoluciones_anticlericales_1835 = {
@@ -306,11 +336,28 @@ liberal_exhartado = {
 	interest_group_pop_attraction_mult = -0.05
 }
 
+maritr_politico = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_positive.dds
+	character_popularity_add = 20
+}
+
+hombre_de_la_reina = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	interest_group_ig_petty_bourgeoisie_pol_str_mult = 0.05
+	interest_group_in_government_approval_add = 1
+	character_popularity_add = 10
+}
+
+herroe_la_guerra_carlista = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	character_popularity_add = 25
+	unit_morale_recovery_mult = 0.1
+}
+
 mejoras_salarios = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds
 	country_expenses_add = 1200
-	country_bureaucracy_add = -20
-	country_authority_add = -20
+	country_bureaucracy_add = -30
 }
 
 parar_expedicion = {
@@ -358,7 +405,42 @@ deslegitmacion_regimen8 = {
 	country_legitimacy_govt_total_clout_add = -45
 }
 
-deslegitmacion_regimen8 = {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds	
-	country_legitimacy_govt_total_clout_add = -50
+permitir_reunion = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	interest_group_approval_add = 1
+	interest_group_pol_str_mult = 0.1
 }
+
+reunion_interrumpida = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
+	interest_group_pol_str_mult = -0.05
+}
+
+culpa_a_otro = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
+	country_legitimacy_base_add = -5
+	interest_group_ig_armed_forces_approval_add = -1
+}
+
+ataque_sorpresa = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_negative.dds
+	unit_offense_mult = -0.1
+	unit_morale_loss_mult = 0.1
+	interest_group_ig_armed_forces_approval_add = -1
+}
+
+ataque_sorpresa2 = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_negative.dds
+	goods_input_small_arms_mult = 0.5
+	goods_input_artillery_mult = 0.5
+	goods_input_ammunition_mult = 0.5
+}
+
+armamento_haitiano = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
+	goods_input_small_arms_mult = -0.25
+	goods_input_artillery_mult = -0.25
+	goods_input_ammunition_mult = -0.25
+}
+
+

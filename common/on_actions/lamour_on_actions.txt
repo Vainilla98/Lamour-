@@ -1,6 +1,6 @@
-on_yearly_pulse_country = {
+on_half_yearly_pulse_country = {
 	random_events = {
-		5 = 0
+		2 = 0
 		10 = esp.24
 		10 = esp.8
 	}

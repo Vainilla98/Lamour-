@@ -39,5 +39,37 @@ juan_prim_character_template = {
 		latest_usage_date = 1880.1.1
 		chance = 50
 	}
+}
 
+francisco_javier_istúriz_template = {
+	first_name = Francisco_javier 
+	last_name = Isturiz 
+	culture = cu:spanish
+	female = no
+	religion = rel:catholic
+	ig_leader = yes
+	historical = yes
+	birth_date = 1790.10.31  
+	interest_group = ig_intelligentsia
+	# ideology = ideology_reformer
+	traits = {
+		basic_political_operator
+	}
+}
+
+jose_maria_calatrava_template = {
+	first_name = Jose_maria
+	last_name = Calatrava 
+	culture = cu:spanish
+	female = no
+	religion = rel:catholic
+	ig_leader = yes
+	historical = yes
+	birth_date = 1781.02.26  
+	interest_group = ig_intelligentsia
+	ideology = ideology_radical
+	traits = {
+		meticulous
+		basic_political_operator
+	}
 }

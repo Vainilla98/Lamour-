@@ -22,15 +22,17 @@
  leyes_anticapitalismo_tooltip: "#tooltip_header Las [Concept('concept_law', '$concept_laws$')|l] que abandonan el capitalismo son:#!\n$TOOLTIP_DELIMITER$\n[GetLawType('law_command_economy').GetName], [GetLawType('law_cooperative_ownership').GetName] o [GetLawType('law_industry_banned').GetName]." 
 
  je_medizabal_esp: "Nombramiento de Mendizábal"
- je_medizabal_esp_reason: "[GetInterestGroupVariant('ig_intelligentsia',GetPlayer).GetLeader.GetFullName] regreso a [ROOT.GetCountry.GetName] del exilio el 1 de septiembre de 1835, cuando el nuevo presidente del Consejo de ministros,  #bold José María Queipo de Llano#!, lo nombró 'ministro de Hacienda', gracias a la promesa de [GetInterestGroupVariant('ig_intelligentsia',GetPlayer).GetLeader.GetLastName] de encontrar financiación para la guerra carlista. \n\nNada más entrar en  [ROOT.GetCountry.GetName], se encontró con la «Revolución de las Juntas», revoluciones de carácter liberal y anticlericales y, en un intento de aprovecharlas a su favor, [GetInterestGroupVariant('ig_intelligentsia',GetPlayer).GetLeader.GetLastName] publicó un manifiesto en el que ponía en entredicha la autoridad del conde de Toreno,  #bold José María Queipo de Llano#!, acabando este cediendo a la presión y siendo el 14 de septiembre el dia en que [GetInterestGroupVariant('ig_intelligentsia',GetPlayer).GetLeader.GetLastName] pasó a ocupar la presidencia del gobierno, acompañado sólo de dos ministros."  
+ je_medizabal_esp_reason: "[GetInterestGroupVariant('ig_intelligentsia',GetPlayer).GetLeader.GetFullName] regresó a [ROOT.GetCountry.GetName] del exilio el 1 de septiembre de 1835, cuando el nuevo presidente del Consejo de ministros,  #bold José María Queipo de Llano#!, lo nombró 'ministro de Hacienda', gracias a la promesa de [GetInterestGroupVariant('ig_intelligentsia',GetPlayer).GetLeader.GetLastName] de encontrar financiación para la guerra carlista. \n\nNada más entrar en  [ROOT.GetCountry.GetName], se encontró con la «Revolución de las Juntas», revoluciones de carácter liberal y anticlericales y, en un intento de aprovecharlas a su favor, [GetInterestGroupVariant('ig_intelligentsia',GetPlayer).GetLeader.GetLastName] publicó un manifiesto en el que ponía en entredicha la autoridad del conde de Toreno,  #bold José María Queipo de Llano#!, acabando este cediendo a la presión y siendo el 14 de septiembre el dia en que [GetInterestGroupVariant('ig_intelligentsia',GetPlayer).GetLeader.GetLastName] pasó a ocupar la presidencia del gobierno, acompañado sólo de dos ministros."  
  je_medizabal_esp_tt: "Ya no habrá repercusión por sacar a la [GetInterestGroupVariant('ig_intelligentsia',GetPlayer).GetName|l] del [concept_government|l]."
+ je_medizabal_esp_tt1: "#bold Francisco Javier Istúriz#! será el nuevo lider de la [GetInterestGroupVariant('ig_intelligentsia',GetPlayer).GetName|l]"
 
  je_la_granja_esp: "Motín de la Granja"
- je_la_granja_esp_reason: "Tras la destitución del primer ministro Mendizábal los sectores liberales de nuestra población han salido a la calle a reclamar reformas urgentes, buscando la reinstauración de la #bold Constitución de 1812 #!.\n\nA la par, [SCOPE.sCharacter('mendizabal_scope').GetLastName] no abandonó la lucha política sino que incrementó su presencia en la prensa y apoyó a las sociedades secretas que preparaban un movimiento revolucionario como el del verano del año anterior.\n\n#bold Exiliar a [SCOPE.sCharacter('mendizabal_scope').GetLastName] puede tener consecuencias.#! " 
+ je_la_granja_esp_reason: "Tras la destitución del primer ministro Mendizábal los sectores liberales de nuestra población han salido a la calle a reclamar reformas urgentes, buscando la reinstauración de la #bold Constitución de 1812 #!.\n\nA la par, [SCOPE.sCharacter('mendizabal_scope').GetLastName] no abandonó la lucha política sino que incrementó su presencia en la prensa y apoyó a las sociedades secretas que preparaban un movimiento revolucionario como el del verano del año anterior.\n\n#bold @warning! Si exiliamos a [SCOPE.sCharacter('mendizabal_scope').GetLastName] tiene altas posiblidades de regresar a mientras tenga el modificador de «Apoyo de sus contactos».#! " 
  je_la_granja_esp_tt: "Al menos tenemos la ley de [GetLawType('law_landed_voting').GetName]"
  je_la_granja_esp_tt1: "Desparecen los [Concept('concept_modifier', '$concept_modifiers$')|l] por «Juntas Provinciales»"
  je_la_granja_esp_tt2: "María Cristina ya no es la [SCOPE.sCharacter('maria_scope').GetPrimaryRoleTitle]"
  je_la_granja_esp_tt3: "Los periódicos liberales se desmantelarán"
+  je_la_granja_esp_tt4: "#bold José María Calatrava#!, un [GetIdeology('ideology_radical').GetName|l] será el nuevo lider de la [GetInterestGroupVariant('ig_intelligentsia',GetPlayer).GetName|l]"d
 
  caza_liberales_but_name: "Censurar la prensa liberal"
  caza_liberales_but_desc: "No podemos seguir a este ritmo. La autoridad del estado se está viendo socavada"
@@ -42,10 +44,38 @@
 
  je_motin_la_granja_esp: "La Sargentada"
  je_motin_la_granja_esp_reason: "La intranquilidad que se respira en el Palacio Real de Segovia no era sino un reflejo de la agitación que se vive en el exterior. La #bold Guardia Real#!, experimenta día tras día un crecimiento palpable de la tensión entre sus filas.\nEl ambiente enrarecido genera una sensación de incertidumbre, donde la más mínima debilidad puede desencadenar en una reacción de imprevisible magnitud.\n\nLos [GetPopType('officers').GetName] de la #bold Guardia Real#!, se encuentran en una posición delicada, equilibrando entre la obediencia al monarca y la empatía hacia las demandas populares. La responsabilidad recae sobre sus hombros, pues son conscientes de que el futuro de este país puede depender de ellos."
- je_motin_la_granja_esp_tt: "Si se cumplen algunas de las condiciones de arriba, habrá una cierta posibilidad de un motín entre los [GetPopType('officers').GetName] de la #bold Guardia Real#!\n\nSi la [concept_turmoil|l] llega al #bold 10.00%#! en [SCOPE.sState('palacio_real').GetName] habrá una mínima posibilidad de que se desencadene"
+ je_motin_la_granja_esp_tt: "Si se cumplen algunas de las condiciones de arriba, habrá una cierta posibilidad de un motín entre los [GetPopType('officers').GetName] de la #bold Guardia Real#!\n\n@warning! Si la [concept_turmoil|l] llega al #bold 10.00%#! en [SCOPE.sState('palacio_real').GetName] habrá una mínima posibilidad de que se desencadene"
  je_motin_la_granja_esp_tt1: "Se proclamarán #bold Cortes Constituyentes#! para reformar el texto constitucional de Cádiz mientras dure el $forced_regime_change$"
 
- # je_ambiciones_guinea: "Crisis de Guinea"
- # je_ambiciones_guinea_reason: "Ante la negativa de devolvernos lo que es nuestro, se abre la oportunidad de reclamar la Guinea para nosotros."
- # je_ambiciones_guinea_goal: "Ha pasado 1 año desde el inicio de la crisis"
- # je_ambiciones_guinea_tt: "Te has establecido en la #bold Guinea Española #!"
+ je_territorios_utlramar_esp: "Legado de las Expediciones"
+ je_territorios_utlramar_esp_reason: "La invasión de #bold Napoleón Bonaparte#! a [ROOT.GetCountry.GetName] marcó el inicio de una serie de sublevaciones en los territorios de ultramar. Tras el retorno de #bold Fernando VII#! al trono [ROOT.GetCountry.GetAdjective] se organizaron rápidamente diferentes expediciones para apoyar a los realistas en los territorios de ultramar. Sin embargo, la inestabilidad política en la península, junto con la precaria situación tras su guerra de independencia, imposibilitó su éxito.\n\nFinalmente, en 1829, desde La Habana, salió la última expedición hacia [SCOPE.sCountry('mexico_scope').GetName]. Esta expedición, afectada por enfermedades epidémicas que afectaron a los españoles y derrotada por el ejército de [SCOPE.sCharacter('santa_anna_scope').GetLastName] en la Batalla de Tampico, se vio obligada a capitular. Sumándose a la derrota en [SCOPE.sCountry('mexico_scope').GetName], la caída de #bold Carlos X#! en [SCOPE.sCountry('francia_scope').GetName] durante la revolución de las #italic 'Trois Glorieuses'#!, significó la imposibilidad de conseguir el apoyo [SCOPE.sCountry('francia_scope').GetAdjective] en América. Todos los planes de reconquista cesaron con el fallecimiento de #bold Fernando VII#! el 29 de septiembre de 1833.\n\nNos encontramos ante el dilema de qué acción tomar respecto a las nuevas repúblicas en Hispanoamérica. ¿Debemos finalmente enterrar el hacha de guerra y tratar de normalizar [concept_relations|l] con ellas, renunciando a todo reclamo en Hispanoamérica, o debemos intentar seguir la labor de nuestros grandes héroes, venciendo a los traidores a la madre patria?"
+ je_territorios_utlramar_esp_tt: "Hemos anunciado la preparación de una nueva expedición a #bold Hispanoamérica#!"
+ je_territorios_utlramar_esp_tt1: "Hemos renunciado a los reclamos en #bold Hispanoamérica#!"
+ je_territorios_utlramar_esp_tt2: "Perderemos la oportunidad de organizar una nueva expedición a #bold Hispanoamérica#!"
+ je_territorios_utlramar_esp_tt3: "Mejorarán las [concept_relations|l] con las [Concept('concept_country','naciones')] en #bold Hispanoamérica#!"
+ je_territorios_utlramar_esp_tt4: "@warning! Las [Concept('concept_country','repúblicas')] #bold hispanoaméricanas#! que no esten bajo nuestra influencia serán mas hostiles."
+ je_territorios_utlramar_esp_tt5: "@warning! Las [Concept('concept_great_power', '$concept_great_powers$')|l] y Estados Unidos serán mas hostiles"
+ je_territorios_utlramar_esp_tt6: "Todos los [Concept('concept_interest_group', '$concept_interest_groups$')|l] expeto a las [GetInterestGroupVariant('ig_armed_forces',GetPlayer).GetName|l] les disgustará la decisión."
+ je_territorios_utlramar_esp_tt7: "Conseguiremos [Concept('concept_claim', '$concept_claims$')|l] sobre toda #bold Hispanoamérica#!"
+ je_territorios_utlramar_esp_tt8: "Empeorarán las [concept_relations|l] con las [Concept('concept_country','naciones')] en #bold Hispanoamérica#!"
+ anunciar_expedicion_name: "Anunciar nueva Expedicion"
+ anunciar_expedicion_desc: "Debemos seguir luchando por la persevacion de la undiad de Las Españas"
+ renunciar_reclamo_name: "Renunciar reclamos en América"
+ renunciar_reclamo_desc: "Es hora de afrontar los hechos. Debemos pasar página"
+
+ je_expediciones_esp: "Expediciones a Hispanoamérica"
+ je_expediciones_esp_reason: "Pese a a nuestra clara legitimidad sobre neustro reclamo, las [Concept('concept_great_power', '$concept_great_powers$')|l] se han empeñado en evitar que logremos nuestro objetivo de volver a unir al mundo hispano. Una misera derrota en batalla puede completamente destruir nuestra ambicion en #bold Hispanoamérica#!."
+ je_expediciones_esp_tt: "Perderemos [Concept('concept_claim', '$concept_claims$')|l] sobre toda #bold Hispanoamérica#!"
+ je_expediciones_esp_tt1: "@information! Las [Concept('concept_country','repúblicas')] #bold hispanoaméricanas#! ya no serán mas hostiles"
+ je_expediciones_esp_tt2: "@information! Las [Concept('concept_great_power', '$concept_great_powers$')|l] y Estados Unidos ya no serán mas hostiles"
+
+ je_independencia_rep_dominicana_hai: "Problema Dominicano"
+ je_independencia_rep_dominicana_hai_reason: "Tras perder de nuevo su independencia frente a España y tras su posterior ocuapcion por parte de Haití, hay todavia muchos en [SCOPE.sState('santo_domingo_scope').GetName] que sueñan con fundar una nación #bold hispana#! propia. Desde las sombras, los dirigentes de la sociedad secreta #bold 'La Trinitaria'#! no han hecho nada mas que conspirar contra el gobierno [ROOT.GetCountry.GetAdjective]."
+
+ je_reconquista_rep_dominicana_esp: "Reconquista La Española"
+ je_reconquista_rep_dominicana_esp_reason: "La oportunidad de recuperar la Española ha llegado por fin. La guerra civil en [SCOPE.sCountry('usa_scope').GetName] imposibilita una respuesta ferrea, por lo que deberiamos tener la via libre para poder tomar de neuvo [SCOPE.sState('santo_domingo_scope').GetName] de las manos de [SCOPE.sCountry('ocupador_santo_domingo').GetName].\n\n@information! Si [Concept('concept_country','Santo Domingo')] existe, podemos integralos pácificamente."
+
+ anexion_rep_dominicana_name: "Proponer Anexión"
+ anexion_rep_dominicana_desc: "Con la independencia de un pais hispano en La Española, podemos buscar una unión pacifica con ellos."
+ anexion_rep_dominicana_tt: "No se ha propuesto antes"
+ anexion_rep_dominicana_tt1: "Si aceptan nos comprometeremos a integrarlos como [concept_incorporated_state]"

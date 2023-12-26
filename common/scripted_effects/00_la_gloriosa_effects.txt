@@ -240,9 +240,38 @@ limpiar_variables_gloriosa = {
 }
 
 calcular_poder_carlista = {
-	set_variable = { name = carlistas_progess_next value = root.government_legitimacy }
-	change_variable = { name = carlistas_progess_next subtract = 50 } 
-	change_variable = { name = carlistas_progess_next divide = -100 }
+	set_variable = { name = carlistas_progess_next value = 0 }
+
+
+	set_variable = { name = carlistas_legitimidad value = root.government_legitimacy }
+	change_variable = { name = carlistas_legitimidad subtract = 50 } 
+	change_variable = { name = carlistas_legitimidad divide = -100 }
+	change_variable = { name = carlistas_progess_next add = var:carlistas_legitimidad }
+
+	set_variable = { name = carlistas_de_poder_terratenientes value = 0 }
+
+	set_variable = { name = carlistas_terratenientes_poder value = ig:ig_landowners.ig_clout }
+
+	set_variable = { name = carlistas_terratenientes_felicidad value = ig:ig_landowners.ig_approval }
+	change_variable = { name = carlistas_terratenientes_felicidad divide = -10 }
+
+	set_variable = { name = carlistas_terratenientes_felicidad_true value = var:carlistas_terratenientes_felicidad }
+	change_variable = { name = carlistas_terratenientes_felicidad_true add = 0.4 }
+
+	change_variable = { name = carlistas_de_poder_terratenientes add = var:carlistas_terratenientes_poder }
+	change_variable = { name = carlistas_de_poder_terratenientes multiply = var:carlistas_terratenientes_felicidad_true }
+
+
+	change_variable = { name = carlistas_progess_next add = var:carlistas_de_poder_terratenientes }
+}
+
+limpiar_variables_carlista = {
+	remove_variable = carlistas_progess_next
+	remove_variable = carlistas_legitimidad
+	remove_variable = carlistas_terratenientes_poder
+	remove_variable = carlistas_terratenientes_felicidad
+	remove_variable = carlistas_de_poder_terratenientes
+	remove_variable = carlistas_terratenientes_felicidad_true
 }
 
 incrementar_modificador = {
@@ -332,7 +361,6 @@ eliminar_modificador = {
 		remove_modifier = deslegitmacion_regimen8
 	}
 }
-
 
 incrementar_modificador_junta_provincial = {
 	if = {

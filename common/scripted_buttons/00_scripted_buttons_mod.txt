@@ -297,7 +297,6 @@ stop_pago_deuda_but = {
 	}
 }
 
-
 ferrocarril_cubano_but = {
 	name = ferrocarril_cubano_but_name
 	desc = ferrocarril_cubano_but_desc
@@ -350,6 +349,7 @@ ferrocarril_cubano_but = {
 	}
 
 	ai_chance = {
+		base = 10
 		modifier = {
 			trigger = { gold_reserves > 1000000 }
 			add = 20
@@ -491,5 +491,451 @@ stop_caza_liberales_but = {
 			}
 			add = 20
 		}
+	}
+}
+
+ultimatum_ocupador1 = {
+	name = ultimatum_ocupador1_name
+	desc = ultimatum_ocupador1_desc
+
+	visible = {
+		exists = scope:ocupador_guinea
+		NOT = { has_variable = ultimatum_1 }
+	}
+
+	possible = {
+		custom_tooltip = {
+			text = ultimatum_ocupador_tt
+			root.var:voto_positivo > root.var:voto_negativo
+		}
+		custom_tooltip = {
+			text = ultimatum_ocupador_tt1
+			root.var:contador_boton = 10
+		}
+	}
+
+	effect = {
+		set_variable = ultimatum_1
+		scope:ocupador_guinea = {
+			trigger_event = { 
+				id = gui.2 
+				days = 2
+				popup = yes
+			}
+		}
+	}
+
+	ai_chance = {
+		base = 0
+		modifier = {
+			trigger = { scope:ocupador_guinea.country_rank <= root.country_rank }
+			add = 30
+		}
+		modifier = {
+			trigger = { scope:ocupador_guinea.country_rank > root.country_rank }
+			add = -30
+		}
+		modifier = {
+			trigger = {
+				scope:ocupador_guinea.GDP <= root.GDP
+			}
+			add = 10
+		}
+		modifier = {
+			trigger = {
+				scope:ocupador_guinea.GDP > root.GDP
+			}
+			add = -10
+		}
+		modifier = {
+			trigger = {
+				scope:ocupador_guinea.navy_size <= root.navy_size
+			}
+			add = 10
+		}
+		modifier = {
+			trigger = {
+				scope:ocupador_guinea.navy_size > root.navy_size
+			}
+			add = -10
+		}
+		modifier = {
+			trigger = {
+				scope:ocupador_guinea={
+					OR = {
+						has_modifier = declared_bankruptcy
+						is_at_war = yes
+					}
+				} 
+			}
+			add = 10
+		}
+		modifier = {
+			trigger = { gold_reserves > 500000 }
+			add = 10
+		}		
+		modifier = {
+			trigger = { 
+				gold_reserves > 0
+				weekly_net_fixed_income > 80000
+			}
+			add = 10
+		}
+		modifier = {
+			trigger = { 
+				scaled_debt > 0.05
+			}
+			add = -20
+		}
+		modifier = {
+			trigger = { 
+				scope:ocupador_guinea.scaled_debt > 0.05
+			}
+			add = 10
+		}
+	}
+}
+
+ultimatum_ocupador2 = {
+	name = ultimatum_ocupador2_name
+	desc = ultimatum_ocupador2_desc
+
+	visible = {
+		exists = scope:ocupador_guinea2
+		NOT = { has_variable = ultimatum_2 }
+	}
+
+	possible = {
+		custom_tooltip = {
+			text = ultimatum_ocupador_tt
+			root.var:voto_positivo > root.var:voto_negativo
+		}
+		custom_tooltip = {
+			text = ultimatum_ocupador_tt1
+			root.var:contador_boton = 10
+		}
+	}
+
+	effect = {
+		set_variable = ultimatum_2
+		scope:ocupador_guinea2 = {
+			trigger_event = { 
+				id = gui.2 
+				days = 2
+				popup = yes
+			}
+		}
+	}
+
+	ai_chance = {
+		base = 0
+		modifier = {
+			trigger = { scope:ocupador_guinea.country_rank <= root.country_rank }
+			add = 30
+		}
+		modifier = {
+			trigger = { scope:ocupador_guinea.country_rank > root.country_rank }
+			add = -30
+		}
+		modifier = {
+			trigger = {
+				scope:ocupador_guinea.GDP <= root.GDP
+			}
+			add = 10
+		}
+		modifier = {
+			trigger = {
+				scope:ocupador_guinea.GDP > root.GDP
+			}
+			add = -10
+		}
+		modifier = {
+			trigger = {
+				scope:ocupador_guinea.navy_size <= root.navy_size
+			}
+			add = 10
+		}
+		modifier = {
+			trigger = {
+				scope:ocupador_guinea.navy_size > root.navy_size
+			}
+			add = -10
+		}
+		modifier = {
+			trigger = {
+				scope:ocupador_guinea={
+					OR = {
+						has_modifier = declared_bankruptcy
+						is_at_war = yes
+					}
+				} 
+			}
+			add = 10
+		}
+		modifier = {
+			trigger = { gold_reserves > 500000 }
+			add = 10
+		}		
+		modifier = {
+			trigger = { 
+				gold_reserves > 0
+				weekly_net_fixed_income > 80000
+			}
+			add = 10
+		}
+		modifier = {
+			trigger = { 
+				scaled_debt > 0.05
+			}
+			add = -20
+		}
+		modifier = {
+			trigger = { 
+				scope:ocupador_guinea.scaled_debt > 0.05
+			}
+			add = 10
+		}
+	}
+}
+
+ultimatum_ocupador3 = {
+	name = ultimatum_ocupador3_name
+	desc = ultimatum_ocupador3_desc
+
+	visible = {
+		exists = scope:ocupador_guinea3
+		NOT = { has_variable = ultimatum_3 }
+	}
+
+	possible = {
+		custom_tooltip = {
+			text = ultimatum_ocupador_tt
+			root.var:voto_positivo > root.var:voto_negativo
+		}
+		custom_tooltip = {
+			text = ultimatum_ocupador_tt1
+			root.var:contador_boton = 10
+		}
+	}
+
+	effect = {
+		set_variable = ultimatum_3
+		scope:ocupador_guinea3 = {
+			if = {
+				limit = { this = { exists = overlord }  }
+				overlord = {
+					trigger_event = { 
+						id = gui.2 
+						days = 2
+						popup = yes
+					}
+				}
+			} else_if = {
+				limit = {this = { is_direct_subject_of = ROOT } }
+				s:STATE_GABON = {
+					if = {
+						limit = {
+							p:x3BD4AD = { owner = root } 
+						}
+						set_owner_of_provinces = {
+							country = scope:scope_reclamador
+							provinces = { x3BD4AD}
+						}
+					}
+					if = {
+						limit = {
+							p:x3DD6EF = { owner = root } 
+						}
+						set_owner_of_provinces = {
+							country = scope:scope_reclamador
+							provinces = { x3DD6EF}
+						}
+					}
+					if = {
+						limit = {
+							p:x402090 = { owner = root } 
+						}
+						set_owner_of_provinces = {
+							country = scope:scope_reclamador
+							provinces = { x402090}
+						}
+					}
+				}
+			} else = {
+				trigger_event = { 
+					id = gui.2 
+					days = 2
+					popup = yes
+				}
+			}
+		}
+	}
+
+	ai_chance = {
+		base = 0
+		modifier = {
+			trigger = { scope:ocupador_guinea.country_rank <= root.country_rank }
+			add = 30
+		}
+		modifier = {
+			trigger = { scope:ocupador_guinea.country_rank > root.country_rank }
+			add = -30
+		}
+		modifier = {
+			trigger = {
+				scope:ocupador_guinea.GDP <= root.GDP
+			}
+			add = 10
+		}
+		modifier = {
+			trigger = {
+				scope:ocupador_guinea.GDP > root.GDP
+			}
+			add = -10
+		}
+		modifier = {
+			trigger = {
+				scope:ocupador_guinea.navy_size <= root.navy_size
+			}
+			add = 10
+		}
+		modifier = {
+			trigger = {
+				scope:ocupador_guinea.navy_size > root.navy_size
+			}
+			add = -10
+		}
+		modifier = {
+			trigger = {
+				scope:ocupador_guinea={
+					OR = {
+						has_modifier = declared_bankruptcy
+						is_at_war = yes
+					}
+				} 
+			}
+			add = 10
+		}
+		modifier = {
+			trigger = { gold_reserves > 500000 }
+			add = 10
+		}		
+		modifier = {
+			trigger = { 
+				gold_reserves > 0
+				weekly_net_fixed_income > 80000
+			}
+			add = 10
+		}
+		modifier = {
+			trigger = { 
+				scaled_debt > 0.05
+			}
+			add = -20
+		}
+		modifier = {
+			trigger = { 
+				scope:ocupador_guinea.scaled_debt > 0.05
+			}
+			add = 10
+		}
+	}
+}
+
+expedicion_gomez = {
+	name = expedicion_gomez_name
+	desc = expedicion_gomez_desc
+
+	visible = {
+		
+	}
+
+	possible = {
+		NOT = { has_variable = expedicion_gomez_vari }
+	}
+
+	effect = {
+		set_variable = expedicion_gomez_vari
+		trigger_event = { id = car.1 }
+	}
+
+	ai_chance = {
+		base = 5
+		modifier = {
+			trigger = { has_variable = expedicion_real_vari }
+			add = 30
+		}
+	}
+}
+
+
+expedicion_real = {
+	name = expedicion_real_name
+	desc = expedicion_real_desc
+
+	visible = {
+		
+	}
+
+	possible = {
+		NOT = { has_variable = expedicion_real_vari }
+	}
+
+	effect = {
+		set_variable = expedicion_real_vari
+		c:SPA = {
+			trigger_event = { id = esp.9 popup = yes }
+		}
+	}
+
+	ai_chance = {
+		base = 5
+		modifier = {
+			trigger = { has_variable = expedicion_gomez_vari }
+			add = 30
+		}
+	}
+}
+
+
+anexion_rep_dominicana = {
+	name = anexion_rep_dominicana_name
+	desc = anexion_rep_dominicana_desc
+
+	visible = {
+		exists = c:DOM
+		c:DOM = {
+			has_state_in_state_region = STATE_SANTO_DOMINGO
+			is_ai = yes
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			text = anexion_rep_dominicana_tt
+			NOT = { has_variable = anexion_rep_dominicana_vari }
+		}
+		OR = {
+			has_diplomatic_pact = {
+				who = c:DOM
+				type = customs_union
+			}
+			c:DOM = {
+				is_subject_of = root
+			}
+		}
+		c:DOM.relations:root >= relations_threshold:friendly
+	}
+
+	effect = {
+		set_variable = anexion_rep_dominicana_vari
+		c:DOM = {
+			trigger_event = { id = hai.2 popup = yes }
+		}
+		custom_tooltip = anexion_rep_dominicana_tt1
+	}
+
+	ai_chance = {
+		base = 10
 	}
 }

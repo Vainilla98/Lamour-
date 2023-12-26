@@ -62,18 +62,16 @@ ai_strategy_default = {
 	# Using this value in other strategies will function additively
 	diplomatic_play_boldness = {
 		value = 50
-
+		
 		if = { 
 			limit = {
 				exists = c:CAR
 				THIS = c:CAR	
-				c:SPA = {
-					is_diplomatic_play_initiator = yes
-				}
+				is_diplomatic_play_enemy_of = c:SPA
 			}
 			add = 500
 		}
-		
+
 		if = { # Isolationist Japan should tend to back down against market opening plays
 			limit = {
 				exists = c:JAP
@@ -835,7 +833,7 @@ ai_strategy_default = {
 					limit = {
 						scope:target_state = { state_region = s:STATE_SCHLESWIG_HOLSTEIN }				
 					}				
-					add = 100 # 50
+					add = 50
 				}
 				else = {
 					multiply = 0.0
@@ -852,6 +850,16 @@ ai_strategy_default = {
 					}
 				}
 				add = 50
+			}
+
+			if = {
+				limit = {
+					has_journal_entry = je_reconquista_rep_dominicana_esp
+					scope:target_state = {
+						state_region = s:STATE_SANTO_DOMINGO
+					}
+				}
+				add = 200
 			}
 			
 			if = {
@@ -1323,6 +1331,31 @@ ai_strategy_default = {
 				add = 100
 			}
 
+			# Cualquier pais que tenga su colonia filipina, le interesa atacar a los sultanatos antes de que se lo roben  
+			if = {
+				limit = {
+					any_subject_or_below = {
+						country_has_primary_culture = cu:filipino
+						OR = {
+							is_subject_type = subject_type_dominion
+							is_subject_type = subject_type_puppet
+						}
+					}
+					country_rank > scope:target_country.country_rank
+					scope:target_country = {
+						NOT = { is_subject_of = ROOT }
+						any_scope_state = {
+							OR = {
+								state_region = s:STATE_MINDANAO
+								state_region = s:STATE_LUZON
+								state_region = s:STATE_VISAYAS
+							}
+						}
+					}
+				}
+				add = 100
+			}
+
 			if = { #Indian suzerain will be aggressive against Afganistan, if Afghanistan is threatened by Russia.
 				limit = {
 					AND = {
@@ -1656,7 +1689,7 @@ ai_strategy_default = {
 				has_journal_entry = je_carlist_victory
 			}
 			add = -0.5
-		}	
+		}
 	
 		# Ottomans should be extremely confident against owners of Syria and Egypt when they have the relevant JE's
 		if = {
@@ -1873,30 +1906,6 @@ ai_strategy_default = {
 			add = 25
 		}
 		
-		# Cualquier pais que tenga su colonia filipina, le interesa atacar a los sultanatos antes de que se lo roben  
-		if = {
-			limit = {
-				any_subject_or_below = {
-					country_has_primary_culture = cu:filipino
-					OR = {
-						is_subject_type = subject_type_dominion
-						is_subject_type = subject_type_puppet
-					}
-				}
-				country_rank > scope:target_country.country_rank
-				scope:target_country = {
-					any_scope_state = {
-						OR = {
-							state_region = s:STATE_MINDANAO
-							state_region = s:STATE_LUZON
-							state_region = s:STATE_VISAYAS
-						}
-					}
-				}
-			}
-			add = 20
-		}
-		
 		# Opium wars aggressor should be very, very aggressive against target if they're banning opium
 		if = {
 			limit = {
@@ -1917,7 +1926,7 @@ ai_strategy_default = {
 					is_oppressor_of_schleswig_holstein = yes
 				}
 			}
-			add = 50 # 10
+			add = 10
 		}		
 
 		if = { #Carving up China
@@ -2032,6 +2041,31 @@ ai_strategy_default = {
 			add = 5
 		}
 
+		# Cualquier pais que tenga su colonia filipina, le interesa atacar a los sultanatos antes de que se lo roben  
+		if = {
+			limit = {
+				any_subject_or_below = {
+					country_has_primary_culture = cu:filipino
+					OR = {
+						is_subject_type = subject_type_dominion
+						is_subject_type = subject_type_puppet
+					}
+				}
+				country_rank > scope:target_country.country_rank
+				scope:target_country = {
+					NOT = { is_subject_of = ROOT }
+					any_scope_state = {
+						OR = {
+							state_region = s:STATE_MINDANAO
+							state_region = s:STATE_LUZON
+							state_region = s:STATE_VISAYAS
+						}
+					}
+				}
+			}
+			add = 5
+		}
+
 		# Extra aggression against Peru-Bolivia in general
 		if = {
 			limit = {
@@ -2095,7 +2129,7 @@ ai_strategy_default = {
 					}
 				}
 			}
-			add = 20 # 5
+			add = 30 # 5
 		}
 
 		if = { #Russian Caucasus
@@ -2748,9 +2782,9 @@ ai_strategy_default = {
 	# Which buildings should the AI subsidize
 	# Using a different value in a strategy will override this value
 	subsidies = {
-		building_power_plant = should_have
-		building_railway = should_have
-		building_trade_center = should_have		
+		building_power_plant = must_have
+		building_railway = must_have
+		building_trade_center = must_have		
 	}
 	
 	# Specifying values here will override subsidy priorities while at war
@@ -3407,6 +3441,19 @@ ai_strategy_default = {
 				}
 				multiply = 1.5
 			}
+
+			if = { 
+				limit = {
+					country_has_primary_culture = cu:spanish
+					is_subject = no 
+					exists = c:DOM
+					scope:target_country = {
+						this = c:DOM
+						NOT = { is_subject_of = root }
+					} 
+				}
+				add = 1000
+			}
 			
 			if = {
 				limit = {
@@ -3595,7 +3642,7 @@ ai_strategy_default = {
 					scope:target_country.infamy >= infamy_threshold:pariah
 				}
 				multiply = 0.5
-			}	
+			}
 		}		
 		protect = {
 			value = 0
@@ -3697,6 +3744,19 @@ ai_strategy_default = {
 					has_variable = rsm_friendship
 				}
 				add = 100
+			}
+
+			if = { 
+				limit = {
+					country_has_primary_culture = cu:spanish
+					is_subject = no 
+					exists = c:DOM
+					scope:target_country = {
+						this = c:DOM
+						NOT = { is_subject_of = root }
+					} 
+				}
+				add = 000
 			}
 
 			if = {
@@ -3805,14 +3865,14 @@ ai_strategy_default = {
 				}
 				add = 500
 			}
-			
+
 			multiply = {
 				value = "ai_ideological_opinion(scope:target_country)"
 				multiply = -0.05
 				add = 1
 				min = 0.25
 				max = 2.0
-			}							
+			}	
 			
 			if = {
 				limit = {
@@ -4184,7 +4244,7 @@ ai_strategy_default = {
 							is_oppressor_of_schleswig_holstein = yes
 						}
 					}
-					add = 1000 # 500
+					add = 500
 				}
 
 				if = {
@@ -4222,6 +4282,18 @@ ai_strategy_default = {
 					}
 				}
 				add = 50
+			}
+
+			if = {
+				limit = {
+					has_journal_entry = je_reconquista_rep_dominicana_esp
+					scope:target_country = {
+						any_scope_state = {
+							state_region = s:STATE_SANTO_DOMINGO
+						}
+					}
+				}
+				add = 1000
 			}
 
 			multiply = {
@@ -4528,6 +4600,7 @@ ai_strategy_default = {
 					}
 					country_rank > scope:target_country.country_rank
 					scope:target_country = {
+						NOT = { is_subject_of = ROOT }
 						any_scope_state = {
 							OR = {
 								state_region = s:STATE_MINDANAO
@@ -4537,9 +4610,9 @@ ai_strategy_default = {
 						}
 					}
 				}
-				add = 1000
+				add = 400
 			}
-						
+			
 			if = {
 				limit = {
 					lenient_ai_behavior_trigger = yes
@@ -4636,7 +4709,7 @@ ai_strategy_default = {
 				}
 				multiply = 0.0					
 			}			
-
+			
 			if = {
 				limit = {		
 					is_subject_of = scope:target_country	
@@ -4796,6 +4869,34 @@ ai_strategy_default = {
 						AND = {	
 							exists = c:OZH
 							scope:target_country = c:OZH
+						}
+					}
+				}
+				add = 150
+			} 
+
+			# Cualquier pais que tenga su colonia filipina, le interesa atacar a los sultanatos antes de que se lo roben  
+			if = {
+				limit = {
+					any_subject_or_below = {
+						country_has_primary_culture = cu:filipino
+						OR = {
+							is_subject_type = subject_type_dominion
+							is_subject_type = subject_type_puppet
+						}
+					}
+					country_rank > scope:target_country.country_rank
+					scope:target_country = {
+						NOR = {
+							is_subject_type = subject_type_dominion
+							is_subject_type = subject_type_puppet
+						} 
+						any_scope_state = {
+							OR = {
+								state_region = s:STATE_MINDANAO
+								state_region = s:STATE_LUZON
+								state_region = s:STATE_VISAYAS
+							}
 						}
 					}
 				}
@@ -5182,43 +5283,43 @@ ai_strategy_default = {
 					}
 					add = 25
 				}
+			}
 
-				if = {
-					limit = {
-						scope:target_country = {
-							has_journal_entry = je_peru_bolivia
-						}
-						OR = {
-							country_has_primary_culture = cu:south_andean
-							country_has_primary_culture = cu:north_andean
-							country_has_primary_culture = cu:platinean
-							country_has_primary_culture = cu:argentine
-							country_has_primary_culture = cu:chilean
-							country_has_primary_culture = cu:colombian
-							country_has_primary_culture = cu:ecuadorian
-						}						
+			if = {
+				limit = {
+					scope:target_country = {
+						has_journal_entry = je_peru_bolivia
 					}
-					add = 75
+					OR = {
+						country_has_primary_culture = cu:south_andean
+						country_has_primary_culture = cu:north_andean
+						country_has_primary_culture = cu:platinean
+						country_has_primary_culture = cu:argentine
+						country_has_primary_culture = cu:chilean
+						country_has_primary_culture = cu:colombian
+						country_has_primary_culture = cu:ecuadorian
+					}						
 				}
+				add = 75
+			}
 
-				# Relations with subject
-				multiply = {
-					value = "scope:target_country.relations:root"
-					multiply = 0.01
-					add = 1
-					min = 0.25
-					max = 2.0				
-				}
-				
-				# Ideological opinion of subject
-				multiply = {
-					value = "ai_ideological_opinion(scope:target_country)"
-					multiply = 0.05
-					add = 1
-					min = 0.25
-					max = 2.0
-				}				
-			}	
+			# Relations with subject
+			multiply = {
+				value = "scope:target_country.relations:root"
+				multiply = 0.01
+				add = 1
+				min = 0.25
+				max = 2.0				
+			}
+			
+			# Ideological opinion of subject
+			multiply = {
+				value = "ai_ideological_opinion(scope:target_country)"
+				multiply = 0.05
+				add = 1
+				min = 0.25
+				max = 2.0
+			}					
 
 			min = 0
 			max = 100			
@@ -5248,24 +5349,6 @@ ai_strategy_default = {
 						scope:target_country.infamy >= infamy_threshold:pariah
 					}
 					add = 25
-				}
-
-				# Relations with target
-				multiply = {
-					value = "scope:target_country.relations:root"
-					multiply = -0.01
-					add = 1
-					min = 0.5
-					max = 2.0				
-				}
-				
-				# Ideological opinion of target
-				multiply = {
-					value = "ai_ideological_opinion(scope:target_country)"
-					multiply = -0.05
-					add = 1
-					min = 0.5
-					max = 2.0
 				}				
 			}
 			
@@ -5277,6 +5360,24 @@ ai_strategy_default = {
 				}
 				add = 100
 			}
+			
+			# Relations with target
+			multiply = {
+				value = "scope:target_country.relations:root"
+				multiply = -0.01
+				add = 1
+				min = 0.5
+				max = 2.0				
+			}
+			
+			# Ideological opinion of target
+			multiply = {
+				value = "ai_ideological_opinion(scope:target_country)"
+				multiply = -0.05
+				add = 1
+				min = 0.5
+				max = 2.0
+			}			
 
 			min = 0
 			max = 100				

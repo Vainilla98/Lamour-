@@ -19,3 +19,23 @@
  notification_motin_de_la_granja_desc:0 "[GetPopType('officers').GetName] de la Guardia Real del palacio de La Granja de San Ildefonso en Segovia ([SCOPE.sCountry('spa_scope').GetName]) se han amotinado mientras [SCOPE.sCountry('spa_scope').GetRuler.GetFullName] se encontraba de vacaciones allí. Los [GetPopType('officers').GetName] exigen el retorno de la #bold Constitucion española de 1812#!. Es cuestión de tiempo que [SCOPE.sCountry('spa_scope').GetRuler.GetFirstName] acepte las reformas."
  motin_de_la_granja_tooltip:0 "#header $notification_motin_de_la_granja_name$#!\n$TOOLTIP_DELIMITER$\n$notification_motin_de_la_granja_desc$"
 
+ notification_voto_positivo_name: "Respaldo de [SCOPE.sCountry('scope_yo').GetName]"
+ notification_voto_positivo_desc: "[SCOPE.sCountry('scope_yo').GetName] ha dado su aprobación a nuestro reclamo sobre #bold Guínea#!"
+ voto_positivo_tooltip: "#header $notification_voto_positivo_name$#!\n$TOOLTIP_DELIMITER$\n$notification_voto_positivo_desc$"
+
+ notification_voto_abstencion_name: "Abstención de [SCOPE.sCountry('scope_yo').GetName]"
+ notification_voto_abstencion_desc: "[SCOPE.sCountry('scope_yo').GetName] ha decidion no inmiscuirse a nuestro reclamo sobre #bold Guínea#!"
+ voto_abstencion_tooltip: "#header $notification_voto_abstencion_name$#!\n$TOOLTIP_DELIMITER$\n$notification_voto_abstencion_desc$" 
+
+ notification_voto_negativo_name: "Negativa de [SCOPE.sCountry('scope_yo').GetName]"
+ notification_voto_negativo_desc: "[SCOPE.sCountry('scope_yo').GetName] ha dado su recahzo a nuestro reclamo sobre #bold Guínea#!"
+ voto_negativo_tooltip: "#header $notification_voto_negativo_name$#!\n$TOOLTIP_DELIMITER$\n$notification_voto_negativo_desc$"
+
+ 
+ notification_renuncia_reclamos_hiberoamerica_name: "Renuncia de [SCOPE.sCountry('spa_scope').GetName] sobre #bold Hispanoamérica#!"
+ notification_renuncia_reclamos_hiberoamerica_desc: "Finalmente [SCOPE.sCountry('spa_scope').GetName] ha decidido dar una conclusión a las guerras de independencia, finalemnte anunciano el abandono de todo reclamo [SCOPE.sCountry('spa_scope').GetAdjectiveNoFormatting] sobre #bold Hispanoamérica#!"
+ renuncia_reclamos_hiberoamerica_tooltip:"#header $notification_renuncia_reclamos_hiberoamerica_name$#!\n$TOOLTIP_DELIMITER$\n$notification_renuncia_reclamos_hiberoamerica_desc$"
+
+ notification_anuncio_reclamos_hiberoamerica_name: "Reclamo [SCOPE.sCountry('spa_scope').GetAdjective] sobre #bold Hispanoamérica#!"
+ notification_anuncio_reclamos_hiberoamerica_desc: "[SCOPE.sCountry('spa_scope').GetName] ha aunciado la organización de nuevas expediciones de reconquista a #bold Hispanoamérica#!, las cuales ponen en jaque a las nuevas repúblicas. La decisión ha provocado la indignación entre las [Concept('concept_great_power', '$concept_great_powers$')|l], las cuales quieren evitar un fortalecimiento de [SCOPE.sCountry('spa_scope').GetName]."
+ anuncio_reclamos_hiberoamerica_tooltip:"#header $notification_anuncio_reclamos_hiberoamerica_name$#!\n$TOOLTIP_DELIMITER$\n$notification_anuncio_reclamos_hiberoamerica_desc$"

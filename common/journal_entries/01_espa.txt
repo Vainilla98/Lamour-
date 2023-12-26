@@ -208,7 +208,7 @@
 	progressbar = no
 
 	goal_add_value = {
- 		value = 300
+ 		value = 400
  	}
 
 	should_be_pinned_by_default = yes
@@ -229,9 +229,9 @@
 	on_fail = {
 	}
 
-	weight = 100
+	weight = 200
 
-	timeout = 10950
+	timeout = 11000
 }
 
 je_filipinas_esp = {
@@ -241,16 +241,10 @@ je_filipinas_esp = {
 
 	is_shown_when_inactive = {
 		any_subject_or_below = {
-		    country_has_primary_culture = cu:filipino
+			country_has_primary_culture = cu:filipino
 			OR = {
-				has_diplomatic_pact = {
-					who = prev
-					type = puppet
-				}
-				has_diplomatic_pact = {
-					who = prev
-					type = dominion
-				}
+				is_subject_type = subject_type_dominion
+				is_subject_type = subject_type_puppet
 			}
 		}
 	}
@@ -278,12 +272,12 @@ je_filipinas_esp = {
 	}
 
 	on_complete = {
-		trigger_event = { id = phi.3 days = 14 popup = yes }
+		trigger_event = { id = phi.3 days = 7 popup = yes }
 	}
 
 	invalid = {
 		c:PHI = {
-			NOT = { is_subject_of = root }
+			NOT = { is_direct_subject_of = root }
 		}
 	}
 
@@ -314,24 +308,6 @@ je_regencia_esp = {
 	}
 
 	on_monthly_pulse = {
-		effect = {
-			if = {
-				limit = { has_variable = constitucion_redactada }
-				remove_variable = constitucion_redactada
-			}
-			if = {
-				limit = { has_variable = exilio_mendi }
-				remove_variable = exilio_mendi
-			}
-			custom_tooltip = {
-				text = je_la_granja_esp_tt1
-				every_state = {
-					limit = { has_modifier = junta_provincial }
-					remove_modifier = junta_provincial
-				}
-				eliminar_modificador_junta_provincial = yes
-			}
-		}
 	 	events = {
 			esp.6 # Espartero
 		}
@@ -399,7 +375,7 @@ je_guardia_civil_esp = {
 		s:STATE_ANDALUSIA = {
 			random_scope_state = {
 				limit = {
-					owner = c:SPA
+					has_modifier = bandolerismo
 				}
 				remove_modifier =  bandolerismo
 			}
@@ -407,7 +383,7 @@ je_guardia_civil_esp = {
 		s:STATE_GRANADA = {
 			random_scope_state = {
 				limit = {
-					owner = c:SPA
+					has_modifier = bandolerismo
 				}
 				remove_modifier =  bandolerismo
 			}
@@ -463,6 +439,27 @@ je_medizabal_esp = {
 	on_fail = {
 		add_journal_entry = {
 			type = je_la_granja_esp
+		}
+		add_radicals = {
+			value = small_radicals
+			interest_group = scope:intel_ig
+		}
+		ig:ig_intelligentsia.leader = {
+			hidden_effect = {
+				set_as_interest_group_leader = no
+				remove_character_role = politician
+				add_modifier = {
+					name = maritr_politico
+					months = long_modifier_time
+				}
+			}
+			add_character_role = agitator
+		}
+		custom_tooltip = {
+			text = je_medizabal_esp_tt1
+			create_character = {
+				template = francisco_javier_istúriz_template
+			}
 		}
 	}
 
@@ -551,6 +548,21 @@ je_la_granja_esp = {
 			value = medium_radicals
 			interest_group = ig:ig_devout
 		}
+
+		if = {
+			limit = { 
+				ig:ig_intelligentsia.leader = {
+					NOT = { has_template = jose_maria_calatrava_template }
+				}
+			 }
+			 custom_tooltip = {
+				text = je_la_granja_esp_tt4
+				create_character = {
+					template = jose_maria_calatrava_template
+				}
+			}
+		}
+
 		if = {
 			limit = { 
 				ig:ig_intelligentsia = {
@@ -594,10 +606,6 @@ je_la_granja_esp = {
 			limit = { has_variable = constitucion_redactada }
 			remove_variable = constitucion_redactada
 		}
-		if = {
-			limit = { has_variable = exilio_mendi }
-			remove_variable = exilio_mendi
-		}
 		
 	}
 
@@ -612,7 +620,10 @@ je_la_granja_esp = {
 			esp.5
 		}
 	 	random_events = {
-			1 = esp.12
+			2 = esp.12
+			# autocracy.2
+			2 = esp.28
+			1 = peoples_springtime.5
 			4 = 0
 			5 = esp.16
 		}
@@ -635,10 +646,6 @@ je_la_granja_esp = {
 			limit = { has_variable = constitucion_redactada }
 			remove_variable = constitucion_redactada
 		}
-		if = {
-			limit = { has_variable = exilio_mendi }
-			remove_variable = exilio_mendi
-		}
 		custom_tooltip = {
 			text = je_la_granja_esp_tt1
 			every_state = {
@@ -646,6 +653,17 @@ je_la_granja_esp = {
 				remove_modifier = junta_provincial
 			}
 			eliminar_modificador_junta_provincial = yes
+		}
+		custom_tooltip = {
+			text = je_la_granja_esp_tt3
+			if = {
+				limit = { has_modifier = peridoicos_liberales }
+				remove_modifier = peridoicos_liberales
+			}
+			if = {
+				limit = { has_modifier = caza_periodicos }
+				remove_modifier = caza_periodicos
+			}
 		}
 	}
 
@@ -663,10 +681,6 @@ je_la_granja_esp = {
 			limit = { has_variable = constitucion_redactada }
 			remove_variable = constitucion_redactada
 		}
-		if = {
-			limit = { has_variable = exilio_mendi }
-			remove_variable = exilio_mendi
-		}
 		custom_tooltip = {
 			text = je_la_granja_esp_tt1
 			every_state = {
@@ -674,6 +688,17 @@ je_la_granja_esp = {
 				remove_modifier = junta_provincial
 			}
 			eliminar_modificador_junta_provincial = yes
+		}
+		custom_tooltip = {
+			text = je_la_granja_esp_tt3
+			if = {
+				limit = { has_modifier = peridoicos_liberales }
+				remove_modifier = peridoicos_liberales
+			}
+			if = {
+				limit = { has_modifier = caza_periodicos }
+				remove_modifier = caza_periodicos
+			}
 		}
 	}
 
@@ -742,6 +767,19 @@ je_motin_la_granja_esp = {
 		ig:ig_intelligentsia = {
 			add_ruling_interest_group = yes
 		}
+		if = {
+			limit = { 
+				ig:ig_intelligentsia.leader = {
+					NOT = { has_template = jose_maria_calatrava_template }
+				}
+			 }
+			 custom_tooltip = {
+				text = je_la_granja_esp_tt4
+				create_character = {
+					template = jose_maria_calatrava_template
+				}
+			}
+		}
 		add_modifier = {
 			name = forced_regime_change
 			days = 274
@@ -783,7 +821,7 @@ je_retorno_caristras_esp = {
 	}
 
    goal_add_value = {
-		value = 200
+		value = 300
 	}
 
 	progress_desc = {
@@ -816,186 +854,9 @@ je_retorno_caristras_esp = {
 	}
 
 	on_complete = {
-		custom_tooltip = {
-			text = je_retorno_caristras_esp_tt
-			create_country = {
-				tag = CAR
-				origin = ROOT
-				province = p:x48868C
-				state = s:STATE_NAVARRA.region_state:CAR
-				on_created = {
-					s:STATE_NAVARRA = {
-						set_owner_of_provinces = {
-							country = c:CAR
-							provinces = { x48868C x702080 x10E0C0 xABE0B3 xAC1425 x9EC9B8 xCB3245 }
-						}
-					}
-					if = {
-						limit = { 
-							c:SPA = {
-								owns_entire_state_region = STATE_ARAGON
-							}
-						}
-						s:STATE_ARAGON = {
-							set_owner_of_provinces = {
-								country = c:CAR
-								provinces = { x2555A4 x202982 x339B06 x076DE0 x45B331 x3CBF9E }
-							}
-						}
-					}
-					if = {
-						limit = { 
-							c:SPA = {
-								owns_entire_state_region = STATE_CATALONIA
-							}
-						}
-						s:STATE_CATALONIA = {
-							set_owner_of_provinces = {
-								country = c:CAR
-								provinces = { xE0C020 x11E041 x906040 x936FF3 xC2FFD9 x890622 x2914C3 x08B4D6 xD616D2 x945748 x0C64AC }
-							}
-						}
-					}
-	
-					every_scope_state = {
-						set_state_type = incorporated
-					}
-	
-					effect_starting_technology_tier_3_tech = yes
-					effect_starting_politics_conservative = yes
-			
-					set_tax_level = very_high
-					
-					add_taxed_goods = g:liquor
-					
-					set_tariffs_import_priority = g:artillery
-					set_tariffs_import_priority = g:small_arms
-	
-					ig:ig_devout = {
-						set_interest_group_name = ig_catholic_church
-						add_ruling_interest_group = yes
-					}
-	
-					ig:ig_landowners = {
-						add_ideology = ideology_pious
-						add_ruling_interest_group = yes
-					}
-					
-					add_modifier = {
-						name = guerra_total
-					}
-			
-					add_modifier = {
-						name = carlistas_atrincherados
-						months = normal_modifier_time
-					}
-	
-					if = {
-						limit = {
-							NOT = { has_law = law_type:law_monarchy }
-						}
-						activate_law = law_type:law_monarchy
-					}
-					if = {
-						limit = {
-							NOT = { has_law = law_type:law_state_religion }
-						}
-						activate_law = law_type:law_state_religion
-					}
-					if = {
-						limit = {
-							NOT = { has_law = law_type:law_legacy_slavery }
-						}
-						activate_law = law_type:law_legacy_slavery
-					}
-					if = {
-						limit = {
-							NOT = { has_law = law_type:law_racial_segregation }
-						}
-						activate_law = law_type:law_racial_segregation
-					}
-					if = {
-						limit = {
-							NOT = { has_law = law_type:law_mercantilism }
-						}
-						activate_law = law_type:law_mercantilism
-					}
-					if = {
-						limit = {
-							NOT = { has_law = law_type:law_hereditary_bureaucrats }
-						}
-						activate_law = law_type:law_hereditary_bureaucrats
-					}
-					if = {
-						limit = {
-							NOT = { has_law = law_type:law_traditionalism }
-						}
-						activate_law = law_type:law_traditionalism
-					}
-					if = {
-						limit = {
-							NOT = { has_law = law_type:law_land_based_taxation }
-						}
-						activate_law = law_type:law_land_based_taxation
-					}
-					if = {
-						limit = {
-							NOT = { has_law = law_type:law_religious_schools }
-						}
-						activate_law = law_type:law_religious_schools
-					}
-					if = {
-						limit = {
-							NOT = { has_law = law_type:law_charitable_health_system }
-						}
-						activate_law = law_type:law_charitable_health_system
-					}
-					if = {
-						limit = {
-							NOT = { has_law = law_type:law_autocracy }
-						}
-						activate_law = law_type:law_autocracy
-					}
-					if = {
-						limit = {
-							NOT = { has_law = law_type:law_peasant_levies }
-						}
-						activate_law = law_type:law_peasant_levies
-					}
-					if = {
-						limit = {
-							NOT = { has_law = law_type:law_colonial_resettlement }
-						}
-						activate_law = law_type:law_colonial_resettlement
-					}
-	
-					add_journal_entry = { type = je_carlist_victory }
-	
-					create_character = {
-						first_name = "Carlos"
-						last_name = "de_Borbon"
-						ruler = yes
-						historical = yes 
-						interest_group = ig_landowners
-						ideology = ideology_traditionalist
-						traits = {
-							
-						}
-					}
-				}
-			}
-			create_diplomatic_play = {
-				name = guerra_carlista
-				target_state = s:STATE_NAVARRA.region_state:CAR
-				escalation = 80
-				type = dp_revolution
-			}
-		}
-		add_journal_entry = { type = je_cristininos_victory }
-		add_modifier = {
-			name = guerra_total
-		}
-		remove_variable = carlistas_progess_next
+		custom_tooltip = je_retorno_caristras_esp_tt
+		trigger_event = { id = esp.2 popup = yes }
+		limpiar_variables_carlista = yes
 	}
 
 	fail = {
@@ -1011,11 +872,11 @@ je_retorno_caristras_esp = {
 	}
 
 	on_fail = {
-		remove_variable = carlistas_progess_next
+		limpiar_variables_carlista = yes
 	}
 		
 	progressbar = yes
-
+	transferable = yes
 	weight = 100
 	can_revolution_inherit = yes
 	should_be_pinned_by_default = yes
@@ -1052,7 +913,7 @@ je_deuda_esp = {
 
 	on_monthly_pulse = {
 		random_events = {
-			40 = 0
+			50 = 0
 			1 = esp.25
 		}
 		effect = {
@@ -1172,7 +1033,7 @@ je_infraestructura_esp = {
 }
 
 je_falta_capital_esp = {
-	icon = "gfx/interface/icons/event_icons/event_default.dds"
+	icon = "gfx/interface/icons/law_icons/per_capita_based_taxation.dds"
 
 	group = je_group_historical_content
 
@@ -1264,3 +1125,137 @@ je_falta_capital_esp = {
 	can_revolution_inherit = yes
 	should_be_pinned_by_default = yes
 }
+
+je_reconquista_rep_dominicana_esp = {
+	icon = "gfx/interface/icons/event_icons/bicorne_hat.dds"
+
+	group = je_group_historical_content
+
+	is_shown_when_inactive = {
+		country_has_primary_culture = cu:spanish
+		OR = {
+			any_subject_or_below = {
+				is_direct_subject_of = root
+				country_has_primary_culture = cu:caribeno
+			}
+			any_scope_state = {
+				state_region = {
+					is_homeland = cu:caribeno
+				}
+			}
+		}
+		NOT = {
+			owns_entire_state_region = STATE_SANTO_DOMINGO
+		}
+	}
+
+	possible = {
+		any_country = {
+			country_is_in_north_america = yes
+			is_subject = no
+			OR = {
+				country_has_primary_culture = cu:yankee
+				country_has_primary_culture = cu:dixie
+			}
+			OR = {
+				country_rank <= root.country_rank
+				is_in_civil_war = yes
+			}
+			any_scope_state = {
+				count > 1
+			}
+		}
+	}
+
+	scripted_button = anexion_rep_dominicana
+
+	immediate = {
+		random_country = {
+			limit = {
+				country_is_in_north_america = yes
+				is_subject = no
+				OR = {
+					country_has_primary_culture = cu:yankee
+					country_has_primary_culture = cu:dixie
+				}
+				OR = {
+					country_rank < root.country_rank
+					is_in_civil_war = yes
+				}
+				any_scope_state = {
+					count > 1
+				}
+			}
+			save_scope_as = usa_scope
+		}
+		s:STATE_SANTO_DOMINGO = {
+			random_scope_state = {
+				limit = {
+					is_treaty_port = no
+				}
+				owner = {
+					save_scope_as = ocupador_santo_domingo
+				}
+				save_scope_as = santo_domingo_scope
+			}
+		}
+	}
+
+	complete = {
+		OR = {
+			owns_entire_state_region = STATE_SANTO_DOMINGO
+			AND = {
+				s:STATE_SANTO_DOMINGO = {
+					any_scope_state = {
+						is_treaty_port = yes
+						NOT = { owner =  root }
+					}
+				}
+				has_state_in_state_region = STATE_SANTO_DOMINGO
+			}
+		}
+	}
+
+	on_complete = {
+		trigger_event = {
+			id = esp.29
+			popup = yes
+		}
+	}
+
+	fail = {
+		scope:usa_scope = {
+			OR = {
+				country_rank > root.country_rank
+				country_rank = rank_value:great_power
+			}
+			custom_tooltip = {
+				text = no_guerra_civil
+				is_in_civil_war = no
+			}
+		}
+	}
+
+	invalid = {
+		NOT = {
+			any_subject_or_below = {
+				is_direct_subject_of = root
+				country_has_primary_culture = cu:caribeno
+			}
+			any_scope_state = {
+				state_region = {
+					is_homeland = cu:caribeno
+				}
+			}
+		}
+	}
+
+	transferable = yes
+
+	timeout = 2200
+
+	weight = 200
+
+	should_be_pinned_by_default = yes
+}
+

@@ -27,3 +27,33 @@ motin_de_la_granja = {
 	texture = "gfx/interface/icons/notification_icons/revolution.dds"
 	notification_type = feed
 }
+
+voto_positivo = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/influence.dds"
+	notification_type = feed
+}
+
+voto_abstencion = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/influence.dds"
+	notification_type = feed
+}
+
+voto_negativo = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/influence_bad.dds"
+	notification_type = feed
+}
+
+renuncia_reclamos_hiberoamerica = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/influence_bad.dds"
+	notification_type = feed
+}
+
+anuncio_reclamos_hiberoamerica = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/influence.dds"
+	notification_type = feed
+}

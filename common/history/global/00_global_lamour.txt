@@ -1,0 +1,20 @@
+GLOBAL = {
+	c:HAI = {
+		add_radicals = {
+			value = 1
+			culture = cu:caribeno
+		}
+		add_radicals = {
+			value = 0.6
+			culture = cu:afro_caribeno
+		}
+		add_radicals = {
+			value = very_large_radicals
+			culture = cu:spanish
+		}
+		add_loyalists = {
+			value = 2
+			culture = cu:polish
+		}
+	}
+}

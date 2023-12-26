@@ -13,12 +13,13 @@ COUNTRIES = {
 		add_journal_entry = { type = je_medizabal_esp }
 		
 		add_modifier = {
+			name = guerra_total
+		}
+
+		add_modifier = {
 			name = slow_colonies_esp
 			months = very_long_modifier_time
-		}
-		
-		add_modifier = {
-			name = guerra_total
+			is_decaying = yes
 		}
 
 		s:STATE_ANDALUSIA = {

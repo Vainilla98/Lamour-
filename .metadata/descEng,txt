@@ -1,0 +1,73 @@
+Despite the confusing title, yes, this mod is focused on [b]providing content for Spain[/b] (which it greatly needed). The name comes from the fact that originally the mod was going to focus on France with some details for Spain, but after the last pack, all plans were shattered.
+
+The goal of the mod is to enhance the 19th-century Spanish experience, attempting to make it as challenging as it was in real life. [u]Above all, do NOT expect a massive mod with 235 new events and 57 new diary entries[/u]. At the moment, it's quite small, but I aim to improve it gradually until Papa Paradox decides to release their little Spanish pack.
+
+[hr][/hr]
+[h1]Features[/h1]
+[list] 
+    [*] [b]11 new entries exclusively for Spain.[/b] [list]
+    [*] The Carlist War
+    [*] The Regency
+    [*] The Civil Guard
+    [*] The Glorious Revolution 
+    [*] Return of the Carlists
+    [*] [u]REWORK[/u] The Granja Riot 
+    [*] [u]NEW[/u] The Sargentada
+    [*] [u]NEW[/u] Appointment of Mendizábal
+    [*] [u]NEW[/u] Debt Situation 
+    [*] [u]NEW[/u] Railway Communication Network
+    [*] [u]NEW[/u] Lack of Capital
+[/list]
+    [*] [b]New states[/b]. Ceuta and Melilla & Cabo Juby in the Sahara 
+    [*] [b]New cities[/b]. Ceuta, Tarfaya, Tan-Tan, and Alhucemas 
+    [*] [b]1 new entry to unify the Philippines[/b] as a colonial power. 
+    [*] [b][strike]30[/strike] 38 new events.[/b] 
+    [*] [b]María Cristina starts as regent at the beginning of the game.[/b] Spain begins with a new form of government: "Regency"
+    [*] [b]1st Carlist War Implemented.[/b] 
+    [*] [b]Historical Spanish armies[/b]. Start directly on the front with somewhat historical names  
+    [*] [b]New names for the puppets of Cuba and the Philippines.[/b] 
+    [*] [b]Representation of Andalusian banditry.[/b]
+    [*] [b]Decision regarding the colonization of Guinea.[/b]
+    [*] [b]Some new historical characters (some even with their own DNA).[/b] Maria Cristina de Borbón, Carlos María Isidro, Leopoldo O’Donnell, Juan Prim, Francisco Serrano, Amadeo I, Topete... 
+    [*] [b]Various little things.[/b] Ideologies, modifiers, and notifications.
+[/list]
+
+[h1]Balance[/h1]
+[list]
+    [*] As a good Spain, [b]now starts with a Bureaucracy deficit[/b] (not too excessive).
+    [*] [b]Spain starts with the [i]Colonial Resettlement[/i] law active[/b]. To balance it, it also starts with a temporary colonization speed modifier.
+    [*] [b]Melilla and the Canary Islands are now incorporated states.[/b] 
+    [*] [b]France starts with claims in Mauritania and Senegal[/b]  (that nonsense helps greatly improve the view of Africa since it prevents the British from getting into the Sahara).
+    [*] [b]Spain starts with claims in Western Sahara[/b]  (No more random country colonizing the Sahara).
+    [*] [b]I've increased the aggression of the EIC a bit[/b]  (East India Trade Company) so that it eagerly swallows up independent Indian princes.
+    [*] [b]The flag of the Philippines as a puppet should no longer look like the current one when at war.[/b] 
+    [*] [b]AI with control of a Filipino puppet should actively seek the unification of the islands on its own.[/b] 
+    [*] [b]New introduction text for the 2 Spains.[/b] Isabelina and Carlista 
+    [*] [b]Sardinia-Piedmont is now called Piedmont-Sardinia[/b] 
+[/list]
+
+[h1]Compatibility[/h1]
+I have tried to make it as independent as possible from Victoria's code to ensure maximum compatibility with other mods, but there have been some things that have been impossible for me.
+
+If you use it with a mod that changes AI behavior, it's likely that the AI will ignore finishing the conquest of the Philippines, but otherwise, it should work, and you can use it without fear.
+
+However, it does not work if another mod makes changes to the distribution of POPs or buildings in southern Europe at the start of the game [i](because I had to configure the buildings and POPs of the Carlists)[/i]. Lastly, it is also not compatible with mods that add or modify the initial states (provinces) in the game [i](for the same previous reason)[/i].
+
+[h1]Translations[/h1]
+- Spanish.
+- English. [i]It was done automatically, so it may contain some small grammatical errors.[/i]
+
+[h1]Future?[/h1]
+The next logical step would be to review the 1st Carlist War to make it more entertaining. I would also like to sophisticate some entries a bit to make it feel less "railroaded" and avoid all games feeling the same.
+
+[h1]Third-Party Use[/h1]
+As I am already seeing people interested in it, I would like to emphasize that if you plan to reuse part of my code for your project, I would greatly appreciate it if you would communicate with me before doing anything.
+
+[hr][/hr]
+[b]CAUTION! As I am not an experienced modder with 20 years of experience in the trade, you will most likely find some bugs or exploits within the mod. Please, report any issues in the comments to see which part of the code has had the audacity to misbehave. I am also open to suggestions or any ideas you may have, so feel free to propose.[/b]
+
+[img]https://i.imgur.com/FaFtOmm.gif[/img]
+
+If you liked it, feel free to give it a thumbs up and add it to favorites :)
+
+In case you're interested, I also have a [u][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3056919305]mod[/url][/u] to fix the Spanish flags in the base game.

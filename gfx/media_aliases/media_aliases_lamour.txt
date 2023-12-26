@@ -1,0 +1,9 @@
+la_gloriosa = {
+    video = "gfx/event_pictures/la_gloriosa.bk2"
+    audio = "event:/SFX/Events/unspecific/military_parade"
+}
+
+abrazo_vergara = {
+    video = "gfx/event_pictures/abrazo_vergara.bk2"
+    audio = "event:/SFX/Events/unspecific/military_parade"
+}

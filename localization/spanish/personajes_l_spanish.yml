@@ -3,12 +3,16 @@
  juan_prim_apellido:0 "Prim y Prats"
  alvarez_medizabal:0 "Álvarez Mendizábal"
  francisco:0 "Francisco"
+ Francisco_javier:0 "Francisco Javier"
+ Isturiz: "Istúriz"
+ Jose_maria: "José María"
+ Calatrava: "Calatrava"
  serrano_dominguez:0 "Serrano y Domínguez"
  bautista_topete:0 "Bautista Topete"
  maria_cristina_nombre:0 "María Cristina"
  gomez_damas:0 "Gómez Damas"
 
- ideology_radical2: "Progresista Moderado"
+ ideology_radical2: "Progresista"
  ideology_radical2_desc: "#lore Un tipo de líder liberal moderado que lucha por reformas liberales que hagan avanzar los ideales democráticos pero sin pasarse. #!"
 
  esp.1.t:0 "El Ascenso de [SCOPE.sCharacter('prim_scope').GetFullName]"
@@ -16,6 +20,11 @@
  esp.1.f:0 "[SCOPE.sCharacter('prim_scope').GetFullName], conde de Reus, marqués de los Castillejos y vizconde del Bruch, fue un militar y político liberal  [ROOT.GetCountry.GetAdjective] del siglo XIX que llegó a ser presidente del Consejo de ministros. En su vida militar participó en la 1ª Guerra Carlista y en la 1ª Guerra del Marruecos, donde mostró relevantes dotes de mando, valor y temeridad. Tras la Revolución de 1868 se convirtió en uno de los hombres más influyentes en la [ROOT.GetCountry.GetName] del momento, patrocinando la entronización de la Casa de Saboya en la persona de Amadeo I. Murió asesinado poco después."
  esp.1.a:0 "Sin duda lo que necesita el país"
  esp.1.b:0 "No necesitamos otra revolución"
+
+ esp.2.t: "Alzamiento de los carlistas"
+ esp.2.d: "Varios años sucesivos de inestabilidad politica, han sido aprovechados por las fuerzas carlistas con el objetivo de volver a sentar a Carlos, nieto de Carlos Maria Isidro, en el trono [ROOT.GetCountry.GetAdjective], deponiendo a [ROOT.GetCountry.GetRuler.GetFirstName]"
+ esp.2.f: "Carlos, duque de Madrid, pretendiente carlista al trono, llevaba meses preparando la insurrección desde el exilio. Rapidamente los partidarios de Carlos, lograron asegurar todo el norte peninsular a su favor."
+ esp.2.a: "Venceremos por [ROOT.GetCountry.GetName]"
 
  je_guardia_civil_esp:0 "Guardia Civil"
  je_guardia_civil_esp_reason:0 "[SCOPE.sCharacter('guardia_civil_scope').GetFullName] ha propuesto la creación de un cuerpo armado para [ROOT.GetCountry.GetName] dedicado a mantener la seguridad en el campo y el orden público en general. Sobre todo, nos ayudaría a combatir el bandolerismo en las regiones del sur peninsular."
@@ -37,7 +46,6 @@
  prim_politico:0 "Juan Prim regresará del exilio y asumirá el cargo como político"
 
  gloriosa_button: "Progreso del golpe: #variable [ROOT.GetCountry.MakeScope.Var('salvacion_timer').GetValue|0]#! (#tooltippable;tooltip:[ROOT.GetCountry.GetTooltipTag],gloriosa_var_tooltip [ROOT.GetCountry.MakeScope.Var('gloriosa_progess_next').GetValue|1+=]#!) / #bold 600 #!"
- gloriosa_button_desc: "Francia alcanzó la cima de su gloria de mano del emperador Napoleón. La restauración de la Casa de Bonaparte es claramente lo que conviene a nuestro país."
 
  ideologia_conservadora_tooltip: "#tooltip_header Las [Concept('concept_ideology', 'ideologías')] conservadoras son:#!\n$TOOLTIP_DELIMITER$\n[GetIdeology('ideology_traditionalist').GetName], [GetIdeology('ideology_authoritarian').GetName], [GetIdeology('ideology_theocrat').GetName], [GetIdeology('ideology_slaver').GetName] y [GetIdeology('ideology_royalist').GetName]. Tambien suman los lideres de los [GetInterestGroupVariant('ig_landowners',GetPlayer).GetName] y la [GetInterestGroupVariant('ig_devout',GetPlayer).GetName]" 
 
@@ -186,10 +194,10 @@
  esp.21.f:0 "Finalmente, la Expedición Gómez llegó a la provincia de Guadalajara, pero sus fuerzas estaban agotadas y debilitadas por la falta de suministros y los rigores de la guerra. En esta situación, el 24 de noviembre de 1836, las tropas [SCOPE.sCountry('car_scope').GetAdjective|l] de Gómez se enfrentaron a las fuerzas cristininas en la Batalla de Aranzueque.\nLa expedición de Gómez sufrió una contundente derrota. Las tropas [SCOPE.sCountry('car_scope').GetAdjective|l] no pudieron resistir el embate de las fuerzas gubernamentales mejor equipadas y entrenadas. La derrota fue devastadora para los [SCOPE.sCountry('car_scope').GetAdjective|l] y representó un duro golpe para las esperanzas de avanzar hacia el sur de [ROOT.GetCountry.GetName].\nTras la derrota en Aranzueque, la expedición de Gómez se desmoronó y tuvo que retirarse hacia el norte de [ROOT.GetCountry.GetName], perdiendo gran parte del territorio que habían conquistado previamente."
  esp.21.a: "Finalmente se acabó"
 
- esp.22.t:0 "Exilio de [SCOPE.sCharacter('mendizabal_scope').GetLastName]"
- esp.22.d:0 "Cuando las noticias de que [SCOPE.sCharacter('mendizabal_scope').GetFullName] había tenido que abandonar [ROOT.GetCountry.GetName], la ira a la par del descontrol se apoderaron de la [SCOPE.gsInterestGroup('intelectuales_scope').GetName]. La ida de [SCOPE.sCharacter('mendizabal_scope').GetLastName] sin duda ha debilitado a la [SCOPE.gsInterestGroup('intelectuales_scope').GetName], pero sin embargo su radicalismo sigue en aumento por momentos."
- esp.22.f:0 "La ausencia de [SCOPE.sCharacter('mendizabal_scope').GetLastName] ha dejado un vacío en el liderazgo y las decisiones políticas de la [SCOPE.gsInterestGroup('intelectuales_scope').GetName], dejando las puertas abiertas a otros actores que pueden asumir el poder y tomar rumbos diferentes en la dirección del país.\n\nAdemás, el exilio de [SCOPE.sCharacter('mendizabal_scope').GetLastName] ha afectado la estabilidad política en [ROOT.GetCountry.GetName]. Como figura política prominente, tenía seguidores y opositores, y su destitución ha generado tensiones y divisiones en el gobierno, la sociedad y dentro del ejército. Su exilio podría llevar a protestas y conflictos en su apoyo, mientras que sus opositores podrían haber aprovechado la situación para fortalecer su posición política."
- esp.22.a: "Espero no arrepentirme"
+ esp.22.t:0 "[SCOPE.sCharacter('mendizabal_scope').GetLastName] regresa a [ROOT.GetCountry.GetName]"
+ esp.22.d:0 "Cuando las noticias de que [SCOPE.sCharacter('mendizabal_scope').GetFullName] había tenido que abandonar [ROOT.GetCountry.GetName], rapiadmente se organizó un plan para traerlo de regreso a [ROOT.GetCountry.GetName]. Ahora vuelve a estar aqui."
+ esp.22.f:0 "En una rapida intervención por parte de la [SCOPE.gsInterestGroup('intelectuales_scope').GetName], [SCOPE.sCharacter('mendizabal_scope').GetFullName] encontró a su disposición todos los recursos a su alcance para poder regresar a [ROOT.GetCountry.GetName]."
+ esp.22.a: "Mala hierba nunca muere"
 
  esp.23.t:0 "Abrazo de Vergara"
  esp.23.d:0 "[SCOPE.sCharacter('general_esp').GetFullName] se reunió en el pueblo navarro de Oñate con el general carlista Rafael Maroto para poner fin a la contienda, firmando un tratado que pondría fin a esta sangrienta lucha."
@@ -217,6 +225,10 @@
  esp.26.f: "El primer tren que se deslizó por las paralelas de hierro salió del Taller de Ciénaga en La Habana, en un viaje de prueba, el 13 de noviembre de 1837. Arribó a Bejucal a las 10:18. Esa prueba la publicó el Diario de la Marina, el 18 de noviembre de 1837. El 19 de noviembre de 1837, en homenaje al santo de la Reina Isabel II, se inauguró este primer tramo de 27,5 km, solemnemente por la Junta de Fomento. Ese día a las 8:00 a. m., salió el primer tren en dirección a Bejucal.\n\n Con su partida, Cuba se convertía en el séptimo lugar del mundo en disponer de esa vía de transporte, solo 12 años después del primer servicio de ferrocarril público inglés, siendo la primera provincia española. La España peninsular contaría con este medio de transporte únicamente a partir de 1848. Sería el primer ferrocarril en América Latina y el segundo país en el continente americano, solo después de EEUU."
  esp.26.a: "Hemos sacado valiosa información"
  esp.27.a: "Chu chu"
+
+
+ esp.28.b: "No podemos hacer nada"
+ esp.28.a: "Mandad al ejercito"
 
  expedicion_gomez_but_1:0 "Todavía no hay nadie encargado de darle caza"
  expedicion_gomez_but_11:0 "Hay una [concept_military_formation|l] con al menos 10 [Concept('concept_unit','$concept_units$')|l] con un [concept_general|l]"
@@ -264,16 +276,35 @@
  je_retorno_caristras_esp:0 "Retorno de los Carlistas"
  je_retorno_caristras_esp_reason:0 "Pese a su primera derrota en la #bold Guerra Carlista #! los diferentes sucesores carlistas siguen reclamando la corona de [ROOT.GetCountry.GetName]. Sin lugar a duda, aprovecharan cualquier mínima turbulencia política en el país, para unir adeptos a su causa."
  je_retorno_caristras_esp_goal:0 "Los carlistas se han consolidado"
- sin_fuelle2:0 "El progreso el golpe ha llegado a 0"
- avance_car:0 "El avance semanal es de #tooltippable;tooltip:[ROOT.GetCountry.GetTooltipTag],carr_var_tooltip [ROOT.GetCountry.MakeScope.Var('carlistas_progess_next').GetValue|2+=]#!"
- no_guerra_civil:0 "No hay ninguna [concept_civil_war|l] en marcha"
+ sin_fuelle2: "El progreso el golpe ha llegado a 0"
+ no_guerra_civil: "No hay ninguna [concept_civil_war|l] en marcha"
  je_retorno_caristras_esp_tt:0 "Los #bold carlistas #!se alzarán de nuevo"
 
- carr_var_tooltip: "#tooltip_header Cambios mensuales debidos a los siguientes motivos:#!\n$TOOLTIP_DELIMITER$ $lista_legitimidad_car$" 
- lista_legitimidad_car:0 "\n#variable [Country.MakeScope.Var('carlistas_progess_next').GetValue|+=]#! por la [concept_legitimacy|l] del [concept_government|l]" 
+ avance_car: "El avance semanal es de #tooltippable;tooltip:[ROOT.GetCountry.GetTooltipTag],carr_var_tooltip [ROOT.GetCountry.MakeScope.Var('carlistas_progess_next').GetValue|2+=]#!"
+
+ carr_var_tooltip: "#tooltip_header Cambios mensuales debidos a los siguientes motivos:#!\n$TOOLTIP_DELIMITER$ $lista_legitimidad_car$ $lista_terratenientes_car$" 
+
+ lista_legitimidad_car: "\n#variable [Country.MakeScope.Var('carlistas_legitimidad').GetValue|+=]#! por la [concept_legitimacy|l] del [concept_government|l]" 
+ lista_terratenientes_car: "\n#variable [Country.MakeScope.Var('carlistas_de_poder_terratenientes').GetValue|+=]#! por la [concept_political_strength|l] de los [GetInterestGroupVariant('ig_landowners',GetPlayer).GetName] multiplicado por su [concept_approval|l] (#variable [Country.MakeScope.Var('carlistas_terratenientes_poder').GetValue|2]#! x ( #variable [Country.MakeScope.Var('carlistas_terratenientes_felicidad').GetValue|1]#! + #bold 0.4#!)) " 
 
  ambiciones_en_guinea: "Establecer presencia en Guinea"
- ambiciones_en_guinea_desc: "Con la posesión de la isla de Fernando Poo se nos abre las puertas a pisar tierra en guinea y expandirnos allí."
- ambiciones_en_guinea_tt: "Ningún [concept_country|l] se ha establecido en la #bold Guinea Española #!"
+ ambiciones_en_guinea_desc: "Con la posesión de la isla de Fernando Poo se nos abre las puertas a pisar tierra en Guinea y poder sacar beneficio de sus excelentes tierras."
+ ambiciones_en_guinea_tt: "Las [Concept('concept_great_power', '$concept_great_powers$')|l] con intereses en el #bold Niger#! y el #bold Congo#! decidirán la legitimidad de tu reclamo. Asegurate de mantener exceletenes relaciones con ellas."
 
 
+ hai.1.t: "Acta de Independencia de la República Dominicana"
+ hai.1.d: "Los lideres de la recien creada [SCOPE.sCountry('rep_dom_scope').GetName], han publicado un manifiesto el cual manifestaba los motivos por el cual el pueblo dominicano ya no podía seguir unido al [ROOT.GetCountry.GetAdjective]."
+ hai.1.f: "Los rebeldes liderados por [SCOPE.sCountry('rep_dom_scope').GetRuler.GetFullName], tomaron la Fortaleza Ozama en la capital [SCOPE.sCountry('rep_dom_scope').GetCapital.GetCityHubName]. La guarnición [ROOT.GetCountry.GetAdjective], fue tomada por sorpresa, aparentemente traicionada por uno de sus centinelas. Otro grupo de insurgentes, liderados por Matías Ramón Mella llegó hasta la Puerta de la Misericordia donde Mella disparó el legendario Trabucazo de la Independencia y Sánchez izó inmediatamente la nueva bandera dominicana al grito de ¡Dios, Patria y Libertad!"
+ hai.1.a: "Pagarán esta traición"
+ 
+ hai.2.t: "Propuesta de anexión de España"
+ hai.2.d: "España ha solicitado nuestra reincorporacion al reino como una provincia mas"
+ hai.2.f: "España ha solicitado nuestra reincorporacion al reino como una provincia mas"
+ hai.2.a: "Volvemos a la madre patria"
+ hai.2.b: "Sobre mi cadaver"
+ 
+ esp.29.t: "Futuro de la Republica Dominicana"
+ esp.29.d: "El regreso de tropas de [ROOT.GetCountry.GetName] a suelo dominicano, parece no agradar a muchos dentro de [SCOPE.sState('santo_domingo_scope').GetName]. Una guerrilla se ha empezado a formar en el norte."
+ esp.29.f: "La Guerra de la Restauración (1863-1865), también conocida en España como Guerra de Santo Domingo, fue una guerra llevada a cabo entre rebeldes dominicanos separatistas y las autoridades españolas de Santo Domingo."
+ esp.29.a: "Restauraremos el orden"
+ 
